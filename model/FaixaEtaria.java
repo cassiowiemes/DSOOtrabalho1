@@ -1,4 +1,4 @@
-
+package model;
 public enum FaixaEtaria {
 
     INFANTIL(1),

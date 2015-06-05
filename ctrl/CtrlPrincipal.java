@@ -1,4 +1,6 @@
-
+package ctrl;
+import model.*;
+import view.*;
 public class CtrlPrincipal {
 
     private CtrlItem ctrlItem;

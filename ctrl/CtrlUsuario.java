@@ -1,4 +1,6 @@
-
+package ctrl;
+import model.*;
+import view.*;
 import java.util.HashSet;
 
 public class CtrlUsuario {

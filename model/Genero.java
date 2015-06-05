@@ -1,4 +1,4 @@
-
+package model;
 public enum Genero {
 
     COMEDIA(1),

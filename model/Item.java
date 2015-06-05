@@ -1,4 +1,4 @@
-
+package model;
 import java.util.HashSet;
 
 public abstract class Item {

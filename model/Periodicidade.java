@@ -1,4 +1,4 @@
-
+package model;
 public enum Periodicidade {
 
     SEMANAL(1),

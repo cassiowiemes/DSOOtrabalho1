@@ -1,4 +1,4 @@
-
+package model;
 public class Usuario implements IUsuario {
 
     private String nome;

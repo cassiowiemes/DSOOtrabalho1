@@ -1,4 +1,4 @@
-
+package model;
 public class Exemplar implements IExemplar {
 
     private int codigoItem;

@@ -1,4 +1,4 @@
-
+package model;
 public class Emprestimo {
 
     private int dataEmprestimo;

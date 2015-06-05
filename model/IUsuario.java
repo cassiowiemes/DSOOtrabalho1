@@ -1,4 +1,4 @@
-
+package model;
 public abstract interface IUsuario {
 
     public abstract String getNome();

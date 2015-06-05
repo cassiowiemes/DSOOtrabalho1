@@ -1,4 +1,4 @@
-
+package model;
 public abstract interface IExemplar {
 
     public abstract int getCodigoItem();
