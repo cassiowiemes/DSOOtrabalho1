@@ -9,6 +9,7 @@ public class CtrlItem {
 
     public CtrlItem(CtrlPrincipal ctrlPrincipal) {
         this.ctrlPrincipal = ctrlPrincipal;
+        this.telaItem = new TelaItem();
     }
 
     public void iniciar() {
@@ -51,9 +52,9 @@ public class CtrlItem {
 
     public void cadastraItem() {
         int opcaoItem = telaItem.opcaoItemACriar();
-        if (opcaoItem == 0)
-            cadastraLivro();
         if (opcaoItem == 1)
+            cadastraLivro();
+        if (opcaoItem == 2)
         	cadastraRevista();
     }
 
