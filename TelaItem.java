@@ -3,7 +3,6 @@ import java.util.Scanner;
 import java.util.HashSet;
 
 public class TelaItem {
-<<<<<<< HEAD
 	
 	Scanner sc = new Scanner(System.in);
 	public int iniciar(){
