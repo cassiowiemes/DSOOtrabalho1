@@ -51,14 +51,39 @@ public class CtrlItem {
 
     public void cadastraItem() {
         int opcaoItem = telaItem.opcaoItemACriar();
-        if (opcaoItem == 0) {
-            //Livro livro = new Livro()
-        }
+        if (opcaoItem == 0)
+            cadastraLivro();
+        if (opcaoItem == 1)
+        	cadastraRevista();
     }
 
-    public void removeItem(Item item) {
-        itens.remove(item);
+    private void cadastraRevista()
+	{
+    	String titulo = telaItem.getTitulo();
+    	String editora = telaItem.getEditora();
+    	int ano = telaItem.getAno();
+        FaixaEtaria faixaEtaria = telaItem.getFaixaEtaria();
+        int edicao = telaItem.getEdicao();
+        Periodicidade periodicidade = telaItem.getPeriodicidade();
+        Revista revista = new Revista(titulo, editora, ano, faixaEtaria, edicao, periodicidade);
+        itens.add(revista);
+	}
 
+	private void cadastraLivro()
+	{
+    	String titulo = telaItem.getTitulo();
+    	String editora = telaItem.getEditora();
+    	int ano = telaItem.getAno();
+        FaixaEtaria faixaEtaria = telaItem.getFaixaEtaria();
+        HashSet<String> autores = telaItem.getAutores();
+        int edicao = telaItem.getEdicao();
+        Genero genero = telaItem.getGenero();
+        Livro livro = new Livro(titulo, editora, ano, faixaEtaria, autores, edicao, genero);
+        itens.add(livro);
+	}
+
+	public void removeItem(Item item) {
+        itens.remove(item);
     }
 
     public String getTitulo(int codigo) {
