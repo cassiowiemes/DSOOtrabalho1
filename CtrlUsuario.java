@@ -1,20 +1,23 @@
+
 import java.util.HashSet;
 
 public class CtrlUsuario {
 
-	private HashSet<IUsuario> usuarios;
-	private CtrlPrincipal ctrlPrincipal;
-	private TelaUsuario telaUsuario;
+    private HashSet<IUsuario> usuarios;
+    private CtrlPrincipal ctrlPrincipal;
+    private TelaUsuario telaUsuario;
 
-	public CtrlUsuario(CtrlPrincipal ctrlPrincipal){
+    public CtrlUsuario(CtrlPrincipal ctrlPrincipal) {
         this.ctrlPrincipal = ctrlPrincipal;
+        this.usuarios = new HashSet<>();
+        this.telaUsuario = new TelaUsuario();
     }
 
-    public void iniciar(){
+    public void iniciar() {
         int opcao = 0;
-        do{
+        do {
             opcao = telaUsuario.iniciar();
-            switch(opcao){
+            switch (opcao) {
                 case 1:
                     cadastraAluno();
                     break;
@@ -27,7 +30,7 @@ public class CtrlUsuario {
                 default:
                     telaUsuario.entradaInvalida();
             }
-        } while(opcao != 3);
+        } while (opcao != 3);
     }
 
     public void cadastraAluno() {
@@ -55,15 +58,15 @@ public class CtrlUsuario {
         telaUsuario.professorCadastrado(professor.getCodigo());
     }
 
-    public IUsuario getUsuario(){
-        do{
+    public IUsuario getUsuario() {
+        do {
             int codigo = telaUsuario.getUsuario();
-            for(IUsuario usuario : usuarios){
-                if(usuario.getCodigo() == codigo){
+            for (IUsuario usuario : usuarios) {
+                if (usuario.getCodigo() == codigo) {
                     return usuario;
                 }
             }
             telaUsuario.entradaInvalida();
-        } while(true);
+        } while (true);
     }
 }

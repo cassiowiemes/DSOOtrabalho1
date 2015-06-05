@@ -1,7 +1,9 @@
+
 import java.util.HashSet;
 
 public class CtrlItem {
 
+<<<<<<< HEAD
 	private HashSet<Item> itens = new HashSet<>();
 	private CtrlPrincipal ctrlPrincipal;
 	private TelaItem telaItem;
@@ -88,5 +90,4 @@ public class CtrlItem {
 	public void findExemplar(int codigo) {
 
 	}
-
 }

@@ -1,46 +1,35 @@
+
 import java.util.HashSet;
 
 public class Livro extends Item {
 
-	private HashSet<String> autores = new HashSet<>();
-	private int edicao;
-	private Genero genero;
-	
-	public Livro(String titulo, String editora, int ano,
-			FaixaEtaria faixaEtaria, HashSet<String> autores, int edicao,
-			Genero genero)
-	{
-		super(titulo, editora, ano, faixaEtaria);
-		this.autores = autores;
-		this.setEdicao(edicao);
-		this.setGenero(genero);
-	}
+    private HashSet<String> autores = new HashSet<>();
+    private int edicao;
+    private Genero genero;
 
-	public int getEdicao()
-	{
-		return edicao;
-	}
+    public Livro(String titulo, String editora, int ano,
+            FaixaEtaria faixaEtaria, HashSet<String> autores, int edicao,
+            Genero genero) {
+        super(titulo, editora, ano, faixaEtaria);
+        this.autores = autores;
+        this.setEdicao(edicao);
+        this.setGenero(genero);
+    }
 
-	public void setEdicao(int edicao)
-	{
-		this.edicao = edicao;
-	}
+    public int getEdicao() {
+        return edicao;
+    }
 
-	public Genero getGenero()
-	{
-		return genero;
-	}
+    public void setEdicao(int edicao) {
+        this.edicao = edicao;
+    }
 
-	public void setGenero(Genero genero)
-	{
-		this.genero = genero;
-	}
-	
+    public Genero getGenero() {
+        return genero;
+    }
 
-	
-
-	
-
+    public void setGenero(Genero genero) {
+        this.genero = genero;
+    }
 
 }
-
