@@ -12,11 +12,7 @@ public class CtrlItem {
 			opcao = telaItem.iniciar();
 			switch(opcao){ 
 				case 1:                                            //cadastrar item
-					int opCadastrar = telaItem.opcaoItemACriar();
-					if(opCadastrar == 1)   //cadastrar livro
-						cadastraItem(telaItem.cadastrarLivro());
-					if(opCadastrar == 2)   //cadastrar revista
-						cadastraItem(telaItem.cadastrarRevista());
+					cadastraItem();
 					break;
 				case 2:
 					//removeItem();
@@ -49,9 +45,13 @@ public class CtrlItem {
 	}
 	
 
-	public void cadastraItem(Item item)
+	public void cadastraItem()
 	{
-		itens.add(item);
+		int opcaoItem = telaItem.opcaoItemACriar();
+		if(opcaoItem == 0)
+		{
+			//Livro livro = new Livro()
+		}
 	}
 
 	public void removeItem(Item item) {
