@@ -3,9 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Scanner;
-
 import javax.swing.*;
-
 import ctrl.CtrlPrincipal;
 
 public class TelaPrincipal  extends JPanel{

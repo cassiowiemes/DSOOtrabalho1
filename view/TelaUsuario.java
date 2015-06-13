@@ -2,12 +2,11 @@ package view;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Scanner;
+import utils.*;
+import ctrl.CtrlUsuario;
 
 import javax.swing.*;
 
-import ctrl.CtrlUsuario;
-import ctrl.UserWrapper;
 
 public class TelaUsuario extends JPanel {
 
