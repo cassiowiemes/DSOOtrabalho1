@@ -3,7 +3,6 @@ import model.Emprestimo;
 import view.TelaEmprestimo;
 import javax.swing.*;
 
-
 public class CtrlEmprestimo {
 
     private CtrlPrincipal ctrlPrincipal;
