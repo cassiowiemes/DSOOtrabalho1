@@ -7,14 +7,17 @@ import java.util.HashSet;
 import javax.swing.JPanel;
 
 public class CtrlUsuario {
+	
+	MapeadorAluno mapeadorAluno = new MapeadorAluno();
+	MapeadorProfessor mapeadorProfessor = new MapeadorProfessor();
 
-    private HashSet<IUsuario> usuarios;
+   // private HashSet<IUsuario> usuarios;
     private CtrlPrincipal ctrlPrincipal;
     private TelaUsuario tela;
 
     public CtrlUsuario(CtrlPrincipal ctrlPrincipal) {
         this.ctrlPrincipal = ctrlPrincipal;
-        this.usuarios = new HashSet<>();
+        //this.usuarios = new HashSet<>();
         this.tela = new TelaUsuario(this);
     }
 
@@ -23,10 +26,17 @@ public class CtrlUsuario {
     }
 
 	public void realizaAcao(String command) {
+		UserWrapper user;
 		switch(command){
-		case "Salvar":
-			UserWrapper user = tela.GetDados();
-			usuarios.add(new Usuario(user.nome, user.idade, user.endereco, user.pai, user.mae));
+		case "SalvarAluno":
+			user = tela.GetDados();
+			mapeadorAluno.put(new Aluno(user.nome, user.idade, user.endereco, user.pai, user.mae, user.turma));
+			tela.sucessoCriar();
+			tela.limparCampos();
+			break;
+		case "SalvarProfessor":
+			user = tela.GetDados();
+			mapeadorProfessor.put(new Professor(user.nome, user.idade, user.endereco, user.pai, user.mae));
 			tela.sucessoCriar();
 			tela.limparCampos();
 			break;

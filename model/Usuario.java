@@ -1,5 +1,5 @@
 package model;
-public class Usuario implements IUsuario {
+public abstract class Usuario implements IUsuario {
 
     private String nome;
     private int codigo;
