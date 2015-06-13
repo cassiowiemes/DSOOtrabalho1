@@ -1,5 +1,4 @@
-package ctrl;
-
+package utils;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -7,7 +6,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
-
 import model.Professor;
 
 public class MapeadorProfessor
@@ -26,10 +24,10 @@ public class MapeadorProfessor
         return cacheProfessor.get(id);
     }
     
-    public void put(Professor aluno){
+    public void put(Professor professor){
         ultimaId++;
-        aluno.setId(ultimaId);
-        cacheProfessor.put(ultimaId, aluno);
+        professor.setId(ultimaId);
+        cacheProfessor.put(ultimaId, professor);
         persist();
     }
 

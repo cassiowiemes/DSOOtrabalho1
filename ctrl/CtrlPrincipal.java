@@ -1,9 +1,6 @@
 package ctrl;
 import java.awt.GridLayout;
-
-import model.*;
-import view.*;
-
+import view.TelaPrincipal;
 import javax.swing.*;
 public class CtrlPrincipal {
 
@@ -17,7 +14,6 @@ public class CtrlPrincipal {
     public CtrlPrincipal() {
         ctrlItem = new CtrlItem(this);
         ctrlEmprestimo = new CtrlEmprestimo(this, 18);
-        //18 fica como substituto para o dia atual que seria obtido usando java Date
         ctrlUsuario = new CtrlUsuario(this);
         mainFrame = new JFrame();
         secondFrame = new JFrame();
@@ -73,10 +69,3 @@ public class CtrlPrincipal {
 	}
 	
 }
-
-/*public void setTela(JPanel tela){
-frame.getContentPane().removeAll();
-frame.setContentPane(tela);
-frame.repaint();
-frame.printAll(frame.getGraphics());
-}*/

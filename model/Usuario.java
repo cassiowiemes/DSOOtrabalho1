@@ -11,6 +11,7 @@ public abstract class Usuario implements IUsuario {
     private int numeroEmprestimosAtual;
     private final int numeroEmprestimosMax = 3;
     private static int contador = 0;
+    private Integer id;
 
     public Usuario(String nome, int idade, String endereco, String nomePai,
             String nomeMae) {
@@ -61,5 +62,12 @@ public abstract class Usuario implements IUsuario {
 
     public void setPrazoDevolucao(int prazoDevolucao) {
         this.prazoDevolucao = prazoDevolucao;
+    }
+    
+    public void setId(Integer id){
+    	this.id = id;
+    }
+    public Integer getId(){
+    	return id;
     }
 }
