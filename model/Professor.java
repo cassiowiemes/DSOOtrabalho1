@@ -8,6 +8,7 @@ public class Professor extends Usuario {
     private int finalNumeroEmprestimos;
     private HashSet<String> disciplinas;
     private String turma;
+    private Integer id;
 
     public Professor(String nome, int idade, String endereco, String nomePai, String nomeMae) {
         super(nome, idade, endereco, nomePai, nomeMae);
@@ -22,4 +23,9 @@ public class Professor extends Usuario {
     public boolean hasDisciplina(String disciplina) {
         return disciplinas.contains(disciplina);
     }
+    
+	public void setId(int id)
+	{
+		this.id = id;		
+	}
 }

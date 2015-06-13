@@ -6,6 +6,7 @@ public class Livro extends Item {
     private HashSet<String> autores = new HashSet<>();
     private int edicao;
     private Genero genero;
+    private Integer id;
 
     public Livro(String titulo, String editora, int ano,
             FaixaEtaria faixaEtaria, HashSet<String> autores, int edicao,
@@ -31,5 +32,10 @@ public class Livro extends Item {
     public void setGenero(Genero genero) {
         this.genero = genero;
     }
+    
+	public void setId(int id)
+	{
+		this.id = id;		
+	}
 
 }

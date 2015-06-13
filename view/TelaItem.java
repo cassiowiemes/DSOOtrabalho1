@@ -1,17 +1,70 @@
 package view;
-import model.Genero;
-import model.FaixaEtaria;
-import model.Periodicidade;
-
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Scanner;
 import java.util.HashSet;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+
+//import view.TelaPrincipal.ButtonManager;
+import ctrl.CtrlUsuario;
 
 public class TelaItem extends JPanel {
 
-    Scanner sc = new Scanner(System.in);
-
+//    Scanner sc = new Scanner(System.in);
+	CtrlUsuario ctrl;
+	JButton btCadastraItem;
+	JButton btRemoveItem;
+	JButton btProcuraItem;
+	JButton btCadastraExemplar;
+	JButton btRemoveExemplar;
+	JButton btProcuraExemplar;
+	JButton btSair;
+	
+	public TelaItem()
+	{
+		ButtonManager btMan = new ButtonManager();
+		btCadastraItem = new JButton();
+		btCadastraItem.setText("Cadastra novo item");
+		btCadastraItem.addActionListener(btMan);
+		add(btCadastraItem);
+		btRemoveItem = new JButton();
+		btRemoveItem.setText("Remove um item");
+		btRemoveItem.addActionListener(btMan);
+		add(btRemoveItem);
+		btProcuraItem = new JButton();
+		btProcuraItem.setText("Procura por um item");
+		btProcuraItem.addActionListener(btMan);
+		add(btProcuraItem);
+		btCadastraExemplar = new JButton();
+		btCadastraExemplar.setText("Cadastra novo exemplar");
+		btCadastraExemplar.addActionListener(btMan);
+		add(btCadastraExemplar);
+		btRemoveExemplar = new JButton();
+		btRemoveExemplar.setText("remove um exemplar");
+		btRemoveExemplar.addActionListener(btMan);
+		add(btRemoveExemplar);
+		btProcuraExemplar = new JButton();
+		btProcuraExemplar.setText("procura um exemplar");
+		btProcuraExemplar.addActionListener(btMan);
+		add(btProcuraExemplar);
+		btSair = new JButton();
+		btSair.setText("sair");
+		btSair.addActionListener(btMan);
+		add(btSair);
+	}
+	
+	private class ButtonManager implements ActionListener
+	{
+		@Override
+		public void actionPerformed(ActionEvent ae)
+		{
+			ctrl.realizaAcao(ae.getActionCommand());			
+		}		
+	}
 //    public int iniciar() {
 //
 //        System.out.println("SISTEMA DE GERENCIAMENTO DE ITENS.");
