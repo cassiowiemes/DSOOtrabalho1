@@ -71,5 +71,11 @@ public abstract class Item {
     public void setFaixaEtaria(FaixaEtaria faixaEtaria) {
         this.faixaEtaria = faixaEtaria;
     }
+    
+    public enum FaixaEtaria {
 
+        INFANTIL,
+        JUVENIL,
+        ADULTO;
+    }
 }

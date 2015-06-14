@@ -37,5 +37,15 @@ public class Livro extends Item {
 	{
 		this.id = id;		
 	}
+	
+	public enum Genero {
+
+	    COMEDIA,
+	    DRAMA,
+	    POLICIAL,
+	    FANTASIA,
+	    HISTORIA,
+	    DOCUMENTARIO;
+	}
 
 }

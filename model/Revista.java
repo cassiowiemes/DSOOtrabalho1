@@ -18,5 +18,13 @@ public class Revista extends Item {
 	{
 		this.id = id;		
 	}
+	public enum Periodicidade {
 
+	    SEMANAL,
+	    MENSAL,
+	    BIMESTRAL,
+	    TRIMESTRAL,
+	    SEMESTRAL,
+	    ANUAL;
+	}
 }
