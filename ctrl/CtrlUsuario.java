@@ -1,10 +1,13 @@
 package ctrl;
 import model.Aluno;
 import model.Professor;
+import model.Usuario;
 import view.TelaUsuario;
 import utils.MapeadorAluno;
 import utils.MapeadorProfessor;
+
 import javax.swing.JPanel;
+
 import utils.*;
 
 public class CtrlUsuario {
@@ -49,5 +52,9 @@ public class CtrlUsuario {
 	
     public JPanel getTela(){
     	return tela;
+    }
+    
+    public Usuario getUsuario(int codigoUsuario){
+    	return null;
     }
 }

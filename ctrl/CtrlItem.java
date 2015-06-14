@@ -1,4 +1,5 @@
 package ctrl;
+import model.Exemplar;
 import model.Item;
 import view.TelaItem;
 
@@ -20,5 +21,9 @@ public class CtrlItem {
 
 	public JPanel getTela() {
 		return tela;
+	}
+
+	public Exemplar getExemplar(int codigo) {
+		return null;
 	}
 }

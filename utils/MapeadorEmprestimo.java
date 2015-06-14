@@ -5,38 +5,37 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Collection;
 import java.util.HashMap;
-import model.Aluno;
 
+import model.Emprestimo;
 
-public class MapeadorAluno
-{
-	private static int ultimaId = 0;
-    private final String filename = "alunos.txt";
-    private HashMap<Integer,Aluno> cacheAlunos;
-    //cacheLivros.values(); para pegar valor do hashMap
-    
-    public MapeadorAluno(){
-        cacheAlunos = new HashMap<>();
-        load();
-    }
-    
-    public Aluno get(Integer id){
-        return cacheAlunos.get(id);
-    }
-    
-    public void put(Aluno aluno){
-        ultimaId++;
-        aluno.setId(ultimaId);
-        cacheAlunos.put(ultimaId, aluno);
-        persist();
-    }
-
-    public void persist(){
-        try{
+public class MapeadorEmprestimo {
+	private static Integer ultimaId = 0;
+	private final String filename = "emprestimos.txt";
+	private HashMap<Integer, Emprestimo> cache;
+	
+	public MapeadorEmprestimo(){
+		cache = new HashMap<>();
+		load();
+	}
+	
+	public Emprestimo get(Integer id){
+		return cache.get(id);
+	}
+	
+	public void put(Emprestimo emprestimo){
+		ultimaId++;
+		emprestimo.setId(ultimaId);
+		cache.put(ultimaId, emprestimo);
+		persist();
+	}
+	
+	public void persist(){
+		try{
             FileOutputStream fout = new FileOutputStream(filename);
             ObjectOutputStream oo = new ObjectOutputStream(fout);
-            oo.writeObject(cacheAlunos);
+            oo.writeObject(cache);
             oo.flush();
             fout.flush();
             oo.close();
@@ -44,17 +43,17 @@ public class MapeadorAluno
             oo = null;
             fout = null;
         } catch(FileNotFoundException ex){
-            System.out.print("Jagaranga!");
+            System.out.print("File not Found!");
         } catch(IOException ex){
-            System.out.print("Jabuticaba!");
+            System.out.print("IO Exception!");
         }
-    }
-    
-    public void load(){
+	}
+	
+	public void load(){
         try{
             FileInputStream fin = new FileInputStream(filename);
             ObjectInputStream oi = new ObjectInputStream(fin);
-            this.cacheAlunos = (HashMap<Integer,Aluno>) oi.readObject();
+            this.cache = (HashMap<Integer,Emprestimo>) oi.readObject();
             oi.close();
             fin.close();
             oi = null;
@@ -68,4 +67,7 @@ public class MapeadorAluno
         }
     }
 
+	public Collection<Emprestimo> getValues() {
+		return cache.values();
+	}
 }

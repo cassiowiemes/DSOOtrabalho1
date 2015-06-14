@@ -1,4 +1,6 @@
 package ctrl;
+import model.IExemplar;
+import model.IUsuario;
 import view.TelaPrincipal;
 
 public class CtrlPrincipal {
@@ -10,7 +12,7 @@ public class CtrlPrincipal {
 
     public CtrlPrincipal() {
         ctrlItem = new CtrlItem(this);
-        ctrlEmprestimo = new CtrlEmprestimo(this, 18);
+        ctrlEmprestimo = new CtrlEmprestimo(this);
         ctrlUsuario = new CtrlUsuario(this);
         tela = new TelaPrincipal(this);
     }
@@ -34,5 +36,13 @@ public class CtrlPrincipal {
 			ctrlEmprestimo.iniciar();
 			break;
 		}
+	}
+
+	public IUsuario getUsuario(int codigo) {
+		return ctrlUsuario.getUsuario(codigo);
+	}
+
+	public IExemplar getExemplar(int codigo) {
+		return ctrlItem.getExemplar(codigo);
 	}
 }

@@ -1,34 +1,62 @@
 package ctrl;
+import java.util.ArrayList;
+import java.util.Collection;
+import utils.EmprestimoWrapper;
+import utils.MapeadorEmprestimo;
 import model.Emprestimo;
 import view.TelaEmprestimo;
-import javax.swing.*;
 
 public class CtrlEmprestimo {
 
     private CtrlPrincipal ctrlPrincipal;
+    private MapeadorEmprestimo mapeador;
     private TelaEmprestimo tela;
-    private int dataAtual;
 
-    public CtrlEmprestimo(CtrlPrincipal ctrlPrincipal, int dataAtual) {
+    public CtrlEmprestimo(CtrlPrincipal ctrlPrincipal) {
         this.ctrlPrincipal = ctrlPrincipal;
-        this.dataAtual = dataAtual;
         this.tela = new TelaEmprestimo();
     }
 
     public void iniciar() {
-    	
+    	tela.setVisible(true);
     }
-
-	public JPanel getTelaEmprestimo() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public JPanel getTelaDevolucao() {
-		return tela;
-	}
-
-	public JPanel getTelaRelatorio() {
-		return tela;
-	}
+    
+    public ArrayList<EmprestimoWrapper> emprestimosAtrasados(){
+    	Collection<Emprestimo> emprestimos = mapeador.getValues();
+    	ArrayList<EmprestimoWrapper> atrasos = new ArrayList<>();
+    	for(Emprestimo emprestimo : emprestimos){
+    		if(emprestimo.getDataPlanejadaDevolucao() < tela.getData()){
+    			//seria boa prática passar para o wrapper o objeto que ele representa?
+    			//desse modo, ele setaria seus campos.
+    			//aumenta a reutilização de código. aumenta acoplamento?
+    			EmprestimoWrapper pacote = new EmprestimoWrapper();
+    			pacote.dataEmprestimo = emprestimo.getDataEmprestimo();
+    			pacote.dataDevolucao = emprestimo.getDataDevolucao();
+    			pacote.dataPlanejadaDevolucao = emprestimo.getDataPlanejadaDevolucao();
+    			pacote.id = emprestimo.getId();
+    			pacote.usuario = emprestimo.getNomeUsuario();
+    			pacote.exemplar = emprestimo.getCodigoExemplar();
+    			atrasos.add(pacote);
+    		}
+    	}
+    	return atrasos;
+    }
+    
+    public void efetuaEmprestimo(int codigoUsuario, int codigoExemplar) throws Exception{
+    	Emprestimo emprestimo = new Emprestimo(ctrlPrincipal.getUsuario(codigoUsuario),
+    			ctrlPrincipal.getExemplar(codigoExemplar));
+    	if(!emprestimo.isUsuarioDisponivel());// throw UsuarioIndisponivelException;
+    	if(!emprestimo.isExemplarDisponivel());// throw ExemplarIndisponivelException;
+    	emprestimo.efetuaEmprestimo(tela.getData());
+    	mapeador.put(emprestimo);
+    }
+    
+    public void efetuaDevolucao(int codigoEmprestimo, int dataDevolucao) throws Exception {
+    	Emprestimo emprestimo = mapeador.get(codigoEmprestimo);
+    	if(emprestimo == null) {};// throw EmprestimoInexistenteException;
+    	if(emprestimo.getDataPlanejadaDevolucao() < tela.getData()){
+    		tela.mostraMulta(emprestimo.getMulta(tela.getData()));
+    	}
+    	emprestimo.efetuaDevolucao(dataDevolucao);
+    }
 }

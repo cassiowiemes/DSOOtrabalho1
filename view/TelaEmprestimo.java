@@ -1,9 +1,13 @@
 package view;
-import javax.swing.*;
-import java.util.ArrayList;
-import java.util.Scanner;
 
-public class TelaEmprestimo extends JPanel {
+import java.awt.GridLayout;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+public class TelaEmprestimo extends JFrame {
 
 	JLabel lbUsuario;
 	JTextField tbusuario;
@@ -21,6 +25,12 @@ public class TelaEmprestimo extends JPanel {
 	JButton btCancelar;
 	
 	public TelaEmprestimo(){
+		setResizable(false);
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle("Gerenciamento de empréstimos!");
+		setLayout(new GridLayout(0,2));
+		setSize(400, 350);
 		//labels
 		lbUsuario = new JLabel();
 		lbUsuario.setText("Código do usuário:");
@@ -58,6 +68,16 @@ public class TelaEmprestimo extends JPanel {
 		add(tbDataDev);
 		add(btSalvar);
 		add(btCancelar);
+	}
+
+	public void mostraMulta(float multa) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public int getData() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 //    Scanner sc;

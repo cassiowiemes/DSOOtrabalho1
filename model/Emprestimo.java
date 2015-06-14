@@ -1,11 +1,11 @@
 package model;
+
 public class Emprestimo {
 
     private int dataEmprestimo;
     private int dataPlanejadaDevolucao;
     private int dataDevolucao;
-    private int codigo;
-    private static int contador = 0;
+    private Integer id;
     private IUsuario usuario;
     private IExemplar exemplar;
     private final float MULTADIARIA = 10;
@@ -25,10 +25,6 @@ public class Emprestimo {
 
     public int getDataDevolucao() {
         return this.dataDevolucao;
-    }
-
-    public int getCodigo() {
-        return this.codigo;
     }
 
     public int getCodigoUsuario() {
@@ -68,8 +64,6 @@ public class Emprestimo {
         usuario.aumentaEmprestimosAtual();
         this.dataEmprestimo = dataEmprestimo;
         this.dataPlanejadaDevolucao = dataEmprestimo + usuario.getPrazoDevolucao();
-        contador++;
-        this.codigo = contador;
     }
 
     public void efetuaDevolucao(int dataDevolucao) {
@@ -77,4 +71,12 @@ public class Emprestimo {
         usuario.diminuiEmprestimosAtual();
         this.dataDevolucao = dataDevolucao;
     }
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
+	public Integer getId(){
+		return this.id;
+	}
 }
