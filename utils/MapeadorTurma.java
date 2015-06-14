@@ -1,4 +1,5 @@
 package utils;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -6,27 +7,27 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
-import model.Professor;
 
-public class MapeadorProfessor
-{
+import model.Turma;
+
+public class MapeadorTurma {
 	private static int ultimaId = 0;
-    private final String filename = "professor.txt";
-    private HashMap<Integer,Professor> cacheProfessor;
+    private final String filename = "turma.txt";
+    private HashMap<Integer,Turma> cacheTurma;
     
-    public MapeadorProfessor(){
-        cacheProfessor = new HashMap<>();
+    public MapeadorTurma(){
+    	cacheTurma = new HashMap<>();
         load();
     }
     
-    public Professor get(Integer id){
-        return cacheProfessor.get(id);
+    public Turma get(Integer id){
+        return cacheTurma.get(id);
     }
     
-    public void put(Professor professor){
+    public void put(Turma turma){
         ultimaId++;
-        professor.setId(ultimaId);
-        cacheProfessor.put(ultimaId, professor);
+        turma.setId(ultimaId);
+        cacheTurma.put(ultimaId, turma);
         persist();
     }
 
@@ -34,7 +35,7 @@ public class MapeadorProfessor
         try{
             FileOutputStream fout = new FileOutputStream(filename);
             ObjectOutputStream oo = new ObjectOutputStream(fout);
-            oo.writeObject(cacheProfessor);
+            oo.writeObject(cacheTurma);
             oo.flush();
             fout.flush();
             oo.close();
@@ -51,7 +52,7 @@ public class MapeadorProfessor
         try{
             FileInputStream fin = new FileInputStream(filename);
             ObjectInputStream oi = new ObjectInputStream(fin);
-            this.cacheProfessor = (HashMap<Integer,Professor>) oi.readObject();
+            this.cacheTurma = (HashMap<Integer,Turma>) oi.readObject();
             oi.close();
             fin.close();
             oi = null;
@@ -64,5 +65,5 @@ public class MapeadorProfessor
             System.out.print("PALAVRA!");
         }
     }
-
+	
 }

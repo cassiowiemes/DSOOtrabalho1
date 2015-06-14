@@ -28,7 +28,7 @@ public class Emprestimo {
     }
 
     public int getCodigoUsuario() {
-        return usuario.getCodigo();
+        return usuario.getId();
     }
 
     public String getNomeUsuario() {

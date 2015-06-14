@@ -2,15 +2,13 @@ package model;
 public abstract class Usuario implements IUsuario {
 
     private String nome;
-    private int codigo;
     private int idade;
     private String endereco;
     private String nomePai;
     private String nomeMae;
     private int prazoDevolucao;
     private int numeroEmprestimosAtual;
-    private final int numeroEmprestimosMax = 3;
-    private static int contador = 0;
+    private int numeroEmprestimosMax;
     private Integer id;
 
     public Usuario(String nome, int idade, String endereco, String nomePai,
@@ -20,8 +18,6 @@ public abstract class Usuario implements IUsuario {
         this.endereco = endereco;
         this.nomePai = nomePai;
         this.nomeMae = nomeMae;
-        contador++;
-        this.codigo = contador;
         this.numeroEmprestimosAtual = 0;
     }
 
@@ -55,19 +51,19 @@ public abstract class Usuario implements IUsuario {
         numeroEmprestimosAtual--;
     }
 
-    @Override
-    public int getCodigo() {
-        return this.codigo;
-    }
-
     public void setPrazoDevolucao(int prazoDevolucao) {
         this.prazoDevolucao = prazoDevolucao;
     }
-    
+    @Override
     public void setId(Integer id){
     	this.id = id;
     }
+    @Override
     public Integer getId(){
     	return id;
     }
+
+	public void setNumeroEmprestimosMax(int numeroEmprestimosMax) {
+		this.numeroEmprestimosAtual = numeroEmprestimosMax;
+	}
 }

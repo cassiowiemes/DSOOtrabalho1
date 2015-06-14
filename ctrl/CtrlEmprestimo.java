@@ -42,7 +42,7 @@ public class CtrlEmprestimo {
     	return atrasos;
     }
     
-    public void efetuaEmprestimo(int codigoUsuario, int codigoExemplar) throws Exception{
+    public void efetuaEmprestimo(Integer codigoUsuario, Integer codigoExemplar) throws Exception{
     	Emprestimo emprestimo = new Emprestimo(ctrlPrincipal.getUsuario(codigoUsuario),
     			ctrlPrincipal.getExemplar(codigoExemplar));
     	if(!emprestimo.isUsuarioDisponivel());// throw UsuarioIndisponivelException;
@@ -51,7 +51,7 @@ public class CtrlEmprestimo {
     	mapeador.put(emprestimo);
     }
     
-    public void efetuaDevolucao(int codigoEmprestimo, int dataDevolucao) throws Exception {
+    public void efetuaDevolucao(Integer codigoEmprestimo, int dataDevolucao) throws Exception {
     	Emprestimo emprestimo = mapeador.get(codigoEmprestimo);
     	if(emprestimo == null) {};// throw EmprestimoInexistenteException;
     	if(emprestimo.getDataPlanejadaDevolucao() < tela.getData()){
