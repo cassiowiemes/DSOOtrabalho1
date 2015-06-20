@@ -1,22 +1,25 @@
 package ctrl;
 import model.Exemplar;
-import model.FaixaEtaria;
-import model.Periodicidade;
 import model.Revista;
 import model.Livro;
 import utils.ItemWrapper;
 import utils.MapeadorLivro;
 import utils.MapeadorRevista;
+import model.Item.FaixaEtaria;
+import model.Livro;
+import model.Livro.Genero;
+import model.Revista;
+import model.Revista.Periodicidade;
 import view.TelaItem;
-
-import javax.swing.JPanel;
+import utils.MapeadorLivro;
+import utils.MapeadorRevista;
 
 public class CtrlItem {
 
+	private MapeadorLivro mapeadorLivro;
+	private MapeadorRevista mapeadorRevista;
     private CtrlPrincipal ctrlPrincipal;
     private TelaItem tela;
-    private MapeadorLivro mapeadorLivro;
-    private MapeadorRevista mapeadorRevista;
 
     public CtrlItem(CtrlPrincipal ctrlPrincipal) {
         this.ctrlPrincipal = ctrlPrincipal;
@@ -32,10 +35,22 @@ public class CtrlItem {
     
     public void registraRevista(ItemWrapper item){
     	//implementar
-    	//Revista revista = new Revista(item.titulo, item.editora, item.ano, (FaixaEtaria)item.faixaEtaria, item.edicao, (Periodicidade)item.periodicidade)
+    	//Revista revista = new Revista(item.titulo, item.editora, item.ano, FaixaEtaria)item.faixaEtaria, item.edicao, (Periodicidade)item.periodicidade)
     }
 
 	public Exemplar getExemplar(int codigo) {
+		
 		return null;
+	}
+	
+	public void registrarLivro(){
+		
+	}
+	
+	public void registraRevista(){
+		
+	}
+	public void addExemplar(Integer idItem){
+		
 	}
 }

@@ -32,14 +32,8 @@ public class Livro extends Item {
     public void setGenero(Genero genero) {
         this.genero = genero;
     }
-    
-	public void setId(int id)
-	{
-		this.id = id;		
-	}
 	
 	public enum Genero {
-
 	    COMEDIA,
 	    DRAMA,
 	    POLICIAL,

@@ -1,5 +1,4 @@
 package model;
-import java.util.HashSet;
 
 public class Revista extends Item {
 
@@ -18,8 +17,8 @@ public class Revista extends Item {
 	{
 		this.id = id;		
 	}
+	
 	public enum Periodicidade {
-
 	    SEMANAL,
 	    MENSAL,
 	    BIMESTRAL,
