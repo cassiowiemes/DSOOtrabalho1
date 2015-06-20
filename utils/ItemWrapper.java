@@ -6,4 +6,6 @@ public class ItemWrapper{
     public String editora;
     public int ano;
     public String faixaEtaria;
+    public int edicao;
+    public String periodicidade;
 }
