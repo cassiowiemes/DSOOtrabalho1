@@ -26,13 +26,17 @@ public class MapeadorRevista
     }
     
     public void put(Revista revista){
+    	//chama o metodo que grava a revista no disco
+    	//incrementa ultima id
         ultimaId++;
         revista.setId(ultimaId);
         cacheRevista.put(ultimaId, revista);
         persist();
     }
 
+
     public void persist(){
+    	//salva a revista em arquivo
         try{
             FileOutputStream fout = new FileOutputStream(filename);
             ObjectOutputStream oo = new ObjectOutputStream(fout);
@@ -50,6 +54,7 @@ public class MapeadorRevista
         }
     }
     public void load(){
+    	//carrega o conjunto de revistas para a memória
         try{
             FileInputStream fin = new FileInputStream(filename);
             ObjectInputStream oi = new ObjectInputStream(fin);
