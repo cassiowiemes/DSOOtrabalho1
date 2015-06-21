@@ -6,13 +6,15 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Collection;
 import java.util.HashMap;
 
+import model.Emprestimo;
 import model.Livro;
 
 public class MapeadorLivro
 {
-	private static int ultimaId = 0;
+	private static Integer ultimaId = 0;
     private final String filename = "livros.txt";
     private HashMap<Integer,Livro> cacheLivros;
 
@@ -32,7 +34,7 @@ public class MapeadorLivro
         cacheLivros.put(ultimaId, livro);
         persist();
     }
-
+    
     public void persist(){
         try{
             FileOutputStream fout = new FileOutputStream(filename);
@@ -60,6 +62,11 @@ public class MapeadorLivro
             fin.close();
             oi = null;
             fin = null;
+            this.cacheLivros = (HashMap<Integer,Livro>) oi.readObject();
+            oi.close();
+            fin.close();
+            oi = null;
+            fin = null;;
         }catch(ClassNotFoundException ex){
             System.out.print("Não pode!");
         } catch(FileNotFoundException ex){
@@ -68,4 +75,8 @@ public class MapeadorLivro
             System.out.print("PALAVRA!");
         }
     }
+
+	public Collection<Livro> getValues() {
+		return cacheLivros.values();
+	}
 }

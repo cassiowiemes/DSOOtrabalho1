@@ -3,45 +3,38 @@ import java.util.HashSet;
 
 public abstract class Item {
 
-    private int codigo;
     private String titulo;
+    private int id;
     private String editora;
     private int ano;
-    private HashSet<IExemplar> exemplares = new HashSet<>();
-    private static int codigoAtual = 0;
     private FaixaEtaria faixaEtaria;
+    private HashSet<Exemplar> exemplares = new HashSet<>();
 
     public Exemplar getExemplar(Item item) {
-        for (IExemplar exemplar : exemplares) {
-
+        for (Exemplar exemplar : exemplares) {
+        	//TODO
         }
         return null;
     }
 
     public Item(String titulo, String editora, int ano, FaixaEtaria faixaEtaria) {
         super();
-        this.setCodigo(codigoAtual);
         this.setTitulo(titulo);
         this.setEditora(editora);
         this.setAno(ano);
         this.faixaEtaria = faixaEtaria;
-        codigoAtual++;
     }
 
-    public int getCodigo() {
-        return codigo;
+    public int getId() {
+        return id;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
+    public void setId(int codigo) {
+        this.id = codigo;
     }
 
     public String getTitulo() {
         return titulo;
-    }
-
-    public static int getCodigoAtual() {
-        return codigoAtual;
     }
 
     public void setTitulo(String titulo) {
@@ -71,5 +64,10 @@ public abstract class Item {
     public void setFaixaEtaria(FaixaEtaria faixaEtaria) {
         this.faixaEtaria = faixaEtaria;
     }
-
+    
+    public enum FaixaEtaria {
+        INFANTIL,
+        JUVENIL,
+        ADULTO;
+    }
 }
