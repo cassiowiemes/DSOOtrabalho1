@@ -12,7 +12,7 @@ public abstract class Item {
 
     public Exemplar getExemplar(Item item) {
         for (Exemplar exemplar : exemplares) {
-        	
+        	//TODO
         }
         return null;
     }

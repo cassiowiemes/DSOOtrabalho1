@@ -6,7 +6,6 @@ public class Livro extends Item {
     private HashSet<String> autores = new HashSet<>();
     private int edicao;
     private Genero genero;
-    private Integer id;
 
     public Livro(String titulo, String editora, int ano,
             FaixaEtaria faixaEtaria, HashSet<String> autores, int edicao,

@@ -6,8 +6,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Collection;
 import java.util.HashMap;
 
+import model.Emprestimo;
 import model.Livro;
 
 public class MapeadorLivro
@@ -73,4 +75,8 @@ public class MapeadorLivro
             System.out.print("PALAVRA!");
         }
     }
+
+	public Collection<Livro> getValues() {
+		return cacheLivros.values();
+	}
 }

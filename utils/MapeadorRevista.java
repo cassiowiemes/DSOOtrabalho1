@@ -5,30 +5,32 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.Collection;
 import java.util.HashMap;
 
+import model.Livro;
 import model.Revista;
 
 public class MapeadorRevista
 {
 	private static int ultimaId = 0;
     private final String filename = "revistas.txt";
-    private HashMap<Integer,Revista> cacheRevista;
+    private HashMap<Integer,Revista> cacheRevistas;
     //cacheLivros.values(); para pegar valor do hashMap
     
     public MapeadorRevista(){
-        cacheRevista = new HashMap<>();
+        cacheRevistas = new HashMap<>();
         load();
     }
     
     public Revista get(Integer id){
-        return cacheRevista.get(id);
+        return cacheRevistas.get(id);
     }
     
     public void put(Revista revista){
         ultimaId++;
         revista.setId(ultimaId);
-        cacheRevista.put(ultimaId, revista);
+        cacheRevistas.put(ultimaId, revista);
         persist();
     }
 
@@ -36,7 +38,7 @@ public class MapeadorRevista
         try{
             FileOutputStream fout = new FileOutputStream(filename);
             ObjectOutputStream oo = new ObjectOutputStream(fout);
-            oo.writeObject(cacheRevista);
+            oo.writeObject(cacheRevistas);
             oo.flush();
             fout.flush();
             oo.close();
@@ -53,7 +55,7 @@ public class MapeadorRevista
         try{
             FileInputStream fin = new FileInputStream(filename);
             ObjectInputStream oi = new ObjectInputStream(fin);
-            this.cacheRevista = (HashMap<Integer,Revista>) oi.readObject();
+            this.cacheRevistas = (HashMap<Integer,Revista>) oi.readObject();
             oi.close();
             fin.close();
             oi = null;
@@ -66,4 +68,8 @@ public class MapeadorRevista
             System.out.print("PALAVRA!");
         }
     }
+
+	public Collection<Revista> getValues() {
+		return cacheRevistas.values();
+	}
 }
