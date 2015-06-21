@@ -1,73 +1,49 @@
 package view;
 
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import ctrl.CtrlEmprestimo;
+
 public class TelaEmprestimo extends JFrame {
 
-	JLabel lbUsuario;
-	JTextField tbusuario;
-	JButton btBuscarUsuario;
-	JLabel lbNome;
-	JTextField tbNome;
-	JLabel lbExemplar;
-	JTextField tbExemplar;
-	JButton btBuscarExemplar;
-	JLabel lbTitulo;
-	JTextField tbTitulo;
-	JLabel lbDataDev;
-	JTextField tbDataDev;
-	JButton btSalvar;
-	JButton btCancelar;
+	JButton btRegistraEmprestimo;
+	JButton btRegistraDevolucao;
+	JButton btVoltar;
+	CtrlEmprestimo ctrlEmprestimo;
 	
 	public TelaEmprestimo(){
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Gerenciamento de empréstimos!");
-		setLayout(new GridLayout(0,2));
+		setLayout(new FlowLayout());
 		setSize(400, 350);
-		//labels
-		lbUsuario = new JLabel();
-		lbUsuario.setText("Código do usuário:");
-		lbNome = new JLabel();
-		lbNome.setText("Nome do usuário:");
-		lbExemplar = new JLabel();
-		lbExemplar.setText("Código go exemplar:");
-		lbTitulo = new JLabel();
-		lbTitulo.setText("Título do item:");
-		lbDataDev = new JLabel();
-		lbDataDev.setText("Data para devolução:");
-		//text fields
-		tbusuario = new JTextField();
-		tbNome = new JTextField();
-		tbExemplar = new JTextField();
-		tbTitulo = new JTextField();
-		tbDataDev = new JTextField();
-		//buttons
-		btBuscarUsuario = new JButton();
-		btBuscarExemplar = new JButton();
-		btSalvar = new JButton();
-		btCancelar = new JButton();
+
+//		//buttons
+		ButtonManager btMan = new ButtonManager();
+		btRegistraEmprestimo = new JButton();
+		btRegistraEmprestimo.setText("Registrar novo emprestimo");
+		btRegistraEmprestimo.addActionListener(btMan);
+		btRegistraDevolucao = new JButton();
+		btRegistraDevolucao.setText("Registra devolução");
+		btRegistraDevolucao.addActionListener(btMan);
+		btVoltar = new JButton();
+		btVoltar.setText("Voltar");
+		btVoltar.addActionListener(btMan);
+		
 		//add items
-		add(lbUsuario);
-		add(tbusuario);
-		add(btBuscarUsuario);
-		add(lbNome);
-		add(tbNome);
-		add(lbExemplar);
-		add(tbExemplar);
-		add(btBuscarExemplar);
-		add(lbTitulo);
-		add(tbTitulo);
-		add(lbDataDev);
-		add(tbDataDev);
-		add(btSalvar);
-		add(btCancelar);
+
+		add(btRegistraEmprestimo);
+		add(btRegistraDevolucao);
+		add(btVoltar);
 	}
 
 	public void mostraMulta(float multa) {
@@ -79,6 +55,14 @@ public class TelaEmprestimo extends JFrame {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+	private class ButtonManager implements ActionListener{
+
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            ctrlEmprestimo.realizaAcao(ae.getActionCommand());
+        }
+    }
 
 //    Scanner sc;
 //    public TelaEmprestimo() {

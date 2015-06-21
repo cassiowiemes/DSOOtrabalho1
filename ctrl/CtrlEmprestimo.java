@@ -1,6 +1,7 @@
 package ctrl;
 import java.util.ArrayList;
 import java.util.Collection;
+
 import utils.EmprestimoWrapper;
 import utils.MapeadorEmprestimo;
 import model.Emprestimo;
@@ -59,4 +60,22 @@ public class CtrlEmprestimo {
     	}
     	emprestimo.efetuaDevolucao(dataDevolucao);
     }
+    
+    
+	public void realizaAcao(String command) {
+		switch(command){
+		case "btRegistraEmprestimo":
+	    	tela.setVisible(false);
+			//ctrlUsuario.iniciar();
+			break;
+		case "btRegistraDevolucao":
+	    	tela.setVisible(false);
+			//ctrlItem.iniciar();
+			break;
+		case "btVoltarbtVoltar":
+	    	tela.setVisible(false);
+			//ctrlEmprestimo.iniciar();
+			break;
+		}
+	}
 }

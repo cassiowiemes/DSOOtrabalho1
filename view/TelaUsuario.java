@@ -97,7 +97,7 @@ public class TelaUsuario extends JPanel {
 		user.mae = tbMae.getText();
 		user.pai = tbPai.getText();
 		user.endereco = tbEndereco.getText();
-		//user.turma = tbTurma.getText();
+		user.turma = Integer.parseInt(tbTurma.getText());
 		return user;
 	}
 
