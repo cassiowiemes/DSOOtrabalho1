@@ -19,7 +19,8 @@ public class TelaEmprestimo extends JFrame {
 	JButton btVoltar;
 	CtrlEmprestimo ctrlEmprestimo;
 	
-	public TelaEmprestimo(){
+	public TelaEmprestimo(CtrlEmprestimo ctrlEmp){
+		this.ctrlEmprestimo = ctrlEmp;
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -33,7 +34,7 @@ public class TelaEmprestimo extends JFrame {
 		btRegistraEmprestimo.setText("Registrar novo emprestimo");
 		btRegistraEmprestimo.addActionListener(btMan);
 		btRegistraDevolucao = new JButton();
-		btRegistraDevolucao.setText("Registra devolução");
+		btRegistraDevolucao.setText("Registrar devolução");
 		btRegistraDevolucao.addActionListener(btMan);
 		btVoltar = new JButton();
 		btVoltar.setText("Voltar");

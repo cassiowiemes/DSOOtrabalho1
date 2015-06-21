@@ -15,7 +15,7 @@ public class CtrlEmprestimo {
 
     public CtrlEmprestimo(CtrlPrincipal ctrlPrincipal) {
         this.ctrlPrincipal = ctrlPrincipal;
-        this.tela = new TelaEmprestimo();
+        this.tela = new TelaEmprestimo(this);
     }
 
     public void iniciar() {
@@ -64,17 +64,17 @@ public class CtrlEmprestimo {
     
 	public void realizaAcao(String command) {
 		switch(command){
-		case "btRegistraEmprestimo":
+		case "Registrar novo emprestimo":
+			System.out.println("emprestimo registrado");
 	    	tela.setVisible(false);
-			//ctrlUsuario.iniciar();
 			break;
-		case "btRegistraDevolucao":
+		case "Registrar devolução":
 	    	tela.setVisible(false);
-			//ctrlItem.iniciar();
+	    	System.out.println("devolucao registrada");
 			break;
-		case "btVoltarbtVoltar":
+		case "Voltar":
 	    	tela.setVisible(false);
-			//ctrlEmprestimo.iniciar();
+	    	ctrlPrincipal.iniciar();
 			break;
 		}
 	}
