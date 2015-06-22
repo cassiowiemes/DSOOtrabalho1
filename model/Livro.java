@@ -1,7 +1,9 @@
 package model;
+import java.io.Serializable;
 import java.util.HashSet;
 
-public class Livro extends Item {
+public class Livro extends Item  implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private HashSet<String> autores = new HashSet<>();
     private int edicao;

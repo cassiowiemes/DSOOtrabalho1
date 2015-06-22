@@ -1,6 +1,9 @@
 package model;
 
-public class Emprestimo {
+import java.io.Serializable;
+
+public class Emprestimo  implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private int dataEmprestimo;
     private int dataPlanejadaDevolucao;

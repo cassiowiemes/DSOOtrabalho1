@@ -60,7 +60,6 @@ public class CtrlEmprestimo {
     	}
     	emprestimo.efetuaDevolucao(dataDevolucao);
     }
-    
    
 	public void realizaAcao(String command) {
 		EmprestimoWrapper e;

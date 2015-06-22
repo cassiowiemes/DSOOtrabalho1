@@ -1,6 +1,9 @@
 package model;
 
-public class Revista extends Item {
+import java.io.Serializable;
+
+public class Revista extends Item  implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private int edicao;
     private Periodicidade periodicidade;

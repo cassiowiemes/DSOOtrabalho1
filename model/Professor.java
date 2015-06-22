@@ -1,6 +1,9 @@
 package model;
 
-public class Professor extends Usuario {
+import java.io.Serializable;
+
+public class Professor extends Usuario  implements Serializable {
+    private static final long serialVersionUID = 1L;
 
 	private final int prazoDevolucao = 10;
 	private final int numeroEmprestimosMax = 5;

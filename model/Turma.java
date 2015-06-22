@@ -1,8 +1,10 @@
 package model;
 
+import java.io.Serializable;
 import java.util.HashSet;
 
-public class Turma {
+public class Turma  implements Serializable {
+    private static final long serialVersionUID = 1L;
 	private Integer id;
 	private HashSet<Aluno> alunos;
 	private Professor professor;

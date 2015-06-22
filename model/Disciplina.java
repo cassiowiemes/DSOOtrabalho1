@@ -1,8 +1,11 @@
 package model;
 
+import java.io.Serializable;
 import java.util.HashSet;
 
-public class Disciplina {
+public class Disciplina  implements Serializable {
+    private static final long serialVersionUID = 1L;
+    
 	private Integer id;
 	private String nome;
 	private HashSet<Professor> professores;
