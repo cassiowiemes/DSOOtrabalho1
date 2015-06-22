@@ -69,6 +69,8 @@ public class TelaEmprestimo extends JFrame {
 		JButton btEfetuaEmprestimo = new JButton();
 		btEfetuaEmprestimo.setText("Efetua emprestimo");
 		btEfetuaEmprestimo.addActionListener(btMan);
+//		removeAll();
+//		revalidate();
 		add(lbUsuario);
 		add(tbUsuario);
 		add(lbExemplar);
@@ -76,6 +78,7 @@ public class TelaEmprestimo extends JFrame {
 		add(lbDataEmp);
 		add(tbDataEmp);
 		add(btEfetuaEmprestimo);
+		revalidate();
 		EmprestimoWrapper e = new EmprestimoWrapper();
 		e.codigoUsuario = Integer.parseInt(tbUsuario.getText());
 		e.codigoExemplar = Integer.parseInt(tbExemplar.getText());
@@ -97,11 +100,14 @@ public class TelaEmprestimo extends JFrame {
 		JButton btEfetuaDevolucao = new JButton();
 		btEfetuaDevolucao.setText("Efetua devolucao");
 		btEfetuaDevolucao.addActionListener(btMan);
+//		removeAll();
+//		revalidate();
 		add(lbExemplar);
 		add(tbExemplar);
 		add(lbDataDev);
 		add(tbDataDev);
 		add(btEfetuaDevolucao);
+		revalidate();
 		EmprestimoWrapper e = new EmprestimoWrapper();
 		e.codigoExemplar = Integer.parseInt(tbExemplar.getText());
 		e.dataPlanejadaDevolucao = Integer.parseInt(tbDataDev.getText());
