@@ -28,13 +28,9 @@ public class CtrlItem {
 		switch(command){
 		//salvar livro
 		case 11:
-	    	tela.setVisible(false);
-	    	ctrl.iniciar();
 			break;
 		//limpar livro
 		case 12:
-	    	tela.setVisible(false);
-	    	ctrl.iniciar();
 			break;
 		//voltar livro
 		case 13:
@@ -43,13 +39,9 @@ public class CtrlItem {
 			break;
 		//salvar revista
 		case 21:
-	    	tela.setVisible(false);
-	    	ctrl.iniciar();
 			break;
 		//limpar revista
 		case 22:
-	    	tela.setVisible(false);
-	    	ctrl.iniciar();
 			break;
 		//voltar revista
 		case 23:

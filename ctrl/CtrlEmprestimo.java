@@ -67,13 +67,9 @@ public class CtrlEmprestimo {
 		switch(command){
 		//salvar emprestimo
 		case 11:
-	    	tela.setVisible(false);
-	    	ctrl.iniciar();
 			break;
 		//limpar emprestimo
 		case 12:
-	    	tela.setVisible(false);
-	    	ctrl.iniciar();
 			break;
 		//voltar emprestimo
 		case 13:
@@ -82,13 +78,9 @@ public class CtrlEmprestimo {
 			break;
 		//salvar devolucao
 		case 21:
-	    	tela.setVisible(false);
-	    	ctrl.iniciar();
 			break;
 		//limpar devolucao
 		case 22:
-	    	tela.setVisible(false);
-	    	ctrl.iniciar();
 			break;
 		//voltar devolucao
 		case 23:
@@ -97,8 +89,6 @@ public class CtrlEmprestimo {
 			break;
 		//gerar relatorio
 		case 31:
-	    	tela.setVisible(false);
-	    	ctrl.iniciar();
 			break;
 		}
 	}
