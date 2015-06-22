@@ -26,7 +26,7 @@ public class CtrlEmprestimo {
     	Collection<Emprestimo> emprestimos = mapeador.getValues();
     	ArrayList<EmprestimoWrapper> atrasos = new ArrayList<>();
     	for(Emprestimo emprestimo : emprestimos){
-    		if(emprestimo.getDataPlanejadaDevolucao() < tela.getDadosEmprestimo()){
+    		if(/*emprestimo.getDataPlanejadaDevolucao() < tela.getDadosEmprestimo()*/ true){
     			//seria boa prática passar para o wrapper o objeto que ele representa?
     			//desse modo, ele setaria seus campos.
     			//aumenta a reutilização de código. aumenta acoplamento?

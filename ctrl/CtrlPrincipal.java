@@ -15,6 +15,12 @@ public class CtrlPrincipal {
         ctrlEmprestimo = new CtrlEmprestimo(this);
         ctrlUsuario = new CtrlUsuario(this);
         tela = new TelaPrincipal(this);
+        // código incluído para exibir telas, SOMENTE DURANTE DESENVOLVIMENTO!
+		ctrlUsuario.iniciar();		//alterar valor inicial dos itens
+		ctrlItem.iniciar();			//criar elementos do combo box
+		ctrlEmprestimo.iniciar();	//tela bugada: abrir para ver!
+		// TODO ver como desabilitar botão fechar nas telas além da principal!
+		// FIM DO CÓDIGO!!!
     }
 
     public void iniciar() {
