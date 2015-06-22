@@ -16,9 +16,9 @@ public class CtrlPrincipal {
         ctrlUsuario = new CtrlUsuario(this);
         tela = new TelaPrincipal(this);
         // código incluído para exibir telas, SOMENTE DURANTE DESENVOLVIMENTO!
-		ctrlUsuario.iniciar();		//alterar valor inicial dos itens
-		ctrlItem.iniciar();			//criar elementos do combo box
-		ctrlEmprestimo.iniciar();	//tela bugada: abrir para ver!
+		//ctrlUsuario.iniciar();		//alterar valor inicial dos itens
+		//ctrlItem.iniciar();			//criar elementos do combo box
+		//ctrlEmprestimo.iniciar();		//tela bugada: abrir para ver!
 		// TODO ver como desabilitar botão fechar nas telas além da principal!
 		// FIM DO CÓDIGO!!!
     }
@@ -27,17 +27,17 @@ public class CtrlPrincipal {
     	tela.setVisible(true);
     }
 
-	public void realizaAcao(String command) {
+	public void realizaAcao(int command) {
 		switch(command){
-		case "Usuario":
+		case 1:
 	    	tela.setVisible(false);
 			ctrlUsuario.iniciar();
 			break;
-		case "Item":
+		case 2:
 	    	tela.setVisible(false);
 			ctrlItem.iniciar();
 			break;
-		case "Emprestimo":
+		case 3:
 	    	tela.setVisible(false);
 			ctrlEmprestimo.iniciar();
 			break;

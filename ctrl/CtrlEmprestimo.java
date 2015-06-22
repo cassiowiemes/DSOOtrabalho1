@@ -9,13 +9,14 @@ import view.TelaEmprestimo;
 
 public class CtrlEmprestimo {
 
-    private CtrlPrincipal ctrlPrincipal;
+    private CtrlPrincipal ctrl;
     private MapeadorEmprestimo mapeador;
     private TelaEmprestimo tela;
 
-    public CtrlEmprestimo(CtrlPrincipal ctrlPrincipal) {
-        this.ctrlPrincipal = ctrlPrincipal;
+    public CtrlEmprestimo(CtrlPrincipal ctrl) {
+        this.ctrl = ctrl;
         this.tela = new TelaEmprestimo(this);
+        mapeador = new MapeadorEmprestimo();
     }
 
     public void iniciar() {
@@ -44,8 +45,8 @@ public class CtrlEmprestimo {
     }
     
     public void efetuaEmprestimo(Integer codigoUsuario, Integer codigoExemplar, Integer dtPlanDev) throws Exception{
-    	Emprestimo emprestimo = new Emprestimo(ctrlPrincipal.getUsuario(codigoUsuario),
-    			ctrlPrincipal.getExemplar(codigoExemplar));
+    	Emprestimo emprestimo = new Emprestimo(ctrl.getUsuario(codigoUsuario),
+    			ctrl.getExemplar(codigoExemplar));
     	if(!emprestimo.isUsuarioDisponivel());// throw UsuarioIndisponivelException;
     	if(!emprestimo.isExemplarDisponivel());// throw ExemplarIndisponivelException;
     	emprestimo.efetuaEmprestimo(dtPlanDev);
@@ -61,41 +62,43 @@ public class CtrlEmprestimo {
     	emprestimo.efetuaDevolucao(dataDevolucao);
     }
    
-	public void realizaAcao(String command) {
+	public void realizaAcao(int command) {
 		EmprestimoWrapper e;
 		switch(command){
-		case "Registrar novo emprestimo":
-			e = tela.getDadosEmprestimo();
-			try
-			{
-				efetuaEmprestimo(e.codigoUsuario, e.codigoExemplar, e.dataPlanejadaDevolucao);
-			} catch (Exception e1)
-			{
-				// TODO
-				e1.printStackTrace();
-			}
-	    	//tela.setVisible(false);
-			break;
-			
-		case "Registrar devolução":
-	    	//tela.setVisible(false);
-			e = tela.getDadosDevolucao();
-			try
-			{
-				efetuaDevolucao(e.codigoExemplar, e.dataDevolucao);
-			} catch (Exception e1)
-			{
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-			break;
-		case "Voltar":
+		//salvar emprestimo
+		case 11:
 	    	tela.setVisible(false);
-	    	ctrlPrincipal.iniciar();
+	    	ctrl.iniciar();
 			break;
-		case "Efetua emprestimo":
-			//tela.setVisible(false);
-			//ctrlPrincipal.iniciar();
+		//limpar emprestimo
+		case 12:
+	    	tela.setVisible(false);
+	    	ctrl.iniciar();
+			break;
+		//voltar emprestimo
+		case 13:
+	    	tela.setVisible(false);
+	    	ctrl.iniciar();
+			break;
+		//salvar devolucao
+		case 21:
+	    	tela.setVisible(false);
+	    	ctrl.iniciar();
+			break;
+		//limpar devolucao
+		case 22:
+	    	tela.setVisible(false);
+	    	ctrl.iniciar();
+			break;
+		//voltar devolucao
+		case 23:
+	    	tela.setVisible(false);
+	    	ctrl.iniciar();
+			break;
+		//gerar relatorio
+		case 31:
+	    	tela.setVisible(false);
+	    	ctrl.iniciar();
 			break;
 		}
 	}

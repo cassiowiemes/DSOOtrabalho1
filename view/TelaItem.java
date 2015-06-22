@@ -3,28 +3,24 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Scanner;
 import java.util.HashSet;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-
-
-//import view.TelaPrincipal.ButtonManager;
+import ctrl.CtrlItem;
 import ctrl.CtrlUsuario;
 
 public class TelaItem extends JFrame {
 
-//    Scanner sc = new Scanner(System.in);
-	CtrlUsuario ctrl;
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+	CtrlItem ctrl;
+	// Variables declaration - do not modify                     
+    private javax.swing.JButton btLimparLivro;
+    private javax.swing.JButton btLimparRevista;
+    private javax.swing.JButton btSalvarLivro;
+    private javax.swing.JButton btSalvarRevista;
+    private javax.swing.JButton btVoltarLivro;
+    private javax.swing.JButton btVoltarRevista;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JComboBox jComboBox3;
@@ -50,20 +46,12 @@ public class TelaItem extends JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration
 	
-	public TelaItem()
+	public TelaItem(CtrlItem ctrl)
 	{
+		this.ctrl = ctrl;
 		initComponents();
-	}
-	
-	private class ButtonManager implements ActionListener
-	{
-		@Override
-		public void actionPerformed(ActionEvent ae)
-		{
-			ctrl.realizaAcao(ae.getActionCommand());			
-		}		
 	}
 	
 	private void initComponents() {
@@ -82,9 +70,9 @@ public class TelaItem extends JFrame {
         jComboBox1 = new javax.swing.JComboBox();
         jLabel11 = new javax.swing.JLabel();
         jComboBox4 = new javax.swing.JComboBox();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btSalvarLivro = new javax.swing.JButton();
+        btLimparLivro = new javax.swing.JButton();
+        btVoltarLivro = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
@@ -96,9 +84,9 @@ public class TelaItem extends JFrame {
         jComboBox2 = new javax.swing.JComboBox();
         jLabel12 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btSalvarRevista = new javax.swing.JButton();
+        btLimparRevista = new javax.swing.JButton();
+        btVoltarRevista = new javax.swing.JButton();
 
         jLabel4.setText("jLabel4");
 
@@ -126,11 +114,26 @@ public class TelaItem extends JFrame {
 
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jButton1.setText("Salvar");
+        btSalvarLivro.setText("Salvar");
+        btSalvarLivro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalvarLivroActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Limpar");
+        btLimparLivro.setText("Limpar");
+        btLimparLivro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btLimparLivroActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Voltar");
+        btVoltarLivro.setText("Voltar");
+        btVoltarLivro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVoltarLivroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -158,11 +161,11 @@ public class TelaItem extends JFrame {
                             .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jTextField3)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btSalvarLivro)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)
+                        .addComponent(btLimparLivro)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton3)
+                        .addComponent(btVoltarLivro)
                         .addGap(0, 152, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -191,9 +194,9 @@ public class TelaItem extends JFrame {
                     .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(btSalvarLivro)
+                    .addComponent(btLimparLivro)
+                    .addComponent(btVoltarLivro))
                 .addContainerGap())
         );
 
@@ -219,11 +222,26 @@ public class TelaItem extends JFrame {
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jButton4.setText("Salvar");
+        btSalvarRevista.setText("Salvar");
+        btSalvarRevista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalvarRevistaActionPerformed(evt);
+            }
+        });
 
-        jButton5.setText("Limpar");
+        btLimparRevista.setText("Limpar");
+        btLimparRevista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btLimparRevistaActionPerformed(evt);
+            }
+        });
 
-        jButton6.setText("Voltar");
+        btVoltarRevista.setText("Voltar");
+        btVoltarRevista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVoltarRevistaActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -251,11 +269,11 @@ public class TelaItem extends JFrame {
                             .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jTextField6)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton4)
+                        .addComponent(btSalvarRevista)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton5)
+                        .addComponent(btLimparRevista)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton6)
+                        .addComponent(btVoltarRevista)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -284,9 +302,9 @@ public class TelaItem extends JFrame {
                     .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6))
+                    .addComponent(btSalvarRevista)
+                    .addComponent(btLimparRevista)
+                    .addComponent(btVoltarRevista))
                 .addContainerGap())
         );
 
@@ -304,5 +322,31 @@ public class TelaItem extends JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                        
+    
+    
+
+	private void btSalvarLivroActionPerformed(java.awt.event.ActionEvent evt) { 
+		ctrl.realizaAcao(11);
+	}                                             
+
+    private void btLimparLivroActionPerformed(java.awt.event.ActionEvent evt) {  
+    	ctrl.realizaAcao(12);
+    }
+    
+	private void btVoltarLivroActionPerformed(java.awt.event.ActionEvent evt) {
+		ctrl.realizaAcao(13);
+	}
+	
+    private void btSalvarRevistaActionPerformed(java.awt.event.ActionEvent evt) { 
+    	ctrl.realizaAcao(21);
+    }                                               
+
+    private void btLimparRevistaActionPerformed(java.awt.event.ActionEvent evt) { 
+    	ctrl.realizaAcao(22);
+    }                                               
+
+    private void btVoltarRevistaActionPerformed(java.awt.event.ActionEvent evt) { 
+    	ctrl.realizaAcao(23);
+    }
 }

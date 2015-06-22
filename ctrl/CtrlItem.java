@@ -14,18 +14,49 @@ public class CtrlItem {
 
 	private MapeadorLivro mapeadorLivro;
 	private MapeadorRevista mapeadorRevista;
-	private CtrlPrincipal ctrlPrincipal;
+	private CtrlPrincipal ctrl;
 	private TelaItem tela;
 
-	public CtrlItem(CtrlPrincipal ctrlPrincipal) {
-		this.ctrlPrincipal = ctrlPrincipal;
-		this.tela = new TelaItem();
+	public CtrlItem(CtrlPrincipal ctrl) {
+		this.ctrl = ctrl;
+		this.tela = new TelaItem(this);
 		mapeadorLivro = new MapeadorLivro();
 		mapeadorRevista = new MapeadorRevista();
 	}
 	
-	public void realizaAcao(String comman){
-		//TODO
+	public void realizaAcao(int command){
+		switch(command){
+		//salvar livro
+		case 11:
+	    	tela.setVisible(false);
+	    	ctrl.iniciar();
+			break;
+		//limpar livro
+		case 12:
+	    	tela.setVisible(false);
+	    	ctrl.iniciar();
+			break;
+		//voltar livro
+		case 13:
+	    	tela.setVisible(false);
+	    	ctrl.iniciar();
+			break;
+		//salvar revista
+		case 21:
+	    	tela.setVisible(false);
+	    	ctrl.iniciar();
+			break;
+		//limpar revista
+		case 22:
+	    	tela.setVisible(false);
+	    	ctrl.iniciar();
+			break;
+		//voltar revista
+		case 23:
+	    	tela.setVisible(false);
+	    	ctrl.iniciar();
+			break;
+		}
 	}
 
 	public void iniciar() {

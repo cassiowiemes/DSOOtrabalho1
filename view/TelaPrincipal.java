@@ -1,88 +1,97 @@
 package view;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.*;
 import ctrl.CtrlPrincipal;
 
 public class TelaPrincipal extends JFrame{
 	
 	CtrlPrincipal ctrl;
-	ButtonManager btMan = new ButtonManager();
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+	// Variables declaration - do not modify                     
+    private javax.swing.JButton btGerenciarEmprestimos;
+    private javax.swing.JButton btGerenciarItens;
+    private javax.swing.JButton btGerenciarUsuarios;
     private javax.swing.JLabel jLabel1;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration
 	
 	public TelaPrincipal(CtrlPrincipal ctrl){
 		initComponents();
+		this.ctrl = ctrl;
 	}
-	
-	private class ButtonManager implements ActionListener{
-
-        @Override
-        public void actionPerformed(ActionEvent ae) {
-            //ctrl.realizaAcao(ae.getActionCommand());
-        	// TODO tratar lançamento da ação
-        	System.out.println(ae);
-        }
-    }
 	
 	private void initComponents() {
 
-        jButton3 = new javax.swing.JButton();
+        btGerenciarEmprestimos = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btGerenciarUsuarios = new javax.swing.JButton();
+        btGerenciarItens = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Biblioteca Central");
         setResizable(false);
 
-        jButton3.setText("Gerenciar Empréstimos");
+        btGerenciarEmprestimos.setText("Gerenciar Empréstimos");
+        btGerenciarEmprestimos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btGerenciarEmprestimosActionPerformed(evt);
+            }
+        });
 
-        jLabel1.setText("Biblioteca");
+        jLabel1.setFont(new java.awt.Font("Vijaya", 0, 24)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("BIBLIOTECA CENTRAL!");
 
-        jButton1.setText("Gerenciar Usuários");
+        btGerenciarUsuarios.setText("Gerenciar Usuários");
+        btGerenciarUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btGerenciarUsuariosActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Gerenciar Acervo");
+        btGerenciarItens.setText("Gerenciar Acervo");
+        btGerenciarItens.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btGerenciarItensActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btGerenciarEmprestimos, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                    .addComponent(btGerenciarItens, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btGerenciarUsuarios, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jLabel1)
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(btGerenciarEmprestimos)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(btGerenciarUsuarios)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(btGerenciarItens)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
         pack();
-        // TODO resolver problema com button manager
-        jButton1.addActionListener(btMan);
-        jButton2.addActionListener(btMan);
-        jButton3.addActionListener(btMan);
+    }// </editor-fold>                        
+
+    private void btGerenciarEmprestimosActionPerformed(java.awt.event.ActionEvent evt) {
+        ctrl.realizaAcao(1);
+    }                                                      
+
+    private void btGerenciarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {   
+        ctrl.realizaAcao(2);
+    }                                                   
+
+    private void btGerenciarItensActionPerformed(java.awt.event.ActionEvent evt) {   
+        ctrl.realizaAcao(3);
     }
 }

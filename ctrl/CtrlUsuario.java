@@ -10,12 +10,12 @@ import utils.UserWrapper;
 public class CtrlUsuario {
 	private MapeadorAluno mapeadorAluno;
 	private MapeadorProfessor mapeadorProfessor;
-    private CtrlPrincipal ctrlPrincipal;
+    private CtrlPrincipal ctrl;
     private CtrlTurmaDisciplina ctrlTurmaDisciplina;
     private TelaUsuario tela;
 
-    public CtrlUsuario(CtrlPrincipal ctrlPrincipal) {
-        this.ctrlPrincipal = ctrlPrincipal;
+    public CtrlUsuario(CtrlPrincipal ctrl) {
+        this.ctrl = ctrl;
         this.tela = new TelaUsuario(this);
         mapeadorAluno = new MapeadorAluno();
         mapeadorProfessor = new MapeadorProfessor();
@@ -25,8 +25,39 @@ public class CtrlUsuario {
     	tela.setVisible(true);
     }
 
-	public void realizaAcao(String command) {
-		
+	public void realizaAcao(int command) {
+		switch(command){
+			//salvar emprestimo
+			case 11:
+		    	tela.setVisible(false);
+		    	ctrl.iniciar();
+				break;
+			//limpar emprestimo
+			case 12:
+		    	tela.setVisible(false);
+		    	ctrl.iniciar();
+				break;
+			//voltar emprestimo
+			case 13:
+		    	tela.setVisible(false);
+		    	ctrl.iniciar();
+				break;
+			//salvar devolucao
+			case 21:
+		    	tela.setVisible(false);
+		    	ctrl.iniciar();
+				break;
+			//limpar devolucao
+			case 22:
+		    	tela.setVisible(false);
+		    	ctrl.iniciar();
+				break;
+			//voltar devolucao
+			case 23:
+		    	tela.setVisible(false);
+		    	ctrl.iniciar();
+				break;
+		}
 	}
 	
 	public void registraProfessor(UserWrapper user){

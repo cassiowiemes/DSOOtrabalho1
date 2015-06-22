@@ -1,7 +1,4 @@
 package view;
-import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import utils.*;
 import ctrl.CtrlUsuario;
 import javax.swing.*;
@@ -10,13 +7,13 @@ import javax.swing.*;
 public class TelaUsuario extends JFrame {
 
     CtrlUsuario ctrl;
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    // Variables declaration - do not modify                     
+    private javax.swing.JButton btLimparAluno;
+    private javax.swing.JButton btLimparProfessor;
+    private javax.swing.JButton btSalvarAluno;
+    private javax.swing.JButton btSalvarProfessor;
+    private javax.swing.JButton btVoltarAluno;
+    private javax.swing.JButton btVoltarProfessor;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -46,20 +43,12 @@ public class TelaUsuario extends JFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration  
 
     public TelaUsuario(CtrlUsuario ctrl) {
         //sc = new Scanner(System.in);
     	this.ctrl = ctrl;
     	initComponents();
-    }
-	
-	private class ButtonManager implements ActionListener{
-
-        @Override
-        public void actionPerformed(ActionEvent ae) {
-            ctrl.realizaAcao(ae.getActionCommand());
-        }
     }
 
 	public void limparCampos() {
@@ -92,9 +81,9 @@ public class TelaUsuario extends JFrame {
         jTextField11 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jTextField12 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btSalvarProfessor = new javax.swing.JButton();
+        btLimparProfessor = new javax.swing.JButton();
+        btVoltarProfessor = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -108,9 +97,9 @@ public class TelaUsuario extends JFrame {
         jTextField5 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
         jTextField13 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btSalvarAluno = new javax.swing.JButton();
+        btLimparAluno = new javax.swing.JButton();
+        btVoltarAluno = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -142,11 +131,26 @@ public class TelaUsuario extends JFrame {
 
         jTextField12.setText("jTextField12");
 
-        jButton1.setText("Salvar");
+        btSalvarProfessor.setText("Salvar");
+        btSalvarProfessor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalvarProfessorActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Limpar");
+        btLimparProfessor.setText("Limpar");
+        btLimparProfessor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btLimparProfessorActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Voltar");
+        btVoltarProfessor.setText("Voltar");
+        btVoltarProfessor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVoltarProfessorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -174,11 +178,11 @@ public class TelaUsuario extends JFrame {
                             .addComponent(jTextField9)
                             .addComponent(jTextField10)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btSalvarProfessor)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)
+                        .addComponent(btLimparProfessor)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton3)
+                        .addComponent(btVoltarProfessor)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -213,11 +217,11 @@ public class TelaUsuario extends JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                    .addComponent(btSalvarProfessor)
+                    .addComponent(btLimparProfessor)
+                    .addComponent(btVoltarProfessor))
                 .addContainerGap())
         );
 
@@ -247,11 +251,26 @@ public class TelaUsuario extends JFrame {
 
         jTextField13.setText("jTextField13");
 
-        jButton4.setText("Salvar");
+        btSalvarAluno.setText("Salvar");
+        btSalvarAluno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSalvarAlunoActionPerformed(evt);
+            }
+        });
 
-        jButton5.setText("Limpar");
+        btLimparAluno.setText("Limpar");
+        btLimparAluno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btLimparAlunoActionPerformed(evt);
+            }
+        });
 
-        jButton6.setText("Voltar");
+        btVoltarAluno.setText("Voltar");
+        btVoltarAluno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVoltarAlunoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -277,11 +296,11 @@ public class TelaUsuario extends JFrame {
                             .addComponent(jTextField4)
                             .addComponent(jTextField5)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton4)
+                        .addComponent(btSalvarAluno)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton5)
+                        .addComponent(btLimparAluno)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton6)
+                        .addComponent(btVoltarAluno)
                         .addGap(0, 152, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -314,9 +333,9 @@ public class TelaUsuario extends JFrame {
                     .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6))
+                    .addComponent(btSalvarAluno)
+                    .addComponent(btLimparAluno)
+                    .addComponent(btVoltarAluno))
                 .addContainerGap())
         );
 
@@ -326,7 +345,7 @@ public class TelaUsuario extends JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(jTabbedPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -334,5 +353,29 @@ public class TelaUsuario extends JFrame {
         );
 
         pack();
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                        
+
+    private void btSalvarProfessorActionPerformed(java.awt.event.ActionEvent evt) {  
+    	ctrl.realizaAcao(11);
+    }                                                 
+
+    private void btSalvarAlunoActionPerformed(java.awt.event.ActionEvent evt) {  
+    	ctrl.realizaAcao(21);
+    }                                             
+
+    private void btLimparProfessorActionPerformed(java.awt.event.ActionEvent evt) { 
+    	ctrl.realizaAcao(12);
+    }                                                  
+
+    private void btLimparAlunoActionPerformed(java.awt.event.ActionEvent evt) {   
+    	ctrl.realizaAcao(22);
+    }                                                    
+
+    private void btVoltarProfessorActionPerformed(java.awt.event.ActionEvent evt) { 
+    	ctrl.realizaAcao(13);
+    }                                         
+
+    private void btVoltarAlunoActionPerformed(java.awt.event.ActionEvent evt) {
+    	ctrl.realizaAcao(23);
+    }
 }
