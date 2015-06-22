@@ -15,6 +15,7 @@ public class TelaPrincipal extends JFrame{
 	public TelaPrincipal(CtrlPrincipal ctrl){
 		initComponents();
 		this.ctrl = ctrl;
+		setLocationRelativeTo(null);
 	}
 	
 	private void initComponents() {

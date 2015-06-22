@@ -37,6 +37,8 @@ public class TelaEmprestimo extends JFrame {
 	public TelaEmprestimo(CtrlEmprestimo ctrl){
 		this.ctrl = ctrl;
 		initComponents();
+		setLocationRelativeTo(null);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 	}
 
 	public void mostraMulta(float multa) {

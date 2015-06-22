@@ -52,6 +52,8 @@ public class TelaItem extends JFrame {
 	{
 		this.ctrl = ctrl;
 		initComponents();
+		setLocationRelativeTo(null);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 	}
 	
 	private void initComponents() {
