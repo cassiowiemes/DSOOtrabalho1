@@ -10,8 +10,7 @@ import javax.swing.*;
 
 public class TelaUsuario extends JPanel {
 
-    //Scanner sc;
-	CtrlUsuario ctrl;
+    CtrlUsuario ctrl;
 	JLabel lbNome = new JLabel();
 	JTextField tbNome;
 	JLabel lbIdade = new JLabel();

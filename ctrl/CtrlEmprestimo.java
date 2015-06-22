@@ -26,7 +26,7 @@ public class CtrlEmprestimo {
     	Collection<Emprestimo> emprestimos = mapeador.getValues();
     	ArrayList<EmprestimoWrapper> atrasos = new ArrayList<>();
     	for(Emprestimo emprestimo : emprestimos){
-    		if(emprestimo.getDataPlanejadaDevolucao() < tela.getData()){
+    		if(emprestimo.getDataPlanejadaDevolucao() < tela.getDadosEmprestimo()){
     			//seria boa prática passar para o wrapper o objeto que ele representa?
     			//desse modo, ele setaria seus campos.
     			//aumenta a reutilização de código. aumenta acoplamento?
@@ -43,38 +43,60 @@ public class CtrlEmprestimo {
     	return atrasos;
     }
     
-    public void efetuaEmprestimo(Integer codigoUsuario, Integer codigoExemplar) throws Exception{
+    public void efetuaEmprestimo(Integer codigoUsuario, Integer codigoExemplar, Integer dtPlanDev) throws Exception{
     	Emprestimo emprestimo = new Emprestimo(ctrlPrincipal.getUsuario(codigoUsuario),
     			ctrlPrincipal.getExemplar(codigoExemplar));
     	if(!emprestimo.isUsuarioDisponivel());// throw UsuarioIndisponivelException;
     	if(!emprestimo.isExemplarDisponivel());// throw ExemplarIndisponivelException;
-    	emprestimo.efetuaEmprestimo(tela.getData());
+    	emprestimo.efetuaEmprestimo(dtPlanDev);
     	mapeador.put(emprestimo);
     }
     
     public void efetuaDevolucao(Integer codigoEmprestimo, int dataDevolucao) throws Exception {
     	Emprestimo emprestimo = mapeador.get(codigoEmprestimo);
     	if(emprestimo == null) {};// throw EmprestimoInexistenteException;
-    	if(emprestimo.getDataPlanejadaDevolucao() < tela.getData()){
-    		tela.mostraMulta(emprestimo.getMulta(tela.getData()));
+    	if(emprestimo.getDataPlanejadaDevolucao() < dataDevolucao){
+    		tela.mostraMulta(emprestimo.getMulta(dataDevolucao));
     	}
     	emprestimo.efetuaDevolucao(dataDevolucao);
     }
     
-    
+   
 	public void realizaAcao(String command) {
+		EmprestimoWrapper e;
 		switch(command){
 		case "Registrar novo emprestimo":
-			System.out.println("emprestimo registrado");
-	    	tela.setVisible(false);
+			e = tela.getDadosEmprestimo();
+			try
+			{
+				efetuaEmprestimo(e.codigoUsuario, e.codigoExemplar, e.dataPlanejadaDevolucao);
+			} catch (Exception e1)
+			{
+				// TODO
+				e1.printStackTrace();
+			}
+	    	//tela.setVisible(false);
 			break;
+			
 		case "Registrar devolução":
-	    	tela.setVisible(false);
-	    	System.out.println("devolucao registrada");
+	    	//tela.setVisible(false);
+			e = tela.getDadosDevolucao();
+			try
+			{
+				efetuaDevolucao(e.codigoExemplar, e.dataDevolucao);
+			} catch (Exception e1)
+			{
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			break;
 		case "Voltar":
 	    	tela.setVisible(false);
 	    	ctrlPrincipal.iniciar();
+			break;
+		case "Efetua emprestimo":
+			//tela.setVisible(false);
+			//ctrlPrincipal.iniciar();
 			break;
 		}
 	}

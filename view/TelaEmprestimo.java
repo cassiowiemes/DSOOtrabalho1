@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
+import utils.EmprestimoWrapper;
 import ctrl.CtrlEmprestimo;
 
 public class TelaEmprestimo extends JFrame {
@@ -18,6 +19,7 @@ public class TelaEmprestimo extends JFrame {
 	JButton btRegistraDevolucao;
 	JButton btVoltar;
 	CtrlEmprestimo ctrlEmprestimo;
+	ButtonManager btMan = new ButtonManager();
 	
 	public TelaEmprestimo(CtrlEmprestimo ctrlEmp){
 		this.ctrlEmprestimo = ctrlEmp;
@@ -29,7 +31,6 @@ public class TelaEmprestimo extends JFrame {
 		setSize(400, 350);
 
 //		//buttons
-		ButtonManager btMan = new ButtonManager();
 		btRegistraEmprestimo = new JButton();
 		btRegistraEmprestimo.setText("Registrar novo emprestimo");
 		btRegistraEmprestimo.addActionListener(btMan);
@@ -52,10 +53,62 @@ public class TelaEmprestimo extends JFrame {
 		
 	}
 
-	public int getData() {
-		// TODO Auto-generated method stub
-		return 0;
+	public EmprestimoWrapper getDadosEmprestimo() {
+		JLabel lbUsuario = new JLabel();
+		JTextField tbUsuario = new JTextField();
+		lbUsuario.setText("Código do usuário:");
+		tbUsuario.setText("entre com o codigo do usuario");
+		JLabel lbExemplar = new JLabel();
+		JTextField tbExemplar = new JTextField();
+		lbExemplar.setText("Código do exemplar:");
+		tbExemplar.setText("entre com o codigo do exemplar");
+		JLabel lbDataEmp = new JLabel();
+		JTextField tbDataEmp = new JTextField();
+		lbDataEmp.setText("Data prevista para devolucao:");
+		tbDataEmp.setText("data prevista devolucao");
+		JButton btEfetuaEmprestimo = new JButton();
+		btEfetuaEmprestimo.setText("Efetua emprestimo");
+		btEfetuaEmprestimo.addActionListener(btMan);
+		add(lbUsuario);
+		add(tbUsuario);
+		add(lbExemplar);
+		add(tbExemplar);
+		add(lbDataEmp);
+		add(tbDataEmp);
+		add(btEfetuaEmprestimo);
+		EmprestimoWrapper e = new EmprestimoWrapper();
+		e.codigoUsuario = Integer.parseInt(tbUsuario.getText());
+		e.codigoExemplar = Integer.parseInt(tbExemplar.getText());
+		e.dataPlanejadaDevolucao = Integer.parseInt(tbDataEmp.getText());
+		return e;
+		//como implementar o botao para que ele retorne o e?
 	}
+	
+	public EmprestimoWrapper getDadosDevolucao()
+	{
+		JLabel lbExemplar = new JLabel();
+		JTextField tbExemplar = new JTextField();
+		lbExemplar.setText("Código do exemplar:");
+		tbExemplar.setText("entre com o codigo do exemplar");
+		JLabel lbDataDev = new JLabel();
+		JTextField tbDataDev = new JTextField();
+		lbDataDev.setText("Data de devolucao:");
+		tbDataDev.setText("data de devolucao");
+		JButton btEfetuaDevolucao = new JButton();
+		btEfetuaDevolucao.setText("Efetua devolucao");
+		btEfetuaDevolucao.addActionListener(btMan);
+		add(lbExemplar);
+		add(tbExemplar);
+		add(lbDataDev);
+		add(tbDataDev);
+		add(btEfetuaDevolucao);
+		EmprestimoWrapper e = new EmprestimoWrapper();
+		e.codigoExemplar = Integer.parseInt(tbExemplar.getText());
+		e.dataPlanejadaDevolucao = Integer.parseInt(tbDataDev.getText());
+		return e;
+		//como implementar o botao para que ele retorne o e?
+	}
+	
 	
 	private class ButtonManager implements ActionListener{
 
@@ -64,6 +117,7 @@ public class TelaEmprestimo extends JFrame {
             ctrlEmprestimo.realizaAcao(ae.getActionCommand());
         }
     }
+
 
 //    Scanner sc;
 //    public TelaEmprestimo() {

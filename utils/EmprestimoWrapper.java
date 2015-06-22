@@ -7,4 +7,6 @@ public class EmprestimoWrapper{
 	public Integer id;
 	public String usuario;
 	public int exemplar;
+	public int codigoUsuario;
+	public int codigoExemplar;
 }
