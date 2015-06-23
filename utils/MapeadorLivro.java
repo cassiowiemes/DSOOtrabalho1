@@ -62,11 +62,6 @@ public class MapeadorLivro
             fin.close();
             oi = null;
             fin = null;
-            this.cacheLivros = (HashMap<Integer,Livro>) oi.readObject();
-            oi.close();
-            fin.close();
-            oi = null;
-            fin = null;;
         }catch(ClassNotFoundException ex){
             System.out.print("Não pode!");
         } catch(FileNotFoundException ex){

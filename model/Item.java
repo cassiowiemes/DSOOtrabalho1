@@ -6,7 +6,7 @@ public abstract class Item  implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String titulo;
-    private int id;
+    private Integer id;
     private String editora;
     private int ano;
     private FaixaEtaria faixaEtaria;

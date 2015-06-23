@@ -3,11 +3,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Scanner;
 import java.util.HashSet;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import utils.ItemWrapper;
 import ctrl.CtrlItem;
 import ctrl.CtrlUsuario;
 
@@ -21,10 +24,10 @@ public class TelaItem extends JFrame {
     private javax.swing.JButton btSalvarRevista;
     private javax.swing.JButton btVoltarLivro;
     private javax.swing.JButton btVoltarRevista;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JComboBox jComboBox3;
-    private javax.swing.JComboBox jComboBox4;
+    private javax.swing.JComboBox faixaLivro;
+    private javax.swing.JComboBox generoLivro;
+    private javax.swing.JComboBox faixaRevista;
+    private javax.swing.JComboBox periodRevista;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -40,12 +43,12 @@ public class TelaItem extends JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField tfTituloLivro;
+    private javax.swing.JTextField tfEditoraLivro;
+    private javax.swing.JTextField tfAnoLivro;
+    private javax.swing.JTextField tfTituloRevista;
+    private javax.swing.JTextField tfEditoraRevista;
+    private javax.swing.JTextField tfAnoRevista;
     // End of variables declaration
 	
 	public TelaItem(CtrlItem ctrl)
@@ -66,26 +69,26 @@ public class TelaItem extends JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox();
+        tfTituloLivro = new javax.swing.JTextField();
+        tfEditoraLivro = new javax.swing.JTextField();
+        tfAnoLivro = new javax.swing.JTextField();
+        faixaLivro = new javax.swing.JComboBox();
         jLabel11 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox();
+        periodRevista = new javax.swing.JComboBox();
         btSalvarLivro = new javax.swing.JButton();
         btLimparLivro = new javax.swing.JButton();
         btVoltarLivro = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        tfTituloRevista = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        tfEditoraRevista = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        tfAnoRevista = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox();
+        generoLivro = new javax.swing.JComboBox();
         jLabel12 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox();
+        faixaRevista = new javax.swing.JComboBox();
         btSalvarRevista = new javax.swing.JButton();
         btLimparRevista = new javax.swing.JButton();
         btVoltarRevista = new javax.swing.JButton();
@@ -104,17 +107,17 @@ public class TelaItem extends JFrame {
 
         jLabel6.setText("Faixa etária:");
 
-        jTextField1.setText("jTextField1");
+        tfTituloLivro.setText("jTextField1");
 
-        jTextField2.setText("jTextField2");
+        tfEditoraLivro.setText("jTextField2");
 
-        jTextField3.setText("jTextField3");
+        tfAnoLivro.setText("jTextField3");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        faixaLivro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "INFANTIL", "JUVENIL", "ADULTO" }));
 
         jLabel11.setText("Gênero:");
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        periodRevista.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "COMEDIA", "DRAMA", "POLICIAL", "FANTASIA", "HISTORIA", "DOCUMENTARIO" }));
 
         btSalvarLivro.setText("Salvar");
         btSalvarLivro.addActionListener(new java.awt.event.ActionListener() {
@@ -150,8 +153,8 @@ public class TelaItem extends JFrame {
                             .addComponent(jLabel1))
                         .addGap(76, 76, 76)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField1)))
+                            .addComponent(tfEditoraLivro)
+                            .addComponent(tfTituloLivro)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
@@ -159,9 +162,9 @@ public class TelaItem extends JFrame {
                             .addComponent(jLabel11))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox4, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField3)))
+                            .addComponent(periodRevista, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(faixaLivro, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tfAnoLivro)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btSalvarLivro)
                         .addGap(18, 18, 18)
@@ -177,23 +180,23 @@ public class TelaItem extends JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfTituloLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfEditoraLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfAnoLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(faixaLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
-                    .addComponent(jComboBox4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(periodRevista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSalvarLivro)
@@ -206,23 +209,23 @@ public class TelaItem extends JFrame {
 
         jLabel7.setText("Título:");
 
-        jTextField4.setText("jTextField1");
+        tfTituloRevista.setText("jTextField1");
 
         jLabel8.setText("Editora:");
 
-        jTextField5.setText("jTextField2");
+        tfEditoraRevista.setText("jTextField2");
 
         jLabel9.setText("Ano de lançamento:");
 
-        jTextField6.setText("jTextField3");
+        tfAnoRevista.setText("jTextField3");
 
         jLabel10.setText("Faixa etária:");
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        generoLivro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "INFANTIL", "JUVENIL", "ADULTO" }));
 
         jLabel12.setText("Periodicidade:");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        faixaRevista.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SEMANAL", "MENSAL", "BIMESTRAL", "TRIMESTRAL", "SEMESTRAL", "ANUAL" }));
 
         btSalvarRevista.setText("Salvar");
         btSalvarRevista.addActionListener(new java.awt.event.ActionListener() {
@@ -258,8 +261,8 @@ public class TelaItem extends JFrame {
                             .addComponent(jLabel7))
                         .addGap(76, 76, 76)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
-                            .addComponent(jTextField4)))
+                            .addComponent(tfEditoraRevista, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
+                            .addComponent(tfTituloRevista)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
@@ -267,9 +270,9 @@ public class TelaItem extends JFrame {
                             .addComponent(jLabel12))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField6)))
+                            .addComponent(faixaRevista, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(generoLivro, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tfAnoRevista)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(btSalvarRevista)
                         .addGap(18, 18, 18)
@@ -285,23 +288,23 @@ public class TelaItem extends JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfTituloRevista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfEditoraRevista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfAnoRevista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(generoLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(faixaRevista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSalvarRevista)
@@ -326,14 +329,40 @@ public class TelaItem extends JFrame {
         pack();
     }// </editor-fold>                        
     
+    public ItemWrapper getDadosLivro(){
+    	ItemWrapper item = new ItemWrapper();
+    	try{
+    		item.titulo = tfTituloLivro.getText();
+    		item.editora = tfEditoraLivro.getText();
+    		item.ano = Integer.parseInt(tfAnoLivro.getText());
+    		item.faixaEtaria = "INFANTIL"; //faixaLivro.getSelectedItem().toString();
+    		item.genero = generoLivro.getSelectedItem().toString();
+    	} catch (Exception e){
+    		
+    	}    	
+    	return item;
+    }
     
+    public ItemWrapper getDadosRevista(){
+		ItemWrapper item = new ItemWrapper();
+    	try{
+	    	item.titulo = tfTituloRevista.getText();
+	    	item.editora = tfEditoraRevista.getText();
+	    	item.ano = Integer.parseInt(tfAnoRevista.getText());
+	    	item.faixaEtaria = faixaRevista.getSelectedItem().toString();
+	    	item.periodicidade = periodRevista.getSelectedItem().toString();
+    	} catch (Exception e){
+    		
+    	}
+    	return item;
+    }
 
 	private void btSalvarLivroActionPerformed(java.awt.event.ActionEvent evt) { 
 		ctrl.realizaAcao(11);
 	}                                             
 
     private void btLimparLivroActionPerformed(java.awt.event.ActionEvent evt) {  
-    	ctrl.realizaAcao(12);
+    	// TODO limpar tela livro
     }
     
 	private void btVoltarLivroActionPerformed(java.awt.event.ActionEvent evt) {
@@ -345,10 +374,14 @@ public class TelaItem extends JFrame {
     }                                               
 
     private void btLimparRevistaActionPerformed(java.awt.event.ActionEvent evt) { 
-    	ctrl.realizaAcao(22);
+    	// TODO limpar tela revista
     }                                               
 
     private void btVoltarRevistaActionPerformed(java.awt.event.ActionEvent evt) { 
     	ctrl.realizaAcao(23);
     }
+
+	public void sucesso(Integer id) {
+		// TODO implementar feedback de criação bem sucedida
+	}
 }

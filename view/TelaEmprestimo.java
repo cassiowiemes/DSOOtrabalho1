@@ -43,7 +43,6 @@ public class TelaEmprestimo extends JFrame {
 
 	public void mostraMulta(float multa) {
 		// TODO Auto-generated method stub
-		
 	}
 
 	private void initComponents() {
@@ -334,7 +333,7 @@ public class TelaEmprestimo extends JFrame {
     }  
     
     private void btLimparEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {   
-    	ctrl.realizaAcao(12);
+    	// TODO limpar tela emprestimo
     }
     
     private void btVoltarEmprestimoActionPerformed(java.awt.event.ActionEvent evt) { 
@@ -346,7 +345,7 @@ public class TelaEmprestimo extends JFrame {
     } 
     
     private void btLimparDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {   
-    	ctrl.realizaAcao(22);
+    	// TODO limpar tela devolucao
     }  
     
     private void btVoltarDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {

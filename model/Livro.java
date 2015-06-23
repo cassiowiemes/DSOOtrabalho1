@@ -10,11 +10,11 @@ public class Livro extends Item  implements Serializable {
     private Genero genero;
 
     public Livro(String titulo, String editora, int ano,
-            FaixaEtaria faixaEtaria, HashSet<String> autores, int edicao,
+            FaixaEtaria faixaEtaria/*, HashSet<String> autores, int edicao*/,
             Genero genero) {
         super(titulo, editora, ano, faixaEtaria);
-        this.autores = autores;
-        this.setEdicao(edicao);
+        //this.autores = autores;
+        //this.setEdicao(edicao);
         this.setGenero(genero);
     }
 

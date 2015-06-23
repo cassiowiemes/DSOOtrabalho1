@@ -366,11 +366,11 @@ public class TelaUsuario extends JFrame {
     }                                             
 
     private void btLimparProfessorActionPerformed(java.awt.event.ActionEvent evt) { 
-    	ctrl.realizaAcao(12);
+    	// TODO limpar tela professor
     }                                                  
 
     private void btLimparAlunoActionPerformed(java.awt.event.ActionEvent evt) {   
-    	ctrl.realizaAcao(22);
+    	// TODO limpar tela aluno
     }                                                    
 
     private void btVoltarProfessorActionPerformed(java.awt.event.ActionEvent evt) { 

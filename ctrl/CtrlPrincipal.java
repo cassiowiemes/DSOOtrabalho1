@@ -31,15 +31,15 @@ public class CtrlPrincipal {
 		switch(command){
 		case 1:
 	    	tela.setVisible(false);
-			ctrlUsuario.iniciar();
+			ctrlEmprestimo.iniciar();
 			break;
 		case 2:
 	    	tela.setVisible(false);
-			ctrlItem.iniciar();
+			ctrlUsuario.iniciar();
 			break;
 		case 3:
 	    	tela.setVisible(false);
-			ctrlEmprestimo.iniciar();
+			ctrlItem.iniciar();
 			break;
 		}
 	}

@@ -26,25 +26,17 @@ public class CtrlItem {
 	
 	public void realizaAcao(int command){
 		switch(command){
-		//salvar livro
-		case 11:
+		case 11://salvar livro
+			registraLivro(tela.getDadosLivro());
 			break;
-		//limpar livro
-		case 12:
-			break;
-		//voltar livro
-		case 13:
+		case 13://voltar livro
 	    	tela.setVisible(false);
 	    	ctrl.iniciar();
 			break;
-		//salvar revista
-		case 21:
-			break;
-		//limpar revista
-		case 22:
-			break;
-		//voltar revista
-		case 23:
+		case 21://salvar revista
+			registraRevista(tela.getDadosRevista());
+			break;		
+		case 23://voltar revista
 	    	tela.setVisible(false);
 	    	ctrl.iniciar();
 			break;
@@ -57,24 +49,24 @@ public class CtrlItem {
 
 	public void registraRevista(ItemWrapper item) {
 		Revista revista = new Revista(item.titulo, item.editora, item.ano, 
-				FaixaEtaria.valueOf(item.faixaEtaria), item.edicao, 
-				Periodicidade.valueOf(item.periodicidade));
+				FaixaEtaria.valueOf(item.faixaEtaria), Periodicidade.valueOf(item.periodicidade));
 		mapeadorRevista.put(revista);
+		tela.sucesso(revista.getId());
 	}
 	
 	public void registraLivro(ItemWrapper item){
+		// TODO adicionar autores e edicao aqui e na interface
 		Livro livro = new Livro(item.titulo, item.editora, item.ano,
-				FaixaEtaria.valueOf(item.faixaEtaria), item.autores, item.edicao,
-				Genero.valueOf(item.genero));
+				FaixaEtaria.valueOf(item.faixaEtaria), Genero.valueOf(item.genero));
 		mapeadorLivro.put(livro);
 	}
 
 	public Exemplar getExemplar(int codigo) {
-		// TODO
+		// TODO implementar busca de exemplar
 		return null;
 	}
 	
 	public void addExemplar(Integer idItem) {
-		// TODO
+		// TODO implementar adicao de exemplar ao item
 	}
 }

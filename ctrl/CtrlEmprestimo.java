@@ -12,6 +12,7 @@ public class CtrlEmprestimo {
     private CtrlPrincipal ctrl;
     private MapeadorEmprestimo mapeador;
     private TelaEmprestimo tela;
+    private final int DATA_ATUAL = 27;
 
     public CtrlEmprestimo(CtrlPrincipal ctrl) {
         this.ctrl = ctrl;
@@ -27,10 +28,7 @@ public class CtrlEmprestimo {
     	Collection<Emprestimo> emprestimos = mapeador.getValues();
     	ArrayList<EmprestimoWrapper> atrasos = new ArrayList<>();
     	for(Emprestimo emprestimo : emprestimos){
-    		if(/*emprestimo.getDataPlanejadaDevolucao() < tela.getDadosEmprestimo()*/ true){
-    			//seria boa prática passar para o wrapper o objeto que ele representa?
-    			//desse modo, ele setaria seus campos.
-    			//aumenta a reutilização de código. aumenta acoplamento?
+    		if(emprestimo.getDataPlanejadaDevolucao() < DATA_ATUAL){
     			EmprestimoWrapper pacote = new EmprestimoWrapper();
     			pacote.dataEmprestimo = emprestimo.getDataEmprestimo();
     			pacote.dataDevolucao = emprestimo.getDataDevolucao();
@@ -65,30 +63,22 @@ public class CtrlEmprestimo {
 	public void realizaAcao(int command) {
 		EmprestimoWrapper e;
 		switch(command){
-		//salvar emprestimo
-		case 11:
+		case 11://salvar emprestimo
+			// TODO
 			break;
-		//limpar emprestimo
-		case 12:
-			break;
-		//voltar emprestimo
-		case 13:
+		case 13://voltar emprestimo
 	    	tela.setVisible(false);
 	    	ctrl.iniciar();
 			break;
-		//salvar devolucao
-		case 21:
+		case 21://salvar devolucao
+			// TODO
 			break;
-		//limpar devolucao
-		case 22:
-			break;
-		//voltar devolucao
-		case 23:
+		case 23://voltar devolucao
 	    	tela.setVisible(false);
 	    	ctrl.iniciar();
 			break;
-		//gerar relatorio
-		case 31:
+		case 31://gerar relatorio
+			// TODO
 			break;
 		}
 	}

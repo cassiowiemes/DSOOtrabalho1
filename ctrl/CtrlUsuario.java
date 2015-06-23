@@ -27,25 +27,17 @@ public class CtrlUsuario {
 
 	public void realizaAcao(int command) {
 		switch(command){
-			//salvar emprestimo
-			case 11:
+			case 11://salvar emprestimo
+				// TODO
 				break;
-			//limpar emprestimo
-			case 12:
-				break;
-			//voltar emprestimo
-			case 13:
+			case 13://voltar emprestimo
 		    	tela.setVisible(false);
 		    	ctrl.iniciar();
 				break;
-			//salvar devolucao
-			case 21:
+			case 21://salvar devolucao
+				// TODO
 				break;
-			//limpar devolucao
-			case 22:
-				break;
-			//voltar devolucao
-			case 23:
+			case 23://voltar devolucao
 		    	tela.setVisible(false);
 		    	ctrl.iniciar();
 				break;
