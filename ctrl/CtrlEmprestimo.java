@@ -3,21 +3,21 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import utils.EmprestimoWrapper;
-import utils.MapeadorEmprestimo;
+import utils.Mapeador;
 import model.Emprestimo;
 import view.TelaEmprestimo;
 
 public class CtrlEmprestimo {
 
     private CtrlPrincipal ctrl;
-    private MapeadorEmprestimo mapeador;
+    private Mapeador<Emprestimo> mapeador;
     private TelaEmprestimo tela;
     private final int DATA_ATUAL = 27;
 
     public CtrlEmprestimo(CtrlPrincipal ctrl) {
         this.ctrl = ctrl;
         this.tela = new TelaEmprestimo(this);
-        mapeador = new MapeadorEmprestimo();
+        mapeador = new Mapeador<>("emprestimos.txt");
     }
 
     public void iniciar() {

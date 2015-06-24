@@ -3,13 +3,12 @@ import model.Aluno;
 import model.Professor;
 import model.Usuario;
 import view.TelaUsuario;
-import utils.MapeadorAluno;
-import utils.MapeadorProfessor;
+import utils.Mapeador;
 import utils.UserWrapper;
 
 public class CtrlUsuario {
-	private MapeadorAluno mapeadorAluno;
-	private MapeadorProfessor mapeadorProfessor;
+	private Mapeador<Aluno> mapeadorAluno;
+	private Mapeador<Professor> mapeadorProfessor;
     private CtrlPrincipal ctrl;
     private CtrlTurmaDisciplina ctrlTurmaDisciplina;
     private TelaUsuario tela;
@@ -18,8 +17,8 @@ public class CtrlUsuario {
         this.ctrl = ctrl;
         this.tela = new TelaUsuario(this);
         this.ctrlTurmaDisciplina = new CtrlTurmaDisciplina();
-        mapeadorAluno = new MapeadorAluno();
-        mapeadorProfessor = new MapeadorProfessor();
+        mapeadorAluno = new Mapeador<>("alunos.txt");
+        mapeadorProfessor = new Mapeador<>("professores.txt");
     }
 
     public void iniciar() {
@@ -45,6 +44,7 @@ public class CtrlUsuario {
 		Professor professor = new Professor(user.nome, user.idade, user.endereco, user.pai, user.mae);
 		ctrlTurmaDisciplina.addProfessor(professor, user.disciplina);
 		ctrlTurmaDisciplina.setProfessor(professor, user.turma);
+		professor.setId(mapeadorProfessor.getId());
 		mapeadorProfessor.put(professor);
 		tela.sucessoCriar(professor.getId());
 	}
@@ -52,6 +52,7 @@ public class CtrlUsuario {
 	public void registraAluno(UserWrapper user){
 		Aluno aluno = new Aluno(user.nome, user.idade, user.endereco, user.pai, user.mae);
 		ctrlTurmaDisciplina.addAluno(aluno, user.turma);
+		aluno.setId(mapeadorAluno.getId());
 		mapeadorAluno.put(aluno);
 		tela.sucessoCriar(aluno.getId());
 	}

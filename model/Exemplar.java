@@ -35,10 +35,4 @@ public class Exemplar implements IExemplar {
     public void setDisponivel(boolean estado) {
         disponivel = estado;
     }
-
-    @Override
-    public int getCodigo() {
-        return 0;
-    }
-
 }

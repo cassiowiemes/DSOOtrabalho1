@@ -39,7 +39,7 @@ public class Emprestimo  implements Serializable {
     }
 
     public int getCodigoExemplar() {
-        return exemplar.getCodigo();
+        return exemplar.getCodigoExemplar();
     }
 
     public int getCodigoItem() {

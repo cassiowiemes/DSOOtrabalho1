@@ -14,7 +14,7 @@ public abstract class Item  implements Serializable {
 
     public Exemplar getExemplar(Integer codigo) {
         for (Exemplar exemplar : exemplares) {
-        	if(exemplar.getCodigo() == codigo){
+        	if(exemplar.getCodigoExemplar() == codigo){
         		return exemplar;
         	}
         }

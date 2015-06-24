@@ -2,26 +2,25 @@ package ctrl;
 import model.Exemplar;
 import utils.ItemWrapper;
 import model.Item.*;
-import utils.MapeadorLivro;
 import model.Livro;
 import model.Livro.*;
-import utils.MapeadorRevista;
 import model.Revista;
 import model.Revista.*;
 import view.TelaItem;
+import utils.Mapeador;
 
 public class CtrlItem {
 
-	private MapeadorLivro mapeadorLivro;
-	private MapeadorRevista mapeadorRevista;
+	private Mapeador<Livro> mapeadorLivro;
+	private Mapeador<Revista> mapeadorRevista;
 	private CtrlPrincipal ctrl;
 	private TelaItem tela;
 
 	public CtrlItem(CtrlPrincipal ctrl) {
 		this.ctrl = ctrl;
 		this.tela = new TelaItem(this);
-		mapeadorLivro = new MapeadorLivro();
-		mapeadorRevista = new MapeadorRevista();
+		mapeadorLivro = new Mapeador<>("livros.txt");
+		mapeadorRevista = new Mapeador<>("revistas.txt");
 	}
 	
 	public void realizaAcao(String command){

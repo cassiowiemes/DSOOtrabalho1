@@ -1,18 +1,17 @@
 package ctrl;
-import utils.MapeadorDisciplina;
-import utils.MapeadorTurma;
+import utils.Mapeador;
 import model.Aluno;
 import model.Professor;
 import model.Turma;
 import model.Disciplina;
 
 public class CtrlTurmaDisciplina {
-	private MapeadorTurma mapeadorTurma;
-	private MapeadorDisciplina mapeadorDisciplina;
+	private Mapeador<Turma> mapeadorTurma;
+	private Mapeador<Disciplina> mapeadorDisciplina;
 	
 	public CtrlTurmaDisciplina (){
-		mapeadorDisciplina = new MapeadorDisciplina();
-		mapeadorTurma = new MapeadorTurma();
+		mapeadorDisciplina = new Mapeador<>("disciplinas.txt");
+		mapeadorTurma = new Mapeador<>("turmas.txt");
 	}
 	public void setProfessor(Professor professor, Integer codigoTurma){
 		Turma turma = mapeadorTurma.get(codigoTurma);
