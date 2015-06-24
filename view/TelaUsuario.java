@@ -105,15 +105,15 @@ public class TelaUsuario extends JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextField6.setText("jTextField1");
+        jTextField6.setText("");
 
-        jTextField7.setText("jTextField2");
+        jTextField7.setText("");
 
-        jTextField8.setText("jTextField3");
+        jTextField8.setText("");
 
-        jTextField9.setText("jTextField4");
+        jTextField9.setText("");
 
-        jTextField10.setText("jTextField5");
+        jTextField10.setText("");
 
         jLabel6.setText("Nome:");
 
@@ -127,11 +127,11 @@ public class TelaUsuario extends JFrame {
 
         jLabel11.setText("Disciplina:");
 
-        jTextField11.setText("jTextField11");
+        jTextField11.setText("");
 
         jLabel12.setText("Turma:");
 
-        jTextField12.setText("jTextField12");
+        jTextField12.setText("");
 
         btSalvarProfessor.setText("Salvar");
         btSalvarProfessor.addActionListener(new java.awt.event.ActionListener() {
@@ -239,19 +239,19 @@ public class TelaUsuario extends JFrame {
 
         jLabel5.setText("Nome da Mãe:");
 
-        jTextField1.setText("jTextField1");
+        jTextField1.setText("");
 
-        jTextField2.setText("jTextField2");
+        jTextField2.setText("");
 
-        jTextField3.setText("jTextField3");
+        jTextField3.setText("");
 
-        jTextField4.setText("jTextField4");
+        jTextField4.setText("");
 
-        jTextField5.setText("jTextField5");
+        jTextField5.setText("");
 
         jLabel13.setText("Turma:");
 
-        jTextField13.setText("jTextField13");
+        jTextField13.setText("");
 
         btSalvarAluno.setText("Salvar");
         btSalvarAluno.addActionListener(new java.awt.event.ActionListener() {

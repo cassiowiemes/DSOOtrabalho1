@@ -93,15 +93,15 @@ public class TelaEmprestimo extends JFrame {
             }
         });
 
-        jTextField1.setText("jTextField1");
+        jTextField1.setText("");
 
         jLabel2.setText("Codigo do Exemplar:");
 
-        jTextField2.setText("jTextField2");
+        jTextField2.setText("");
 
         jLabel3.setText("Data do Empréstimo:");
 
-        jTextField3.setText("jTextField3");
+        jTextField3.setText("");
 
         btSalvarEmprestimo.setText("Salvar");
         btSalvarEmprestimo.addActionListener(new java.awt.event.ActionListener() {

@@ -107,11 +107,11 @@ public class TelaItem extends JFrame {
 
         jLabel6.setText("Faixa etária:");
 
-        tfTituloLivro.setText("jTextField1");
+        tfTituloLivro.setText("");
 
-        tfEditoraLivro.setText("jTextField2");
+        tfEditoraLivro.setText("");
 
-        tfAnoLivro.setText("jTextField3");
+        tfAnoLivro.setText("");
 
         faixaLivro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "INFANTIL", "JUVENIL", "ADULTO" }));
 
@@ -209,15 +209,15 @@ public class TelaItem extends JFrame {
 
         jLabel7.setText("Título:");
 
-        tfTituloRevista.setText("jTextField1");
+        tfTituloRevista.setText("");
 
         jLabel8.setText("Editora:");
 
-        tfEditoraRevista.setText("jTextField2");
+        tfEditoraRevista.setText("");
 
         jLabel9.setText("Ano de lançamento:");
 
-        tfAnoRevista.setText("jTextField3");
+        tfAnoRevista.setText("");
 
         jLabel10.setText("Faixa etária:");
 
