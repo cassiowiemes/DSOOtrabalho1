@@ -9,7 +9,7 @@ import java.util.Collection;
 import java.util.HashMap;
 
 public class Mapeador<T>{
-	private static Integer ultimaId = 0;
+	private static Integer ultimaId = 0; // TODO implementar busca de última ID atual
 	private final String filename;
 	private HashMap<Integer, T> cache;
 	

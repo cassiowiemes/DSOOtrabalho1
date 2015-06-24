@@ -65,8 +65,8 @@ public class TelaUsuario extends JFrame {
 		}catch(NumberFormatException e){
 			JOptionPane.showMessageDialog(null, "Valor inválido, favor conferir...");
 		}catch(Exception e){
-			JOptionPane.showMessageDialog(null, e);
-		} //TODO criar e tratar exceção no caso de usuário com mesmo código não existir
+			JOptionPane.showMessageDialog(null, e + " lançada em TelaUsuario:68");
+		}
 		return user;
 	}
 
@@ -87,8 +87,8 @@ public class TelaUsuario extends JFrame {
 		}catch(NumberFormatException e){
 			JOptionPane.showMessageDialog(null, "Valor inválido, favor conferir...");
 		}catch(Exception e){
-			JOptionPane.showMessageDialog(null, e);
-		} //TODO criar e tratar exceção no caso de usuário com mesmo código não existir
+			JOptionPane.showMessageDialog(null, e + " lançada em TelaUsuario:90");
+		}
 		return user;
 	}
 	

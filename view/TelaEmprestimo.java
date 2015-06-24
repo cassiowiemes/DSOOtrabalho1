@@ -61,7 +61,7 @@ public class TelaEmprestimo extends JFrame {
 			JOptionPane.showMessageDialog(null, "Valor inválido, favor conferir...");
 		}catch(Exception e){
 			JOptionPane.showMessageDialog(null, e);
-		} //TODO criar e tratar exceção no caso de usuário com mesmo código já existir
+		}
 		return emprestimo;
 	}
 	
@@ -74,7 +74,7 @@ public class TelaEmprestimo extends JFrame {
 			JOptionPane.showMessageDialog(null, "Valor inválido, favor conferir...");
 		}catch(Exception e){
 			JOptionPane.showMessageDialog(null, e);
-		} //TODO criar e tratar exceção no caso de usuário com mesmo código já existir
+		}
 		return emprestimo;
 	}
 

@@ -71,12 +71,10 @@ public class CtrlEmprestimo {
 		EmprestimoWrapper emprestimo = new EmprestimoWrapper();
 		switch(command){
 		case "Salvar Emprestimo":
-			// TODO tratar possíveis exceções
 			efetuaEmprestimo(emprestimo.codigoUsuario, emprestimo.codigoExemplar,
 					emprestimo.dataEmprestimo);
 			break;
 		case "Salvar Devolucao":
-			// TODO tratar possíveis exceções
 			efetuaDevolucao(emprestimo.id, emprestimo.dataDevolucao);
 			break;
 		case "Voltar":
