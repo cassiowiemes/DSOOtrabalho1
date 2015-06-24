@@ -4,7 +4,6 @@ import java.util.Collection;
 
 import utils.EmprestimoWrapper;
 import utils.MapeadorEmprestimo;
-import utils.ValorNuloException;
 import model.Emprestimo;
 import view.TelaEmprestimo;
 
