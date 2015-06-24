@@ -17,6 +17,7 @@ public class CtrlUsuario {
     public CtrlUsuario(CtrlPrincipal ctrl) {
         this.ctrl = ctrl;
         this.tela = new TelaUsuario(this);
+        this.ctrlTurmaDisciplina = new CtrlTurmaDisciplina();
         mapeadorAluno = new MapeadorAluno();
         mapeadorProfessor = new MapeadorProfessor();
     }
@@ -28,10 +29,10 @@ public class CtrlUsuario {
 	public void realizaAcao(String command) {
 		switch(command){
 			case "Salvar Professor":
-				// TODO implementar salvar professor
+				registraProfessor(tela.getDadosProfessor());
 				break;
 			case "Salvar Aluno":
-				// TODO implementar salvar aluno
+				registraAluno(tela.getDadosAluno());
 				break;
 			case "Voltar":
 		    	tela.setVisible(false);
@@ -45,12 +46,14 @@ public class CtrlUsuario {
 		ctrlTurmaDisciplina.addProfessor(professor, user.disciplina);
 		ctrlTurmaDisciplina.setProfessor(professor, user.turma);
 		mapeadorProfessor.put(professor);
+		tela.sucessoCriar(professor.getId());
 	}
 	
 	public void registraAluno(UserWrapper user){
 		Aluno aluno = new Aluno(user.nome, user.idade, user.endereco, user.pai, user.mae);
 		ctrlTurmaDisciplina.addAluno(aluno, user.turma);
 		mapeadorAluno.put(aluno);
+		tela.sucessoCriar(aluno.getId());
 	}
     
     public Usuario getUsuario(Integer id){

@@ -7,6 +7,7 @@ import java.util.HashSet;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -25,9 +26,9 @@ public class TelaItem extends JFrame {
     private javax.swing.JButton btVoltarLivro;
     private javax.swing.JButton btVoltarRevista;
     private javax.swing.JComboBox<String> faixaLivro;
-    private javax.swing.JComboBox<String> generoLivro;
     private javax.swing.JComboBox<String> faixaRevista;
     private javax.swing.JComboBox<String> periodRevista;
+    private javax.swing.JComboBox<String> generoLivro;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -74,7 +75,7 @@ public class TelaItem extends JFrame {
         tfAnoLivro = new javax.swing.JTextField();
         faixaLivro = new javax.swing.JComboBox<String>();
         jLabel11 = new javax.swing.JLabel();
-        periodRevista = new javax.swing.JComboBox<String>();
+        generoLivro = new javax.swing.JComboBox<String>();
         btSalvarLivro = new javax.swing.JButton();
         btLimparLivro = new javax.swing.JButton();
         btVoltarLivro = new javax.swing.JButton();
@@ -86,9 +87,9 @@ public class TelaItem extends JFrame {
         jLabel9 = new javax.swing.JLabel();
         tfAnoRevista = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        generoLivro = new javax.swing.JComboBox<String>();
-        jLabel12 = new javax.swing.JLabel();
         faixaRevista = new javax.swing.JComboBox<String>();
+        jLabel12 = new javax.swing.JLabel();
+        periodRevista = new javax.swing.JComboBox<String>();
         btSalvarRevista = new javax.swing.JButton();
         btLimparRevista = new javax.swing.JButton();
         btVoltarRevista = new javax.swing.JButton();
@@ -117,7 +118,7 @@ public class TelaItem extends JFrame {
 
         jLabel11.setText("Gênero:");
 
-        periodRevista.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "COMEDIA", "DRAMA", "POLICIAL", "FANTASIA", "HISTORIA", "DOCUMENTARIO" }));
+        generoLivro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "COMEDIA", "DRAMA", "POLICIAL", "FANTASIA", "HISTORIA", "DOCUMENTARIO" }));
 
         btSalvarLivro.setText("Salvar");
         btSalvarLivro.addActionListener(new java.awt.event.ActionListener() {
@@ -162,7 +163,7 @@ public class TelaItem extends JFrame {
                             .addComponent(jLabel11))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(periodRevista, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(generoLivro, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(faixaLivro, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(tfAnoLivro)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -196,7 +197,7 @@ public class TelaItem extends JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
-                    .addComponent(periodRevista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(generoLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSalvarLivro)
@@ -221,11 +222,11 @@ public class TelaItem extends JFrame {
 
         jLabel10.setText("Faixa etária:");
 
-        generoLivro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "INFANTIL", "JUVENIL", "ADULTO" }));
+        faixaRevista.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "INFANTIL", "JUVENIL", "ADULTO" }));
 
         jLabel12.setText("Periodicidade:");
 
-        faixaRevista.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SEMANAL", "MENSAL", "BIMESTRAL", "TRIMESTRAL", "SEMESTRAL", "ANUAL" }));
+        periodRevista.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SEMANAL", "MENSAL", "BIMESTRAL", "TRIMESTRAL", "SEMESTRAL", "ANUAL" }));
 
         btSalvarRevista.setText("Salvar");
         btSalvarRevista.addActionListener(new java.awt.event.ActionListener() {
@@ -270,8 +271,8 @@ public class TelaItem extends JFrame {
                             .addComponent(jLabel12))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(periodRevista, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(faixaRevista, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(generoLivro, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(tfAnoRevista)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(btSalvarRevista)
@@ -300,11 +301,11 @@ public class TelaItem extends JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(generoLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(faixaRevista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(faixaRevista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(periodRevista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSalvarRevista)
@@ -335,7 +336,7 @@ public class TelaItem extends JFrame {
     		item.titulo = tfTituloLivro.getText();
     		item.editora = tfEditoraLivro.getText();
     		item.ano = Integer.parseInt(tfAnoLivro.getText());
-    		item.faixaEtaria = "INFANTIL"; //faixaLivro.getSelectedItem().toString();
+    		item.faixaEtaria = faixaLivro.getSelectedItem().toString();
     		item.genero = generoLivro.getSelectedItem().toString();
     	} catch (Exception e){
     		
@@ -386,6 +387,6 @@ public class TelaItem extends JFrame {
     }
 
 	public void sucesso(Integer id) {
-		// TODO implementar feedback de criação bem sucedida
+		JOptionPane.showMessageDialog(null, "Registro bem sucedido, código: " + id, "Criar usuário", 1);
 	}
 }

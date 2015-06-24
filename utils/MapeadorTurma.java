@@ -43,9 +43,9 @@ public class MapeadorTurma {
             oo = null;
             fout = null;
         } catch(FileNotFoundException ex){
-            System.out.print("Jagaranga!");
+            System.out.println(ex);
         } catch(IOException ex){
-            System.out.print("Jabuticaba!");
+            System.out.println(ex);
         }
     }
     public void load(){
@@ -58,12 +58,11 @@ public class MapeadorTurma {
             oi = null;
             fin = null;;
         }catch(ClassNotFoundException ex){
-            System.out.print("Não pode!");
+            System.out.println(ex);
         } catch(FileNotFoundException ex){
-            System.out.print("Ser a mesma!");
+            System.out.println(ex);
         } catch(IOException ex){
-            System.out.print("PALAVRA!");
+            System.out.println(ex);
         }
     }
-	
 }

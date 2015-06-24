@@ -53,18 +53,80 @@ public class TelaUsuario extends JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
     }
 
-	public void limparCampos() {
-		
+	public UserWrapper getDadosAluno() {
+		UserWrapper user = new UserWrapper();
+		try{
+			user.nome = tfNomeAluno.getText();
+			user.idade = Integer.parseInt(tfIdadeAluno.getText());
+			user.endereco = tfEnderecoAluno.getText();
+			user.pai = tfPaiAluno.getText();
+			user.mae = tfMaeAluno.getText();
+			user.turma = Integer.parseInt(tfTurmaAluno.getText());
+		}catch(NumberFormatException e){
+			JOptionPane.showMessageDialog(null, "Valor inválido, favor conferir...");
+		}catch(Exception e){
+			JOptionPane.showMessageDialog(null, e);
+		} //TODO criar e tratar exceção no caso de usuário com mesmo código já existir
+		return user;
 	}
 
-	public UserWrapper GetDados() {
-		return null;
+	public void sucessoCriar(Integer id) {
+		JOptionPane.showMessageDialog(null, "Criação efetuada com sucesso, código:" + id);
 	}
 
-	public void sucessoCriar() {
-		JOptionPane.showMessageDialog(null, "Criação efetuada com sucesso", "Criar usuário", 1);
+	public UserWrapper getDadosProfessor() {
+		UserWrapper user = new UserWrapper();
+		try{
+			user.nome = tfNomeProfessor.getText();
+			user.idade = Integer.parseInt(tfIdadeProfessor.getText());
+			user.endereco = tfEnderecoProfessor.getText();
+			user.pai = tfPaiProfessor.getText();
+			user.mae = tfMaeProfessor.getText();
+			user.disciplina = Integer.parseInt(tfDisciplinaProfessor.getText());
+			user.turma = Integer.parseInt(tfTurmaProfessor.getText());
+		}catch(NumberFormatException e){
+			JOptionPane.showMessageDialog(null, "Valor inválido, favor conferir...");
+		}catch(Exception e){
+			JOptionPane.showMessageDialog(null, e);
+		} //TODO criar e tratar exceção no caso de usuário com mesmo código já existir
+		return user;
 	}
+	
+    private void btSalvarProfessorActionPerformed(java.awt.event.ActionEvent evt) {  
+    	ctrl.realizaAcao("Salvar Professor");
+    }                                                 
 
+    private void btSalvarAlunoActionPerformed(java.awt.event.ActionEvent evt) {  
+    	ctrl.realizaAcao("Salvar Aluno");
+    }                                             
+
+    private void btLimparProfessorActionPerformed(java.awt.event.ActionEvent evt) { 
+    	tfNomeProfessor.setText(null);
+    	tfIdadeProfessor.setText(null);
+    	tfEnderecoProfessor.setText(null);
+    	tfDisciplinaProfessor.setText(null);
+    	tfMaeProfessor.setText(null);
+    	tfPaiProfessor.setText(null);
+    	tfTurmaProfessor.setText(null);
+    }                                                  
+
+    private void btLimparAlunoActionPerformed(java.awt.event.ActionEvent evt) {   
+    	tfNomeAluno.setText(null);
+    	tfIdadeAluno.setText(null);
+    	tfEnderecoAluno.setText(null);
+    	tfMaeAluno.setText(null);
+    	tfPaiAluno.setText(null);
+    	tfTurmaAluno.setText(null);    	
+    }                                                    
+
+    private void btVoltarProfessorActionPerformed(java.awt.event.ActionEvent evt) { 
+    	ctrl.realizaAcao("Voltar");
+    }                                         
+
+    private void btVoltarAlunoActionPerformed(java.awt.event.ActionEvent evt) {
+    	ctrl.realizaAcao("Voltar");
+    }
+	
 	private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
@@ -357,38 +419,4 @@ public class TelaUsuario extends JFrame {
         pack();
     }// </editor-fold>                        
 
-    private void btSalvarProfessorActionPerformed(java.awt.event.ActionEvent evt) {  
-    	ctrl.realizaAcao("Salvar Professor");
-    }                                                 
-
-    private void btSalvarAlunoActionPerformed(java.awt.event.ActionEvent evt) {  
-    	ctrl.realizaAcao("Salvar Aluno");
-    }                                             
-
-    private void btLimparProfessorActionPerformed(java.awt.event.ActionEvent evt) { 
-    	tfNomeProfessor.setText(null);
-    	tfIdadeProfessor.setText(null);
-    	tfEnderecoProfessor.setText(null);
-    	tfDisciplinaProfessor.setText(null);
-    	tfMaeProfessor.setText(null);
-    	tfPaiProfessor.setText(null);
-    	tfTurmaProfessor.setText(null);
-    }                                                  
-
-    private void btLimparAlunoActionPerformed(java.awt.event.ActionEvent evt) {   
-    	tfNomeAluno.setText(null);
-    	tfIdadeAluno.setText(null);
-    	tfEnderecoAluno.setText(null);
-    	tfMaeAluno.setText(null);
-    	tfPaiAluno.setText(null);
-    	tfTurmaAluno.setText(null);    	
-    }                                                    
-
-    private void btVoltarProfessorActionPerformed(java.awt.event.ActionEvent evt) { 
-    	ctrl.realizaAcao("Voltar");
-    }                                         
-
-    private void btVoltarAlunoActionPerformed(java.awt.event.ActionEvent evt) {
-    	ctrl.realizaAcao("Voltar");
-    }
 }

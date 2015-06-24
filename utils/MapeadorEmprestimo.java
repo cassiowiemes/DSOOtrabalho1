@@ -20,7 +20,7 @@ public class MapeadorEmprestimo {
 		load();
 	}
 	
-	public Emprestimo get(Integer id){
+	public Emprestimo get(Integer id) {
 		return cache.get(id);
 	}
 	
@@ -43,9 +43,9 @@ public class MapeadorEmprestimo {
             oo = null;
             fout = null;
         } catch(FileNotFoundException ex){
-            System.out.print("File not Found!");
+            System.out.println(ex);
         } catch(IOException ex){
-            System.out.print("IO Exception!");
+            System.out.println(ex);
         }
 	}
 	
@@ -59,11 +59,11 @@ public class MapeadorEmprestimo {
             oi = null;
             fin = null;;
         }catch(ClassNotFoundException ex){
-            System.out.print("Não pode!");
+            System.out.println(ex);
         } catch(FileNotFoundException ex){
-            System.out.print("Ser a mesma!");
+            System.out.println(ex);
         } catch(IOException ex){
-            System.out.print("PALAVRA!");
+            System.out.println(ex);
         }
     }
 

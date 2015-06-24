@@ -55,6 +55,7 @@ public class CtrlItem {
 		Livro livro = new Livro(item.titulo, item.editora, item.ano,
 				FaixaEtaria.valueOf(item.faixaEtaria), Genero.valueOf(item.genero));
 		mapeadorLivro.put(livro);
+		tela.sucesso(livro.getId());
 	}
 
 	public Exemplar getExemplar(int codigo) {
@@ -64,5 +65,6 @@ public class CtrlItem {
 	
 	public void addExemplar(Integer idItem) {
 		// TODO implementar adicao de exemplar ao item
+		
 	}
 }

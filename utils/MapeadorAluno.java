@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
+
 import model.Aluno;
 
 
@@ -44,9 +45,9 @@ public class MapeadorAluno
             oo = null;
             fout = null;
         } catch(FileNotFoundException ex){
-            System.out.print("Jagaranga!");
+            System.out.println(ex);
         } catch(IOException ex){
-            System.out.print("Jabuticaba!");
+            System.out.println(ex);
         }
     }
     
@@ -60,11 +61,11 @@ public class MapeadorAluno
             oi = null;
             fin = null;;
         }catch(ClassNotFoundException ex){
-            System.out.print("Não pode!");
+            System.out.println(ex);
         } catch(FileNotFoundException ex){
-            System.out.print("Ser a mesma!");
+            System.out.println(ex);
         } catch(IOException ex){
-            System.out.print("PALAVRA!");
+            System.out.println(ex);
         }
     }
 

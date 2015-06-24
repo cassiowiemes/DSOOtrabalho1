@@ -82,4 +82,12 @@ public class Emprestimo  implements Serializable {
 	public Integer getId(){
 		return this.id;
 	}
+	
+	public IUsuario getUsuario(){
+		return this.usuario;
+	}
+	
+	public IExemplar getExemplar(){
+		return this.exemplar;
+	}
 }

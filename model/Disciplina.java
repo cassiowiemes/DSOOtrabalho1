@@ -10,6 +10,10 @@ public class Disciplina  implements Serializable {
 	private String nome;
 	private HashSet<Professor> professores;
 	
+	public Disciplina(){
+		professores = new HashSet<>();
+	}
+	
 	public Integer getId() {
 		return id;
 	}

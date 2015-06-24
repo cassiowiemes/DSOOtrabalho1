@@ -9,6 +9,10 @@ public class Turma  implements Serializable {
 	private HashSet<Aluno> alunos;
 	private Professor professor;
 	
+	public Turma(){
+		alunos = new HashSet<>();
+	}
+	
 	public Integer getId() {
 		return id;
 	}

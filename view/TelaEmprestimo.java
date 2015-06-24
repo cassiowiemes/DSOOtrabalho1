@@ -2,6 +2,7 @@ package view;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import utils.EmprestimoWrapper;
 import ctrl.CtrlEmprestimo;
 
 public class TelaEmprestimo extends JFrame {
@@ -16,7 +17,6 @@ public class TelaEmprestimo extends JFrame {
     private javax.swing.JButton btVoltarDevolucao;
     private javax.swing.JButton btVoltarEmprestimo;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
@@ -28,13 +28,12 @@ public class TelaEmprestimo extends JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField tfCodigoExemplarDev;
     private javax.swing.JTextField tfCodigoExemplarEmp;
-    private javax.swing.JTextField tfCodigoUsuarioDev;
+    private javax.swing.JTextField tfCodigoEmprestimo;
     private javax.swing.JTextField tfCodigoUsuarioEmp;
     private javax.swing.JTextField tfDataDevolucao;
     private javax.swing.JTextField tfDataEmprestimo;
-    // End of variables declaration   
+    // End of variables declaration
 	
 	public TelaEmprestimo(CtrlEmprestimo ctrl){
 		this.ctrl = ctrl;
@@ -45,6 +44,37 @@ public class TelaEmprestimo extends JFrame {
 
 	public void mostraMulta(float multa) {
 		JOptionPane.showMessageDialog(null, "Multa calculada: " + multa + " para devolução.");
+	}
+	
+	public void campoInvalido() {
+		JOptionPane.showMessageDialog(null, "Código inválido, favor conferir...");
+	}
+	
+	public EmprestimoWrapper getDadosEmprestimo(){
+		EmprestimoWrapper emprestimo = new EmprestimoWrapper();
+		try{
+			emprestimo.codigoExemplar = Integer.parseInt(tfCodigoExemplarEmp.getText());
+			emprestimo.codigoUsuario = Integer.parseInt(tfCodigoUsuarioEmp.getText());
+			emprestimo.dataEmprestimo = Integer.parseInt(tfDataEmprestimo.getText());
+		}catch(NumberFormatException e){
+			JOptionPane.showMessageDialog(null, "Valor inválido, favor conferir...");
+		}catch(Exception e){
+			JOptionPane.showMessageDialog(null, e);
+		} //TODO criar e tratar exceção no caso de usuário com mesmo código já existir
+		return emprestimo;
+	}
+	
+	public EmprestimoWrapper getDadosDevolucao(){
+		EmprestimoWrapper emprestimo = new EmprestimoWrapper();
+		try{
+			emprestimo.id = Integer.parseInt(tfCodigoEmprestimo.getText());
+			emprestimo.dataDevolucao = Integer.parseInt(tfDataEmprestimo.getText());
+		}catch(NumberFormatException e){
+			JOptionPane.showMessageDialog(null, "Valor inválido, favor conferir...");
+		}catch(Exception e){
+			JOptionPane.showMessageDialog(null, e);
+		} //TODO criar e tratar exceção no caso de usuário com mesmo código já existir
+		return emprestimo;
 	}
 
 	private void initComponents() {
@@ -62,13 +92,11 @@ public class TelaEmprestimo extends JFrame {
         btSalvarEmprestimo = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         btSalvarDevolucao = new javax.swing.JButton();
         btLimparDevolucao = new javax.swing.JButton();
         btVoltarDevolucao = new javax.swing.JButton();
-        tfCodigoUsuarioDev = new javax.swing.JTextField();
-        tfCodigoExemplarDev = new javax.swing.JTextField();
+        tfCodigoEmprestimo = new javax.swing.JTextField();
         tfDataDevolucao = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -95,15 +123,15 @@ public class TelaEmprestimo extends JFrame {
             }
         });
 
-        tfCodigoExemplarEmp.setText("jTextField1");
+        tfCodigoExemplarEmp.setText("");
 
         jLabel2.setText("Codigo do Exemplar:");
 
-        tfCodigoUsuarioEmp.setText("jTextField2");
+        tfCodigoUsuarioEmp.setText("");
 
         jLabel3.setText("Data do Empréstimo:");
 
-        tfDataEmprestimo.setText("jTextField3");
+        tfDataEmprestimo.setText("");
 
         btSalvarEmprestimo.setText("Salvar");
         btSalvarEmprestimo.addActionListener(new java.awt.event.ActionListener() {
@@ -131,16 +159,16 @@ public class TelaEmprestimo extends JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(18, 18, 18)
-                                .addComponent(tfCodigoExemplarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(tfCodigoExemplarEmp))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
                                     .addComponent(jLabel3))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tfCodigoUsuarioEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tfDataEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                    .addComponent(tfCodigoUsuarioEmp)
+                                    .addComponent(tfDataEmprestimo))))
+                        .addGap(10, 10, 10))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,14 +190,12 @@ public class TelaEmprestimo extends JFrame {
                     .addComponent(btSalvarEmprestimo)
                     .addComponent(btLimparEmprestimo)
                     .addComponent(btVoltarEmprestimo))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Efetuar Empréstimo", jPanel1);
 
-        jLabel9.setText("Código do usuário:");
-
-        jLabel10.setText("Código do exemplar:");
+        jLabel9.setText("Código do Empréstimo:");
 
         jLabel11.setText("Data da devolução:");
 
@@ -194,11 +220,9 @@ public class TelaEmprestimo extends JFrame {
             }
         });
 
-        tfCodigoUsuarioDev.setText("jTextField4");
+        tfCodigoEmprestimo.setText("");
 
-        tfCodigoExemplarDev.setText("jTextField5");
-
-        tfDataDevolucao.setText("jTextField6");
+        tfDataDevolucao.setText("");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -208,6 +232,10 @@ public class TelaEmprestimo extends JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(18, 18, 18)
+                        .addComponent(tfCodigoEmprestimo))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(btSalvarDevolucao)
                         .addGap(18, 18, 18)
                         .addComponent(btLimparDevolucao)
@@ -215,15 +243,9 @@ public class TelaEmprestimo extends JFrame {
                         .addComponent(btVoltarDevolucao)
                         .addGap(0, 16, Short.MAX_VALUE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel9))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfCodigoUsuarioDev)
-                            .addComponent(tfCodigoExemplarDev)
-                            .addComponent(tfDataDevolucao))))
+                        .addComponent(jLabel11)
+                        .addGap(34, 34, 34)
+                        .addComponent(tfDataDevolucao)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -232,21 +254,17 @@ public class TelaEmprestimo extends JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(tfCodigoUsuarioDev, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(tfCodigoExemplarDev, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(tfCodigoEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(tfDataDevolucao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSalvarDevolucao)
                     .addComponent(btLimparDevolucao)
                     .addComponent(btVoltarDevolucao))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap())
         );
 
         jTabbedPane1.addTab("Efetuar Devolucao", jPanel2);
@@ -306,7 +324,7 @@ public class TelaEmprestimo extends JFrame {
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btGerarRelatorio))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 107, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 89, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -341,13 +359,12 @@ public class TelaEmprestimo extends JFrame {
     	ctrl.realizaAcao("Voltar");
     }
 	
-    private void btSalvarDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {   
-    	ctrl.realizaAcao("Salvar Devolucao");
+    private void btSalvarDevolucaoActionPerformed(java.awt.event.ActionEvent evt) { 
+		ctrl.realizaAcao("Salvar Devolucao");
     } 
     
-    private void btLimparDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {   
-    	tfCodigoExemplarDev.setText(null);
-    	tfCodigoUsuarioDev.setText(null);
+    private void btLimparDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {
+    	tfCodigoEmprestimo.setText(null);
     	tfDataDevolucao.setText(null);
     }  
     

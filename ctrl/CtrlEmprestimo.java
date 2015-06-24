@@ -4,6 +4,7 @@ import java.util.Collection;
 
 import utils.EmprestimoWrapper;
 import utils.MapeadorEmprestimo;
+import utils.ValorNuloException;
 import model.Emprestimo;
 import view.TelaEmprestimo;
 
@@ -42,32 +43,41 @@ public class CtrlEmprestimo {
     	return atrasos;
     }
     
-    public void efetuaEmprestimo(Integer codigoUsuario, Integer codigoExemplar, Integer dtPlanDev) throws Exception{
+    public void efetuaEmprestimo(Integer codigoUsuario, Integer codigoExemplar,
+    		int dataEmprestimo) {
     	Emprestimo emprestimo = new Emprestimo(ctrl.getUsuario(codigoUsuario),
     			ctrl.getExemplar(codigoExemplar));
-    	if(!emprestimo.isUsuarioDisponivel());// throw UsuarioIndisponivelException;
-    	if(!emprestimo.isExemplarDisponivel());// throw ExemplarIndisponivelException;
-    	emprestimo.efetuaEmprestimo(dtPlanDev);
-    	mapeador.put(emprestimo);
+    	try{
+	    	if(emprestimo.isUsuarioDisponivel() && emprestimo.isExemplarDisponivel()){
+	    		emprestimo.efetuaEmprestimo(dataEmprestimo);
+	    		mapeador.put(emprestimo);
+	    	}
+    	}catch(NullPointerException e){
+    		tela.campoInvalido(); // TODO separar exceções de exemplar e usuário inválidos
+    	}
     }
     
-    public void efetuaDevolucao(Integer codigoEmprestimo, int dataDevolucao) throws Exception {
+    public void efetuaDevolucao(Integer codigoEmprestimo, int dataDevolucao) {
     	Emprestimo emprestimo = mapeador.get(codigoEmprestimo);
-    	if(emprestimo == null) {};// throw EmprestimoInexistenteException;
-    	if(emprestimo.getDataPlanejadaDevolucao() < dataDevolucao){
-    		tela.mostraMulta(emprestimo.getMulta(dataDevolucao));
+    	if(emprestimo != null) {
+    		if(emprestimo.getDataPlanejadaDevolucao() < dataDevolucao){
+    			tela.mostraMulta(emprestimo.getMulta(dataDevolucao));
+    		}
+    		emprestimo.efetuaDevolucao(dataDevolucao);
     	}
-    	emprestimo.efetuaDevolucao(dataDevolucao);
     }
    
 	public void realizaAcao(String command) {
-		EmprestimoWrapper e;
+		EmprestimoWrapper emprestimo = new EmprestimoWrapper();
 		switch(command){
 		case "Salvar Emprestimo":
-			// TODO implementar salvar emprestimo
+			// TODO tratar possíveis exceções
+			efetuaEmprestimo(emprestimo.codigoUsuario, emprestimo.codigoExemplar,
+					emprestimo.dataEmprestimo);
 			break;
 		case "Salvar Devolucao":
-			// TODO implementar salvar devolucao
+			// TODO tratar possíveis exceções
+			efetuaDevolucao(emprestimo.id, emprestimo.dataDevolucao);
 			break;
 		case "Voltar":
 	    	tela.setVisible(false);
@@ -75,6 +85,7 @@ public class CtrlEmprestimo {
 			break;
 		case "Gerar Relatorio":
 			// TODO implementar gerar relatorio
+			// implementar table model para popular tabela
 			break;
 		}
 	}

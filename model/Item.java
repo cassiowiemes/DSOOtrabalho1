@@ -12,11 +12,17 @@ public abstract class Item  implements Serializable {
     private FaixaEtaria faixaEtaria;
     private HashSet<Exemplar> exemplares = new HashSet<>();
 
-    public Exemplar getExemplar(Item item) {
+    public Exemplar getExemplar(Integer codigo) {
         for (Exemplar exemplar : exemplares) {
-        	//TODO implementar busca de exemplar, talvez mude assinatura do metodo
+        	if(exemplar.getCodigo() == codigo){
+        		return exemplar;
+        	}
         }
         return null;
+    }
+    
+    public void addExemplar(Exemplar exemplar){
+    	this.exemplares.add(exemplar);
     }
 
     public Item(String titulo, String editora, int ano, FaixaEtaria faixaEtaria) {
