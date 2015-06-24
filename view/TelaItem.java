@@ -24,10 +24,10 @@ public class TelaItem extends JFrame {
     private javax.swing.JButton btSalvarRevista;
     private javax.swing.JButton btVoltarLivro;
     private javax.swing.JButton btVoltarRevista;
-    private javax.swing.JComboBox faixaLivro;
-    private javax.swing.JComboBox generoLivro;
-    private javax.swing.JComboBox faixaRevista;
-    private javax.swing.JComboBox periodRevista;
+    private javax.swing.JComboBox<String> faixaLivro;
+    private javax.swing.JComboBox<String> generoLivro;
+    private javax.swing.JComboBox<String> faixaRevista;
+    private javax.swing.JComboBox<String> periodRevista;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -72,9 +72,9 @@ public class TelaItem extends JFrame {
         tfTituloLivro = new javax.swing.JTextField();
         tfEditoraLivro = new javax.swing.JTextField();
         tfAnoLivro = new javax.swing.JTextField();
-        faixaLivro = new javax.swing.JComboBox();
+        faixaLivro = new javax.swing.JComboBox<String>();
         jLabel11 = new javax.swing.JLabel();
-        periodRevista = new javax.swing.JComboBox();
+        periodRevista = new javax.swing.JComboBox<String>();
         btSalvarLivro = new javax.swing.JButton();
         btLimparLivro = new javax.swing.JButton();
         btVoltarLivro = new javax.swing.JButton();
@@ -86,9 +86,9 @@ public class TelaItem extends JFrame {
         jLabel9 = new javax.swing.JLabel();
         tfAnoRevista = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        generoLivro = new javax.swing.JComboBox();
+        generoLivro = new javax.swing.JComboBox<String>();
         jLabel12 = new javax.swing.JLabel();
-        faixaRevista = new javax.swing.JComboBox();
+        faixaRevista = new javax.swing.JComboBox<String>();
         btSalvarRevista = new javax.swing.JButton();
         btLimparRevista = new javax.swing.JButton();
         btVoltarRevista = new javax.swing.JButton();
@@ -361,8 +361,10 @@ public class TelaItem extends JFrame {
 		ctrl.realizaAcao("Salvar livro");
 	}                                             
 
-    private void btLimparLivroActionPerformed(java.awt.event.ActionEvent evt) {  
-    	// TODO limpar tela livro
+    private void btLimparLivroActionPerformed(java.awt.event.ActionEvent evt) { 
+    	tfTituloLivro.setText(null);
+    	tfEditoraLivro.setText(null);
+    	tfAnoLivro.setText(null);
     }
     
 	private void btVoltarLivroActionPerformed(java.awt.event.ActionEvent evt) {
@@ -374,7 +376,9 @@ public class TelaItem extends JFrame {
     }                                               
 
     private void btLimparRevistaActionPerformed(java.awt.event.ActionEvent evt) { 
-    	// TODO limpar tela revista
+    	tfTituloRevista.setText(null);
+    	tfEditoraRevista.setText(null);
+    	tfAnoRevista.setText(null);
     }                                               
 
     private void btVoltarRevistaActionPerformed(java.awt.event.ActionEvent evt) { 

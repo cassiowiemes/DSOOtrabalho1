@@ -7,7 +7,7 @@ import javax.swing.*;
 public class TelaUsuario extends JFrame {
 
     CtrlUsuario ctrl;
-    // Variables declaration - do not modify                     
+ // Variables declaration - do not modify                     
     private javax.swing.JButton btLimparAluno;
     private javax.swing.JButton btLimparProfessor;
     private javax.swing.JButton btSalvarAluno;
@@ -30,20 +30,20 @@ public class TelaUsuario extends JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
-    // End of variables declaration  
+    private javax.swing.JTextField tfDisciplinaProfessor;
+    private javax.swing.JTextField tfEnderecoAluno;
+    private javax.swing.JTextField tfEnderecoProfessor;
+    private javax.swing.JTextField tfIdadeAluno;
+    private javax.swing.JTextField tfIdadeProfessor;
+    private javax.swing.JTextField tfMaeAluno;
+    private javax.swing.JTextField tfMaeProfessor;
+    private javax.swing.JTextField tfNomeAluno;
+    private javax.swing.JTextField tfNomeProfessor;
+    private javax.swing.JTextField tfPaiAluno;
+    private javax.swing.JTextField tfPaiProfessor;
+    private javax.swing.JTextField tfTurmaAluno;
+    private javax.swing.JTextField tfTurmaProfessor;
+    // End of variables declaration 
 
     public TelaUsuario(CtrlUsuario ctrl) {
         //sc = new Scanner(System.in);
@@ -69,20 +69,20 @@ public class TelaUsuario extends JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
+        tfNomeProfessor = new javax.swing.JTextField();
+        tfIdadeProfessor = new javax.swing.JTextField();
+        tfEnderecoProfessor = new javax.swing.JTextField();
+        tfPaiProfessor = new javax.swing.JTextField();
+        tfMaeProfessor = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
+        tfDisciplinaProfessor = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
+        tfTurmaProfessor = new javax.swing.JTextField();
         btSalvarProfessor = new javax.swing.JButton();
         btLimparProfessor = new javax.swing.JButton();
         btVoltarProfessor = new javax.swing.JButton();
@@ -92,28 +92,28 @@ public class TelaUsuario extends JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        tfNomeAluno = new javax.swing.JTextField();
+        tfIdadeAluno = new javax.swing.JTextField();
+        tfEnderecoAluno = new javax.swing.JTextField();
+        tfPaiAluno = new javax.swing.JTextField();
+        tfMaeAluno = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
+        tfTurmaAluno = new javax.swing.JTextField();
         btSalvarAluno = new javax.swing.JButton();
         btLimparAluno = new javax.swing.JButton();
         btVoltarAluno = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextField6.setText("");
+        tfNomeProfessor.setText("");
 
-        jTextField7.setText("");
+        tfIdadeProfessor.setText("");
 
-        jTextField8.setText("");
+        tfEnderecoProfessor.setText("");
 
-        jTextField9.setText("");
+        tfPaiProfessor.setText("");
 
-        jTextField10.setText("");
+        tfMaeProfessor.setText("");
 
         jLabel6.setText("Nome:");
 
@@ -127,11 +127,11 @@ public class TelaUsuario extends JFrame {
 
         jLabel11.setText("Disciplina:");
 
-        jTextField11.setText("");
+        tfDisciplinaProfessor.setText("");
 
         jLabel12.setText("Turma:");
 
-        jTextField12.setText("");
+        tfTurmaProfessor.setText("");
 
         btSalvarProfessor.setText("Salvar");
         btSalvarProfessor.addActionListener(new java.awt.event.ActionListener() {
@@ -172,13 +172,13 @@ public class TelaUsuario extends JFrame {
                             .addComponent(jLabel12))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField12)
-                            .addComponent(jTextField11)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
-                            .addComponent(jTextField7)
-                            .addComponent(jTextField8)
-                            .addComponent(jTextField9)
-                            .addComponent(jTextField10)))
+                            .addComponent(tfTurmaProfessor)
+                            .addComponent(tfDisciplinaProfessor)
+                            .addComponent(tfNomeProfessor, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
+                            .addComponent(tfIdadeProfessor)
+                            .addComponent(tfEnderecoProfessor)
+                            .addComponent(tfPaiProfessor)
+                            .addComponent(tfMaeProfessor)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(btSalvarProfessor)
                         .addGap(18, 18, 18)
@@ -194,31 +194,31 @@ public class TelaUsuario extends JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfNomeProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfIdadeProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfEnderecoProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfPaiProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfMaeProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfDisciplinaProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(jTextField12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfTurmaProfessor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSalvarProfessor)
@@ -239,19 +239,19 @@ public class TelaUsuario extends JFrame {
 
         jLabel5.setText("Nome da Mãe:");
 
-        jTextField1.setText("");
+        tfNomeAluno.setText("");
 
-        jTextField2.setText("");
+        tfIdadeAluno.setText("");
 
-        jTextField3.setText("");
+        tfEnderecoAluno.setText("");
 
-        jTextField4.setText("");
+        tfPaiAluno.setText("");
 
-        jTextField5.setText("");
+        tfMaeAluno.setText("");
 
         jLabel13.setText("Turma:");
 
-        jTextField13.setText("");
+        tfTurmaAluno.setText("");
 
         btSalvarAluno.setText("Salvar");
         btSalvarAluno.addActionListener(new java.awt.event.ActionListener() {
@@ -291,12 +291,12 @@ public class TelaUsuario extends JFrame {
                             .addComponent(jLabel13))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField13)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField4)
-                            .addComponent(jTextField5)))
+                            .addComponent(tfTurmaAluno)
+                            .addComponent(tfNomeAluno)
+                            .addComponent(tfIdadeAluno)
+                            .addComponent(tfEnderecoAluno)
+                            .addComponent(tfPaiAluno)
+                            .addComponent(tfMaeAluno)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(btSalvarAluno)
                         .addGap(18, 18, 18)
@@ -312,27 +312,27 @@ public class TelaUsuario extends JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfNomeAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfIdadeAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfEnderecoAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfPaiAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfMaeAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfTurmaAluno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSalvarAluno)
@@ -366,11 +366,22 @@ public class TelaUsuario extends JFrame {
     }                                             
 
     private void btLimparProfessorActionPerformed(java.awt.event.ActionEvent evt) { 
-    	// TODO limpar tela professor
+    	tfNomeProfessor.setText(null);
+    	tfIdadeProfessor.setText(null);
+    	tfEnderecoProfessor.setText(null);
+    	tfDisciplinaProfessor.setText(null);
+    	tfMaeProfessor.setText(null);
+    	tfPaiProfessor.setText(null);
+    	tfTurmaProfessor.setText(null);
     }                                                  
 
     private void btLimparAlunoActionPerformed(java.awt.event.ActionEvent evt) {   
-    	// TODO limpar tela aluno
+    	tfNomeAluno.setText(null);
+    	tfIdadeAluno.setText(null);
+    	tfEnderecoAluno.setText(null);
+    	tfMaeAluno.setText(null);
+    	tfPaiAluno.setText(null);
+    	tfTurmaAluno.setText(null);    	
     }                                                    
 
     private void btVoltarProfessorActionPerformed(java.awt.event.ActionEvent evt) { 
