@@ -358,7 +358,7 @@ public class TelaItem extends JFrame {
     }
 
 	private void btSalvarLivroActionPerformed(java.awt.event.ActionEvent evt) { 
-		ctrl.realizaAcao(11);
+		ctrl.realizaAcao("Salvar livro");
 	}                                             
 
     private void btLimparLivroActionPerformed(java.awt.event.ActionEvent evt) {  
@@ -366,11 +366,11 @@ public class TelaItem extends JFrame {
     }
     
 	private void btVoltarLivroActionPerformed(java.awt.event.ActionEvent evt) {
-		ctrl.realizaAcao(13);
+		ctrl.realizaAcao("Voltar");
 	}
 	
     private void btSalvarRevistaActionPerformed(java.awt.event.ActionEvent evt) { 
-    	ctrl.realizaAcao(21);
+    	ctrl.realizaAcao("Salvar Revista");
     }                                               
 
     private void btLimparRevistaActionPerformed(java.awt.event.ActionEvent evt) { 
@@ -378,7 +378,7 @@ public class TelaItem extends JFrame {
     }                                               
 
     private void btVoltarRevistaActionPerformed(java.awt.event.ActionEvent evt) { 
-    	ctrl.realizaAcao(23);
+    	ctrl.realizaAcao("Voltar");
     }
 
 	public void sucesso(Integer id) {

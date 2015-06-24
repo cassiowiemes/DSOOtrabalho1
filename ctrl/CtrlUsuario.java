@@ -25,19 +25,15 @@ public class CtrlUsuario {
     	tela.setVisible(true);
     }
 
-	public void realizaAcao(int command) {
+	public void realizaAcao(String command) {
 		switch(command){
-			case 11://salvar emprestimo
+			case "Salvar Professor":
 				// TODO
 				break;
-			case 13://voltar emprestimo
-		    	tela.setVisible(false);
-		    	ctrl.iniciar();
-				break;
-			case 21://salvar devolucao
+			case "Salvar Aluno":
 				// TODO
 				break;
-			case 23://voltar devolucao
+			case "Voltar":
 		    	tela.setVisible(false);
 		    	ctrl.iniciar();
 				break;

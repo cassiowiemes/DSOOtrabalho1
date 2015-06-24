@@ -329,7 +329,7 @@ public class TelaEmprestimo extends JFrame {
 
 	
 	private void btSalvarEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {   
-    	ctrl.realizaAcao(11);
+    	ctrl.realizaAcao("Salvar Emprestimo");
     }  
     
     private void btLimparEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {   
@@ -337,11 +337,11 @@ public class TelaEmprestimo extends JFrame {
     }
     
     private void btVoltarEmprestimoActionPerformed(java.awt.event.ActionEvent evt) { 
-    	ctrl.realizaAcao(13);
+    	ctrl.realizaAcao("Voltar");
     }
 	
     private void btSalvarDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {   
-    	ctrl.realizaAcao(21);
+    	ctrl.realizaAcao("Salvar Devolucao");
     } 
     
     private void btLimparDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {   
@@ -349,10 +349,10 @@ public class TelaEmprestimo extends JFrame {
     }  
     
     private void btVoltarDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {
-    	ctrl.realizaAcao(23);
+    	ctrl.realizaAcao("Voltar");
     }                                                 
 
     private void btGerarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {
-    	ctrl.realizaAcao(31);
+    	ctrl.realizaAcao("Gerar Relatorio");
     }      
 }

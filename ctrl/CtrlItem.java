@@ -24,21 +24,17 @@ public class CtrlItem {
 		mapeadorRevista = new MapeadorRevista();
 	}
 	
-	public void realizaAcao(int command){
+	public void realizaAcao(String command){
 		switch(command){
-		case 11://salvar livro
+		case "Salvar livro"://salvar livro
 			registraLivro(tela.getDadosLivro());
 			break;
-		case 13://voltar livro
+		case "Voltar"://voltar livro
 	    	tela.setVisible(false);
 	    	ctrl.iniciar();
 			break;
-		case 21://salvar revista
+		case "Salvar Revista"://salvar revista
 			registraRevista(tela.getDadosRevista());
-			break;		
-		case 23://voltar revista
-	    	tela.setVisible(false);
-	    	ctrl.iniciar();
 			break;
 		}
 	}

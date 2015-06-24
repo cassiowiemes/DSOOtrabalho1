@@ -358,11 +358,11 @@ public class TelaUsuario extends JFrame {
     }// </editor-fold>                        
 
     private void btSalvarProfessorActionPerformed(java.awt.event.ActionEvent evt) {  
-    	ctrl.realizaAcao(11);
+    	ctrl.realizaAcao("Salvar Professor");
     }                                                 
 
     private void btSalvarAlunoActionPerformed(java.awt.event.ActionEvent evt) {  
-    	ctrl.realizaAcao(21);
+    	ctrl.realizaAcao("Salvar Aluno");
     }                                             
 
     private void btLimparProfessorActionPerformed(java.awt.event.ActionEvent evt) { 
@@ -374,10 +374,10 @@ public class TelaUsuario extends JFrame {
     }                                                    
 
     private void btVoltarProfessorActionPerformed(java.awt.event.ActionEvent evt) { 
-    	ctrl.realizaAcao(13);
+    	ctrl.realizaAcao("Voltar");
     }                                         
 
     private void btVoltarAlunoActionPerformed(java.awt.event.ActionEvent evt) {
-    	ctrl.realizaAcao(23);
+    	ctrl.realizaAcao("Voltar");
     }
 }

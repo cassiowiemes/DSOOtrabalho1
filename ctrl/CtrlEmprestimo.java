@@ -60,24 +60,20 @@ public class CtrlEmprestimo {
     	emprestimo.efetuaDevolucao(dataDevolucao);
     }
    
-	public void realizaAcao(int command) {
+	public void realizaAcao(String command) {
 		EmprestimoWrapper e;
 		switch(command){
-		case 11://salvar emprestimo
+		case "Salvar Emprestimo":
 			// TODO
 			break;
-		case 13://voltar emprestimo
+		case "Salvar Devolucao":
+			// TODO
+			break;
+		case "Voltar":
 	    	tela.setVisible(false);
 	    	ctrl.iniciar();
 			break;
-		case 21://salvar devolucao
-			// TODO
-			break;
-		case 23://voltar devolucao
-	    	tela.setVisible(false);
-	    	ctrl.iniciar();
-			break;
-		case 31://gerar relatorio
+		case "Gerar Relatorio":
 			// TODO
 			break;
 		}
