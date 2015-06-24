@@ -14,7 +14,7 @@ public abstract class Item  implements Serializable {
 
     public Exemplar getExemplar(Item item) {
         for (Exemplar exemplar : exemplares) {
-        	//TODO
+        	//TODO implementar busca de exemplar, talvez mude assinatura do metodo
         }
         return null;
     }

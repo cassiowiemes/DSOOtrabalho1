@@ -28,10 +28,10 @@ public class CtrlUsuario {
 	public void realizaAcao(String command) {
 		switch(command){
 			case "Salvar Professor":
-				// TODO
+				// TODO implementar salvar professor
 				break;
 			case "Salvar Aluno":
-				// TODO
+				// TODO implementar salvar aluno
 				break;
 			case "Voltar":
 		    	tela.setVisible(false);

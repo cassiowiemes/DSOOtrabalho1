@@ -64,17 +64,17 @@ public class CtrlEmprestimo {
 		EmprestimoWrapper e;
 		switch(command){
 		case "Salvar Emprestimo":
-			// TODO
+			// TODO implementar salvar emprestimo
 			break;
 		case "Salvar Devolucao":
-			// TODO
+			// TODO implementar salvar devolucao
 			break;
 		case "Voltar":
 	    	tela.setVisible(false);
 	    	ctrl.iniciar();
 			break;
 		case "Gerar Relatorio":
-			// TODO
+			// TODO implementar gerar relatorio
 			break;
 		}
 	}
