@@ -1,6 +1,7 @@
 package ctrl;
 import model.IExemplar;
 import model.IUsuario;
+import utils.ChaveInvalidaException;
 import view.TelaPrincipal;
 
 public class CtrlPrincipal {
@@ -38,7 +39,7 @@ public class CtrlPrincipal {
 		}
 	}
 
-	public IUsuario getUsuario(int codigo) {
+	public IUsuario getUsuario(int codigo) throws ChaveInvalidaException {
 		return ctrlUsuario.getUsuario(codigo);
 	}
 

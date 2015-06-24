@@ -2,6 +2,7 @@ package ctrl;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import utils.ChaveInvalidaException;
 import utils.EmprestimoWrapper;
 import utils.Mapeador;
 import model.Emprestimo;
@@ -43,7 +44,7 @@ public class CtrlEmprestimo {
     }
     
     public void efetuaEmprestimo(Integer codigoUsuario, Integer codigoExemplar,
-    		int dataEmprestimo) {
+    		int dataEmprestimo) throws ChaveInvalidaException {
     	Emprestimo emprestimo = new Emprestimo(ctrl.getUsuario(codigoUsuario),
     			ctrl.getExemplar(codigoExemplar));
     	try{
@@ -56,17 +57,17 @@ public class CtrlEmprestimo {
     	}
     }
     
-    public void efetuaDevolucao(Integer codigoEmprestimo, int dataDevolucao) {
+    public void efetuaDevolucao(Integer codigoEmprestimo, int dataDevolucao) 
+    		throws ChaveInvalidaException{
     	Emprestimo emprestimo = mapeador.get(codigoEmprestimo);
-    	if(emprestimo != null) {
-    		if(emprestimo.getDataPlanejadaDevolucao() < dataDevolucao){
-    			tela.mostraMulta(emprestimo.getMulta(dataDevolucao));
-    		}
-    		emprestimo.efetuaDevolucao(dataDevolucao);
-    	}
+    	if(emprestimo == null) throw new ChaveInvalidaException();
+		if(emprestimo.getDataPlanejadaDevolucao() < dataDevolucao){
+			tela.mostraMulta(emprestimo.getMulta(dataDevolucao));
+		}
+		emprestimo.efetuaDevolucao(dataDevolucao);
     }
    
-	public void realizaAcao(String command) {
+	public void realizaAcao(String command) throws ChaveInvalidaException {
 		EmprestimoWrapper emprestimo = new EmprestimoWrapper();
 		switch(command){
 		case "Salvar Emprestimo":

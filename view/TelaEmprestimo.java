@@ -2,6 +2,7 @@ package view;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
+import utils.ChaveInvalidaException;
 import utils.EmprestimoWrapper;
 import ctrl.CtrlEmprestimo;
 
@@ -346,7 +347,11 @@ public class TelaEmprestimo extends JFrame {
 
 	
 	private void btSalvarEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {   
-    	ctrl.realizaAcao("Salvar Emprestimo");
+    	try {
+			ctrl.realizaAcao("Salvar Emprestimo");
+		} catch (ChaveInvalidaException e) {
+			campoInvalido();
+		}
     }  
     
     private void btLimparEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {   
@@ -356,11 +361,19 @@ public class TelaEmprestimo extends JFrame {
     }
     
     private void btVoltarEmprestimoActionPerformed(java.awt.event.ActionEvent evt) { 
-    	ctrl.realizaAcao("Voltar");
+    	try {
+			ctrl.realizaAcao("Voltar");
+		} catch (ChaveInvalidaException e) {
+			e.printStackTrace();			
+		}
     }
 	
     private void btSalvarDevolucaoActionPerformed(java.awt.event.ActionEvent evt) { 
-		ctrl.realizaAcao("Salvar Devolucao");
+		try {
+			ctrl.realizaAcao("Salvar Devolucao");
+		} catch (ChaveInvalidaException e) {
+			campoInvalido();
+		}
     } 
     
     private void btLimparDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {
@@ -369,10 +382,18 @@ public class TelaEmprestimo extends JFrame {
     }  
     
     private void btVoltarDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {
-    	ctrl.realizaAcao("Voltar");
+    	try {
+			ctrl.realizaAcao("Voltar");
+		} catch (ChaveInvalidaException e) {
+			e.printStackTrace();			
+		}
     }                                                 
 
     private void btGerarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {
-    	ctrl.realizaAcao("Gerar Relatorio");
+    	try {
+			ctrl.realizaAcao("Gerar Relatorio");
+		} catch (ChaveInvalidaException e) {
+			e.printStackTrace();			
+		}
     }      
 }

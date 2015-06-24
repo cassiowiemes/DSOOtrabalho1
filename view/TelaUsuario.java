@@ -66,7 +66,7 @@ public class TelaUsuario extends JFrame {
 			JOptionPane.showMessageDialog(null, "Valor inválido, favor conferir...");
 		}catch(Exception e){
 			JOptionPane.showMessageDialog(null, e);
-		} //TODO criar e tratar exceção no caso de usuário com mesmo código já existir
+		} //TODO criar e tratar exceção no caso de usuário com mesmo código não existir
 		return user;
 	}
 
@@ -88,7 +88,7 @@ public class TelaUsuario extends JFrame {
 			JOptionPane.showMessageDialog(null, "Valor inválido, favor conferir...");
 		}catch(Exception e){
 			JOptionPane.showMessageDialog(null, e);
-		} //TODO criar e tratar exceção no caso de usuário com mesmo código já existir
+		} //TODO criar e tratar exceção no caso de usuário com mesmo código não existir
 		return user;
 	}
 	

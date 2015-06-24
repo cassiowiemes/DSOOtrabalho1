@@ -3,6 +3,7 @@ import model.Aluno;
 import model.Professor;
 import model.Usuario;
 import view.TelaUsuario;
+import utils.ChaveInvalidaException;
 import utils.Mapeador;
 import utils.UserWrapper;
 
@@ -57,11 +58,10 @@ public class CtrlUsuario {
 		tela.sucessoCriar(aluno.getId());
 	}
     
-    public Usuario getUsuario(Integer id){
-    	Usuario usuario = mapeadorAluno.get(id);
-    	if(usuario == null){
-    		usuario = mapeadorProfessor.get(id);
-    	}
-    	return usuario;
+    public Usuario getUsuario(Integer id) throws ChaveInvalidaException{
+    	Usuario usuario;
+    	if(mapeadorAluno.get(id) != null) return mapeadorAluno.get(id);
+    	if(mapeadorProfessor.get(id) != null) return mapeadorProfessor.get(id);
+    	throw new ChaveInvalidaException();
     }
 }
