@@ -8,7 +8,6 @@ public abstract interface IExemplar {
     public abstract boolean isDisponivel();
 
     public abstract void setDisponivel(boolean estado);
-
-    public int getCodigo();
-
+    
+    public String getTitulo();
 }
