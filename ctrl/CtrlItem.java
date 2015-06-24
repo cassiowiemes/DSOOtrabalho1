@@ -26,14 +26,14 @@ public class CtrlItem {
 	
 	public void realizaAcao(String command){
 		switch(command){
-		case "Salvar livro"://salvar livro
+		case "Salvar livro":
 			registraLivro(tela.getDadosLivro());
 			break;
-		case "Voltar"://voltar livro
+		case "Voltar":
 	    	tela.setVisible(false);
 	    	ctrl.iniciar();
 			break;
-		case "Salvar Revista"://salvar revista
+		case "Salvar Revista":
 			registraRevista(tela.getDadosRevista());
 			break;
 		}

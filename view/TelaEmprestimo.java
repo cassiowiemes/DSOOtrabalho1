@@ -1,5 +1,7 @@
 package view;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import ctrl.CtrlEmprestimo;
 
 public class TelaEmprestimo extends JFrame {
@@ -42,7 +44,7 @@ public class TelaEmprestimo extends JFrame {
 	}
 
 	public void mostraMulta(float multa) {
-		// TODO Auto-generated method stub
+		JOptionPane.showMessageDialog(null, "Multa calculada: " + multa + " para devolução.");
 	}
 
 	private void initComponents() {
