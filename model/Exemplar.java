@@ -1,6 +1,9 @@
 package model;
-public class Exemplar implements IExemplar {
 
+import java.io.Serializable;
+
+public class Exemplar implements IExemplar, Serializable {
+    private static final long serialVersionUID = 1L;
     private int codigoItem;
     private int codigoExemplar;
     private boolean disponivel;

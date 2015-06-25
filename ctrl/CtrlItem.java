@@ -26,6 +26,9 @@ public class CtrlItem {
 		this.tela = new TelaItem(this);
 		mapeadorLivro = new Mapeador<>("livros.txt");
 		mapeadorRevista = new Mapeador<>("revistas.txt");
+        Integer ultimaId = Math.max(mapeadorLivro.getHighestKey(), mapeadorRevista.getHighestKey());
+        mapeadorLivro.setLastId(ultimaId);
+        mapeadorRevista.setLastId(ultimaId);
 	}
 	
 	public void realizaAcao(String command) throws ChaveInvalidaException{
@@ -58,9 +61,11 @@ public class CtrlItem {
 
 	private void adicionarExemplar() {
 		try {
-		Exemplar exemplar = new Exemplar(Integer.parseInt(tela.tfCodigoExemplar.getText()), 
+			Exemplar exemplar = new Exemplar(Integer.parseInt(tela.tfCodigoExemplar.getText()), 
 				manuseio.getTitulo(), true);
-		manuseio.addExemplar(exemplar);
+			manuseio.addExemplar(exemplar);
+			mapeadorLivro.persist();
+			mapeadorRevista.persist();
 		} catch (NullPointerException e){
 			tela.falha("Item ainda não selecionado.");
 		} catch (NumberFormatException e){
@@ -104,6 +109,8 @@ public class CtrlItem {
 	public void registraRevista(ItemWrapper item) {
 		Revista revista = new Revista(item.titulo, item.editora, item.ano, 
 				FaixaEtaria.valueOf(item.faixaEtaria), Periodicidade.valueOf(item.periodicidade));
+		mapeadorRevista.incrementId();
+		mapeadorLivro.incrementId();
 		revista.setId(mapeadorRevista.getId());
 		mapeadorRevista.put(revista.getId(), revista);
 		tela.sucesso(revista.getId());
@@ -112,6 +119,8 @@ public class CtrlItem {
 	public void registraLivro(ItemWrapper item){
 		Livro livro = new Livro(item.titulo, item.editora, item.ano,
 				FaixaEtaria.valueOf(item.faixaEtaria), Genero.valueOf(item.genero));
+		mapeadorRevista.incrementId();
+		mapeadorLivro.incrementId();
 		livro.setId(mapeadorLivro.getId());
 		mapeadorLivro.put(livro.getId(), livro);
 		tela.sucesso(livro.getId());

@@ -1,6 +1,7 @@
 package view;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
 import utils.ChaveInvalidaException;
 import utils.EmprestimoWrapper;
 import ctrl.CtrlEmprestimo;
@@ -22,6 +23,10 @@ public class TelaEmprestimo extends JFrame {
 	
 	public void campoInvalido() {
 		JOptionPane.showMessageDialog(null, "Código inválido, favor conferir...");
+	}
+
+	public void sucessoCriar(Integer id) {
+		JOptionPane.showMessageDialog(null, "Criação efetuada com sucesso, código:" + id);
 	}
 	
 	public EmprestimoWrapper getDadosEmprestimo(){

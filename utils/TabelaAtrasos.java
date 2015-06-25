@@ -1,6 +1,7 @@
 package utils;
 
 import java.util.ArrayList;
+import utils.EmprestimoWrapper;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
 

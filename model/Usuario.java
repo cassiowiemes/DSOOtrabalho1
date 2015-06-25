@@ -64,6 +64,6 @@ public abstract class Usuario implements IUsuario {
     }
 
 	public void setNumeroEmprestimosMax(int numeroEmprestimosMax) {
-		this.numeroEmprestimosAtual = numeroEmprestimosMax;
+		this.numeroEmprestimosMax = numeroEmprestimosMax;
 	}
 }

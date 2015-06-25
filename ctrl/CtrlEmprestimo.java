@@ -19,6 +19,7 @@ public class CtrlEmprestimo {
         this.ctrl = ctrl;
         this.tela = new TelaEmprestimo(this);
         mapeador = new Mapeador<>("emprestimos.txt");
+        mapeador.setLastId(mapeador.getHighestKey());
     }
 
     public void iniciar() {
@@ -49,9 +50,11 @@ public class CtrlEmprestimo {
     			ctrl.getExemplar(codigoExemplar));
     	try{
 	    	if(emprestimo.isUsuarioDisponivel() && emprestimo.isExemplarDisponivel()){
+	    		mapeador.incrementId();
 	    		emprestimo.setId(mapeador.getId());
 	    		emprestimo.efetuaEmprestimo(dataEmprestimo);
 	    		mapeador.put(emprestimo.getId(), emprestimo);
+	    		tela.sucessoCriar(emprestimo.getId());
 	    	}
     	}catch(NullPointerException e){
     		tela.campoInvalido(); // TODO separar exceções de exemplar e usuário inválidos

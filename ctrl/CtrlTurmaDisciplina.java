@@ -12,6 +12,9 @@ public class CtrlTurmaDisciplina {
 	public CtrlTurmaDisciplina (){
 		mapeadorDisciplina = new Mapeador<>("disciplinas.txt");
 		mapeadorTurma = new Mapeador<>("turmas.txt");
+        Integer ultimaId = Math.max(mapeadorDisciplina.getHighestKey(), mapeadorTurma.getHighestKey());
+        mapeadorDisciplina.setLastId(ultimaId);
+        mapeadorTurma.setLastId(ultimaId);
 	}
 	public void setProfessor(Professor professor, Integer codigoTurma){
 		Turma turma = mapeadorTurma.get(codigoTurma);

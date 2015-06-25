@@ -9,13 +9,14 @@ import java.util.Collection;
 import java.util.HashMap;
 
 public class Mapeador<T>{
-	private static Integer ultimaId = 0; // TODO implementar busca de última ID atual
 	private final String filename;
+	private Integer ultimaId = 0;
 	private HashMap<Integer, T> cache;
 	
 	public Mapeador (String filename){
 		this.filename = filename;
 		cache = new HashMap<>();
+		load();
 	}
 	
 	public T get(Integer id) {
@@ -32,8 +33,23 @@ public class Mapeador<T>{
 	}
 	
 	public Integer getId(){
-		ultimaId++;
 		return ultimaId;
+	}
+	
+	public void incrementId(){
+		ultimaId++;
+	}
+	
+	public void setLastId(Integer id){
+		ultimaId = id;
+	}
+	
+	public Integer getHighestKey(){
+		Integer maxKey = 0;
+		for(Integer key : cache.keySet()){
+			if(key > maxKey) maxKey = key;
+		}
+		return maxKey;
 	}
 	
 	public void persist(){

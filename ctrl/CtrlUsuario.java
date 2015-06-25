@@ -20,6 +20,9 @@ public class CtrlUsuario {
         this.ctrlTurmaDisciplina = new CtrlTurmaDisciplina();
         mapeadorAluno = new Mapeador<>("alunos.txt");
         mapeadorProfessor = new Mapeador<>("professores.txt");
+        Integer ultimaId = Math.max(mapeadorAluno.getHighestKey(), mapeadorProfessor.getHighestKey());
+        mapeadorAluno.setLastId(ultimaId);
+        mapeadorProfessor.setLastId(ultimaId);
     }
 
     public void iniciar() {
@@ -45,6 +48,8 @@ public class CtrlUsuario {
 		Professor professor = new Professor(user.nome, user.idade, user.endereco, user.pai, user.mae);
 		ctrlTurmaDisciplina.addProfessor(professor, user.disciplina);
 		ctrlTurmaDisciplina.setProfessor(professor, user.turma);
+		mapeadorProfessor.incrementId();
+		mapeadorAluno.incrementId();
 		professor.setId(mapeadorProfessor.getId());
 		mapeadorProfessor.put(professor.getId(), professor);
 		tela.sucessoCriar(professor.getId());
@@ -53,6 +58,8 @@ public class CtrlUsuario {
 	public void registraAluno(UserWrapper user){
 		Aluno aluno = new Aluno(user.nome, user.idade, user.endereco, user.pai, user.mae);
 		ctrlTurmaDisciplina.addAluno(aluno, user.turma);
+		mapeadorProfessor.incrementId();
+		mapeadorAluno.incrementId();
 		aluno.setId(mapeadorAluno.getId());
 		mapeadorAluno.put(aluno.getId(), aluno);
 		tela.sucessoCriar(aluno.getId());
