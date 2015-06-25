@@ -45,6 +45,7 @@ public class CtrlItem {
 	public void registraRevista(ItemWrapper item) {
 		Revista revista = new Revista(item.titulo, item.editora, item.ano, 
 				FaixaEtaria.valueOf(item.faixaEtaria), Periodicidade.valueOf(item.periodicidade));
+		revista.setId(mapeadorRevista.getId());
 		mapeadorRevista.put(revista);
 		tela.sucesso(revista.getId());
 	}
@@ -53,6 +54,7 @@ public class CtrlItem {
 		// TODO adicionar autores e edicao aqui e na interface
 		Livro livro = new Livro(item.titulo, item.editora, item.ano,
 				FaixaEtaria.valueOf(item.faixaEtaria), Genero.valueOf(item.genero));
+		livro.setId(mapeadorLivro.getId());
 		mapeadorLivro.put(livro);
 		tela.sucesso(livro.getId());
 	}

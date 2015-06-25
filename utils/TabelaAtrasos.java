@@ -1,7 +1,6 @@
 package utils;
 
 import java.util.ArrayList;
-
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;
 

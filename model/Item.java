@@ -26,7 +26,6 @@ public abstract class Item  implements Serializable {
     }
 
     public Item(String titulo, String editora, int ano, FaixaEtaria faixaEtaria) {
-        super();
         this.setTitulo(titulo);
         this.setEditora(editora);
         this.setAno(ano);
