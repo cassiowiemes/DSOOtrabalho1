@@ -91,7 +91,7 @@ public class CtrlItem {
 	}
 
 	private Item buscarItem() throws ChaveInvalidaException {
-		Integer id = -1; //gambiarra nervoso!!!
+		Integer id = -1;
 		try {
 			id = Integer.parseInt(tela.btBuscarAddExemplar.getText());
 		} catch (NumberFormatException e){
@@ -108,7 +108,7 @@ public class CtrlItem {
 
 	public void registraRevista(ItemWrapper item) {
 		Revista revista = new Revista(item.titulo, item.editora, item.ano, 
-				FaixaEtaria.valueOf(item.faixaEtaria), Periodicidade.valueOf(item.periodicidade));
+				FaixaEtaria.valueOf(item.faixaEtaria), Periodicidade.valueOf(item.periodicidade), item.edicao);
 		mapeadorRevista.incrementId();
 		mapeadorLivro.incrementId();
 		revista.setId(mapeadorRevista.getId());

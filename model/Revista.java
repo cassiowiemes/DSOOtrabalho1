@@ -9,7 +9,7 @@ public class Revista extends Item  implements Serializable {
     private Periodicidade periodicidade;
 
     public Revista(String titulo, String editora, int ano,
-            FaixaEtaria faixaEtaria, Periodicidade periodicidade) {
+            FaixaEtaria faixaEtaria, Periodicidade periodicidade, int edicao) {
         super(titulo, editora, ano, faixaEtaria);
         this.edicao = edicao;
         this.periodicidade = periodicidade;

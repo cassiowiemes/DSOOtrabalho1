@@ -41,6 +41,7 @@ public class TelaItem extends JFrame {
 	    	item.ano = Integer.parseInt(tfAnoRevista.getText());
 	    	item.faixaEtaria = faixaRevista.getSelectedItem().toString();
 	    	item.periodicidade = periodRevista.getSelectedItem().toString();
+	    	//item.edicao = 
     	} catch (Exception e){
     		
     	}
