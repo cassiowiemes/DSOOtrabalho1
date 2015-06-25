@@ -108,7 +108,7 @@ public class CtrlItem {
 
 	public void registraRevista(ItemWrapper item) {
 		Revista revista = new Revista(item.titulo, item.editora, item.ano, 
-				FaixaEtaria.valueOf(item.faixaEtaria), Periodicidade.valueOf(item.periodicidade), item.edicao);
+				FaixaEtaria.valueOf(item.faixaEtaria), Periodicidade.valueOf(item.periodicidade));
 		mapeadorRevista.incrementId();
 		mapeadorLivro.incrementId();
 		revista.setId(mapeadorRevista.getId());
