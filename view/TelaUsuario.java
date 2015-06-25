@@ -3,7 +3,6 @@ import utils.*;
 import ctrl.CtrlUsuario;
 import javax.swing.*;
 
-
 public class TelaUsuario extends JFrame {
 
     CtrlUsuario ctrl; 
