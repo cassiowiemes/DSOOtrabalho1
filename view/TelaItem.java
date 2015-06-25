@@ -73,29 +73,33 @@ public class TelaItem extends JFrame {
 
     private void btVoltarRevistaActionPerformed(java.awt.event.ActionEvent evt) { 
     	ctrl.realizaAcao("Voltar");
-    }                                             
-
-    private void btAddExemplarActionPerformed(java.awt.event.ActionEvent evt) {                                              
-        // TODO add your handling code here:
-    }                                             
-
-    private void btBuscarItemActionPerformed(java.awt.event.ActionEvent evt) {                                             
-        // TODO add your handling code here:
     }                                            
 
-    private void btAddAutorActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        // TODO add your handling code here:
+    private void btBuscarItemActionPerformed(java.awt.event.ActionEvent evt) {    
+    	ctrl.realizaAcao("Buscar Item");
+    }                                            
+
+    private void btAddAutorActionPerformed(java.awt.event.ActionEvent evt) {  
+    	ctrl.realizaAcao("Adicionar Autor");
     }                                          
 
-    private void btSetEdicaoActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
+    private void btSetEdicaoActionPerformed(java.awt.event.ActionEvent evt) { 
+    	ctrl.realizaAcao("Definir Edicao");
+    }                                             
+
+    private void btAddExemplarActionPerformed(java.awt.event.ActionEvent evt) {
+    	ctrl.realizaAcao("Adicionar Exemplar");
     }
 
 	public void sucesso(Integer id) {
 		JOptionPane.showMessageDialog(null, "Registro bem sucedido, código: " + id, "Criar usuário", 1);
-	}
+	}                                                   
+
+    private void btVoltarPropriedadesActionPerformed(java.awt.event.ActionEvent evt) {  
+    	ctrl.realizaAcao("Voltar");
+    }
 	
-	// Variables declaration - do not modify                     
+ // Variables declaration - do not modify                     
     private javax.swing.JToggleButton btAddAutor;
     private javax.swing.JToggleButton btAddExemplar;
     private javax.swing.JTextField btBuscarAddExemplar;
@@ -106,6 +110,7 @@ public class TelaItem extends JFrame {
     private javax.swing.JButton btSalvarRevista;
     private javax.swing.JToggleButton btSetEdicao;
     private javax.swing.JButton btVoltarLivro;
+    private javax.swing.JToggleButton btVoltarPropriedades;
     private javax.swing.JButton btVoltarRevista;
     private javax.swing.JComboBox faixaLivro;
     private javax.swing.JComboBox faixaRevista;
@@ -134,6 +139,7 @@ public class TelaItem extends JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JLabel lbTítuloItem;
     private javax.swing.JComboBox periodRevista;
     private javax.swing.JTextField tfAnoLivro;
@@ -150,6 +156,7 @@ public class TelaItem extends JFrame {
 
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jToggleButton1 = new javax.swing.JToggleButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -197,10 +204,13 @@ public class TelaItem extends JFrame {
         jLabel15 = new javax.swing.JLabel();
         tfCodigoExemplar = new javax.swing.JTextField();
         btAddExemplar = new javax.swing.JToggleButton();
+        btVoltarPropriedades = new javax.swing.JToggleButton();
 
         jLabel4.setText("jLabel4");
 
         jLabel3.setText("jLabel3");
+
+        jToggleButton1.setText("jToggleButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -212,11 +222,11 @@ public class TelaItem extends JFrame {
 
         jLabel6.setText("Faixa etária:");
 
-        tfTituloLivro.setText("jTextField1");
+        tfTituloLivro.setText("");
 
-        tfEditoraLivro.setText("jTextField2");
+        tfEditoraLivro.setText("");
 
-        tfAnoLivro.setText("jTextField3");
+        tfAnoLivro.setText("");
 
         faixaLivro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -276,7 +286,7 @@ public class TelaItem extends JFrame {
                         .addComponent(btLimparLivro)
                         .addGap(18, 18, 18)
                         .addComponent(btVoltarLivro)
-                        .addGap(0, 152, Short.MAX_VALUE)))
+                        .addGap(0, 130, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -302,7 +312,7 @@ public class TelaItem extends JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel11)
                     .addComponent(generoLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSalvarLivro)
                     .addComponent(btLimparLivro)
@@ -314,15 +324,15 @@ public class TelaItem extends JFrame {
 
         jLabel7.setText("Título:");
 
-        tfTituloRevista.setText("jTextField1");
+        tfTituloRevista.setText("");
 
         jLabel8.setText("Editora:");
 
-        tfEditoraRevista.setText("jTextField2");
+        tfEditoraRevista.setText("");
 
         jLabel9.setText("Ano de lançamento:");
 
-        tfAnoRevista.setText("jTextField3");
+        tfAnoRevista.setText("");
 
         jLabel10.setText("Faixa etária:");
 
@@ -366,7 +376,7 @@ public class TelaItem extends JFrame {
                             .addComponent(jLabel7))
                         .addGap(76, 76, 76)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfEditoraRevista, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
+                            .addComponent(tfEditoraRevista, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
                             .addComponent(tfTituloRevista)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -410,7 +420,7 @@ public class TelaItem extends JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(periodRevista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSalvarRevista)
                     .addComponent(btLimparRevista)
@@ -422,7 +432,12 @@ public class TelaItem extends JFrame {
 
         jLabel13.setText("Código do item:");
 
-        btBuscarAddExemplar.setText("jTextField7");
+        btBuscarAddExemplar.setText("");
+        btBuscarAddExemplar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAddExemplarActionPerformed(evt);
+            }
+        });
 
         btBuscarItem.setText("Buscar");
         btBuscarItem.addActionListener(new java.awt.event.ActionListener() {
@@ -437,7 +452,7 @@ public class TelaItem extends JFrame {
 
         jLabel16.setText("Autor:");
 
-        tfNomeAutor.setText("jTextField8");
+        tfNomeAutor.setText("");
 
         btAddAutor.setText("Adicionar autor");
         btAddAutor.addActionListener(new java.awt.event.ActionListener() {
@@ -448,7 +463,7 @@ public class TelaItem extends JFrame {
 
         jLabel17.setText("Edição:");
 
-        tfEdicao.setText("jTextField9");
+        tfEdicao.setText("");
 
         btSetEdicao.setText("Definir edição");
         btSetEdicao.addActionListener(new java.awt.event.ActionListener() {
@@ -459,12 +474,19 @@ public class TelaItem extends JFrame {
 
         jLabel15.setText("Exemplar:");
 
-        tfCodigoExemplar.setText("jTextField7");
+        tfCodigoExemplar.setText("");
 
-        btAddExemplar.setText("jToggleButton1");
+        btAddExemplar.setText("Adicionar Exemplar");
         btAddExemplar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btAddExemplarActionPerformed(evt);
+            }
+        });
+
+        btVoltarPropriedades.setText("Voltar");
+        btVoltarPropriedades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVoltarPropriedadesActionPerformed(evt);
             }
         });
 
@@ -488,26 +510,29 @@ public class TelaItem extends JFrame {
                         .addComponent(tfNomeAutor))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btAddAutor)
+                            .addComponent(jLabel13)
+                            .addComponent(btBuscarItem))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel3Layout.createSequentialGroup()
-                                        .addComponent(jLabel13)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(btBuscarAddExemplar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(btBuscarItem))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lbTítuloItem)
-                                    .addComponent(jLabel14)))
+                                .addComponent(jLabel14)
+                                .addGap(21, 21, 21)
+                                .addComponent(lbTítuloItem)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(btBuscarAddExemplar)))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btAddAutor)
                             .addComponent(btSetEdicao)
                             .addGroup(jPanel3Layout.createSequentialGroup()
-                                .addComponent(jLabel15)
+                                .addComponent(btAddExemplar)
                                 .addGap(18, 18, 18)
-                                .addComponent(tfCodigoExemplar, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btAddExemplar)))
-                        .addGap(0, 93, Short.MAX_VALUE)))
+                                .addComponent(btVoltarPropriedades)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                        .addComponent(tfCodigoExemplar, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -516,12 +541,12 @@ public class TelaItem extends JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(btBuscarAddExemplar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14))
+                    .addComponent(btBuscarAddExemplar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btBuscarItem)
-                    .addComponent(lbTítuloItem))
+                    .addComponent(lbTítuloItem)
+                    .addComponent(jLabel14))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -543,12 +568,15 @@ public class TelaItem extends JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(tfCodigoExemplar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btAddExemplar))
-                .addContainerGap(24, Short.MAX_VALUE))
+                    .addComponent(tfCodigoExemplar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btAddExemplar)
+                    .addComponent(btVoltarPropriedades))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Adicionar Exemplar", jPanel3);
+        jTabbedPane1.addTab("Opções Adicionais", jPanel3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
