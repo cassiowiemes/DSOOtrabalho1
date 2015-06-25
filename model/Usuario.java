@@ -11,6 +11,10 @@ public abstract class Usuario implements IUsuario {
     private int numeroEmprestimosMax;
     private Integer id;
 
+    public Usuario(){
+    	
+    }
+    
     public Usuario(String nome, int idade, String endereco, String nomePai,
             String nomeMae) {
         this.nome = nome;

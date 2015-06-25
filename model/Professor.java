@@ -8,6 +8,10 @@ public class Professor extends Usuario  implements Serializable {
 	private final int prazoDevolucao = 10;
 	private final int numeroEmprestimosMax = 5;
 
+	public Professor(){
+		
+	}
+	
     public Professor(String nome, int idade, String endereco, String nomePai, String nomeMae) {
         super(nome, idade, endereco, nomePai, nomeMae);
         super.setPrazoDevolucao(prazoDevolucao);

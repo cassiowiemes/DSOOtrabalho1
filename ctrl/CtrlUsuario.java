@@ -66,7 +66,6 @@ public class CtrlUsuario {
 	}
     
     public Usuario getUsuario(Integer id) throws ChaveInvalidaException{
-    	Usuario usuario;
     	if(mapeadorAluno.get(id) != null) return mapeadorAluno.get(id);
     	if(mapeadorProfessor.get(id) != null) return mapeadorProfessor.get(id);
     	throw new ChaveInvalidaException();
