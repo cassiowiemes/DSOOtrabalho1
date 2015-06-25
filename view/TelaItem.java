@@ -1,6 +1,8 @@
 package view;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
+import utils.ChaveInvalidaException;
 import utils.ItemWrapper;
 import ctrl.CtrlItem;
 import ctrl.CtrlUsuario;
@@ -15,9 +17,7 @@ public class TelaItem extends JFrame {
 		initComponents();
 		setLocationRelativeTo(null);
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-	}
-
-	                        
+	}	                        
     
     public ItemWrapper getDadosLivro(){
     	ItemWrapper item = new ItemWrapper();
@@ -47,8 +47,20 @@ public class TelaItem extends JFrame {
     	return item;
     }
 
+    public void falha(String message){
+    	JOptionPane.showMessageDialog(null, message);
+    }
+
+	public void sucesso(Integer id) {
+		JOptionPane.showMessageDialog(null, "Registro bem sucedido, código: " + id, "Criar usuário", 1);
+	}      
+
 	private void btSalvarLivroActionPerformed(java.awt.event.ActionEvent evt) { 
-		ctrl.realizaAcao("Salvar livro");
+		try {
+			ctrl.realizaAcao("Salvar livro");
+		} catch (ChaveInvalidaException e) {
+			e.printStackTrace();
+		}
 	}                                             
 
     private void btLimparLivroActionPerformed(java.awt.event.ActionEvent evt) { 
@@ -58,11 +70,19 @@ public class TelaItem extends JFrame {
     }
     
 	private void btVoltarLivroActionPerformed(java.awt.event.ActionEvent evt) {
-		ctrl.realizaAcao("Voltar");
+		try {
+			ctrl.realizaAcao("Voltar");
+		} catch (ChaveInvalidaException e) {
+			e.printStackTrace();
+		}
 	}
 	
     private void btSalvarRevistaActionPerformed(java.awt.event.ActionEvent evt) { 
-    	ctrl.realizaAcao("Salvar Revista");
+    	try {
+			ctrl.realizaAcao("Salvar Revista");
+		} catch (ChaveInvalidaException e) {
+			e.printStackTrace();
+		}
     }                                               
 
     private void btLimparRevistaActionPerformed(java.awt.event.ActionEvent evt) { 
@@ -72,45 +92,65 @@ public class TelaItem extends JFrame {
     }                                               
 
     private void btVoltarRevistaActionPerformed(java.awt.event.ActionEvent evt) { 
-    	ctrl.realizaAcao("Voltar");
+    	try {
+			ctrl.realizaAcao("Voltar");
+		} catch (ChaveInvalidaException e) {
+			e.printStackTrace();
+		}
     }                                            
 
     private void btBuscarItemActionPerformed(java.awt.event.ActionEvent evt) {    
-    	ctrl.realizaAcao("Buscar Item");
+    	try {
+			ctrl.realizaAcao("Buscar Item");
+		} catch (ChaveInvalidaException e) {
+			e.printStackTrace();
+		}
     }                                            
 
     private void btAddAutorActionPerformed(java.awt.event.ActionEvent evt) {  
-    	ctrl.realizaAcao("Adicionar Autor");
+    	try {
+			ctrl.realizaAcao("Adicionar Autor");
+		} catch (ChaveInvalidaException e) {
+			e.printStackTrace();
+		}
     }                                          
 
     private void btSetEdicaoActionPerformed(java.awt.event.ActionEvent evt) { 
-    	ctrl.realizaAcao("Definir Edicao");
+    	try {
+			ctrl.realizaAcao("Definir Edicao");
+		} catch (ChaveInvalidaException e) {
+			e.printStackTrace();
+		}
     }                                             
 
     private void btAddExemplarActionPerformed(java.awt.event.ActionEvent evt) {
-    	ctrl.realizaAcao("Adicionar Exemplar");
-    }
-
-	public void sucesso(Integer id) {
-		JOptionPane.showMessageDialog(null, "Registro bem sucedido, código: " + id, "Criar usuário", 1);
-	}                                                   
+    	try {
+			ctrl.realizaAcao("Adicionar Exemplar");
+		} catch (ChaveInvalidaException e) {
+			e.printStackTrace();
+		}
+    }                                             
 
     private void btVoltarPropriedadesActionPerformed(java.awt.event.ActionEvent evt) {  
-    	ctrl.realizaAcao("Voltar");
+    	try {
+			ctrl.realizaAcao("Voltar");
+		} catch (ChaveInvalidaException e) {
+			e.printStackTrace();
+		}
     }
 	
- // Variables declaration - do not modify                     
-    private javax.swing.JToggleButton btAddAutor;
-    private javax.swing.JToggleButton btAddExemplar;
-    private javax.swing.JTextField btBuscarAddExemplar;
+    // Variables declaration - do not modify                     
+    private javax.swing.JButton btAddAutor;
+    private javax.swing.JButton btAddExemplar;
+    public javax.swing.JTextField btBuscarAddExemplar;
     private javax.swing.JButton btBuscarItem;
     private javax.swing.JButton btLimparLivro;
     private javax.swing.JButton btLimparRevista;
     private javax.swing.JButton btSalvarLivro;
     private javax.swing.JButton btSalvarRevista;
-    private javax.swing.JToggleButton btSetEdicao;
+    private javax.swing.JButton btSetEdicao;
     private javax.swing.JButton btVoltarLivro;
-    private javax.swing.JToggleButton btVoltarPropriedades;
+    private javax.swing.JButton btVoltarPropriedades;
     private javax.swing.JButton btVoltarRevista;
     private javax.swing.JComboBox faixaLivro;
     private javax.swing.JComboBox faixaRevista;
@@ -139,16 +179,16 @@ public class TelaItem extends JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JLabel lbTítuloItem;
+    private javax.swing.JButton jToggleButton1;
+    public javax.swing.JLabel lbTituloItem;
     private javax.swing.JComboBox periodRevista;
     private javax.swing.JTextField tfAnoLivro;
     private javax.swing.JTextField tfAnoRevista;
-    private javax.swing.JTextField tfCodigoExemplar;
-    private javax.swing.JTextField tfEdicao;
+    public javax.swing.JTextField tfCodigoExemplar;
+    public javax.swing.JTextField tfEdicao;
     private javax.swing.JTextField tfEditoraLivro;
     private javax.swing.JTextField tfEditoraRevista;
-    private javax.swing.JTextField tfNomeAutor;
+    public javax.swing.JTextField tfNomeAutor;
     private javax.swing.JTextField tfTituloLivro;
     private javax.swing.JTextField tfTituloRevista;
     // End of variables declaration
@@ -156,7 +196,7 @@ public class TelaItem extends JFrame {
 
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        jToggleButton1 = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -191,20 +231,20 @@ public class TelaItem extends JFrame {
         btBuscarAddExemplar = new javax.swing.JTextField();
         btBuscarItem = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
-        lbTítuloItem = new javax.swing.JLabel();
+        lbTituloItem = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel16 = new javax.swing.JLabel();
         tfNomeAutor = new javax.swing.JTextField();
-        btAddAutor = new javax.swing.JToggleButton();
+        btAddAutor = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel17 = new javax.swing.JLabel();
         tfEdicao = new javax.swing.JTextField();
-        btSetEdicao = new javax.swing.JToggleButton();
+        btSetEdicao = new javax.swing.JButton();
         jSeparator3 = new javax.swing.JSeparator();
         jLabel15 = new javax.swing.JLabel();
         tfCodigoExemplar = new javax.swing.JTextField();
-        btAddExemplar = new javax.swing.JToggleButton();
-        btVoltarPropriedades = new javax.swing.JToggleButton();
+        btAddExemplar = new javax.swing.JButton();
+        btVoltarPropriedades = new javax.swing.JButton();
 
         jLabel4.setText("jLabel4");
 
@@ -228,11 +268,11 @@ public class TelaItem extends JFrame {
 
         tfAnoLivro.setText("");
 
-        faixaLivro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        faixaLivro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "INFANTIL", "JUVENIL", "ADULTO" }));
 
         jLabel11.setText("Gênero:");
 
-        generoLivro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        generoLivro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "COMEDIA", "DRAMA", "POLICIAL", "FANTASIA", "HISTORIA", "DOCUMENTARIO" }));
 
         btSalvarLivro.setText("Salvar");
         btSalvarLivro.addActionListener(new java.awt.event.ActionListener() {
@@ -336,11 +376,11 @@ public class TelaItem extends JFrame {
 
         jLabel10.setText("Faixa etária:");
 
-        faixaRevista.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        faixaRevista.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "INFANTIL", "JUVENIL", "ADULTO" }));
 
         jLabel12.setText("Periodicidade:");
 
-        periodRevista.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        periodRevista.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "SEMANAL", "MENSAL", "BIMESTRAL", "TRIMESTRAL", "SEMESTRAL", "ANUAL" }));
 
         btSalvarRevista.setText("Salvar");
         btSalvarRevista.addActionListener(new java.awt.event.ActionListener() {
@@ -448,7 +488,7 @@ public class TelaItem extends JFrame {
 
         jLabel14.setText("Título do Item:");
 
-        lbTítuloItem.setText("---");
+        lbTituloItem.setText("---");
 
         jLabel16.setText("Autor:");
 
@@ -517,7 +557,7 @@ public class TelaItem extends JFrame {
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel14)
                                 .addGap(21, 21, 21)
-                                .addComponent(lbTítuloItem)
+                                .addComponent(lbTituloItem)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(btBuscarAddExemplar)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -545,7 +585,7 @@ public class TelaItem extends JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btBuscarItem)
-                    .addComponent(lbTítuloItem)
+                    .addComponent(lbTituloItem)
                     .addComponent(jLabel14))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)

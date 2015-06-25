@@ -5,15 +5,12 @@ public class Exemplar implements IExemplar {
     private int codigoExemplar;
     private boolean disponivel;
     private String titulo;
-    private static int codigoAtual = 0;
 
     public Exemplar(int codigoExemplar, String titulo, boolean disponivel) {
-        super();
-        this.codigoItem = codigoAtual;
+        super(); // TODO porque chamar super?
         this.codigoExemplar = codigoExemplar;
         this.titulo = titulo;
         this.disponivel = disponivel;
-        codigoAtual++;
     }
 
     public String getTitulo() {

@@ -69,7 +69,7 @@ public class CtrlEmprestimo {
     }
    
 	public void realizaAcao(String command) throws ChaveInvalidaException {
-		EmprestimoWrapper emprestimo = new EmprestimoWrapper();
+		EmprestimoWrapper emprestimo = tela.getDadosEmprestimo();
 		switch(command){
 		case "Salvar Emprestimo":
 			efetuaEmprestimo(emprestimo.codigoUsuario, emprestimo.codigoExemplar,

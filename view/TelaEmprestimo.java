@@ -52,8 +52,6 @@ public class TelaEmprestimo extends JFrame {
 	}
 
 	                        
-
-	
 	private void btSalvarEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {   
     	try {
 			ctrl.realizaAcao("Salvar Emprestimo");

@@ -9,7 +9,12 @@ public abstract class Item  implements Serializable {
     private Integer id;
     private String editora;
     private int ano;
-    private FaixaEtaria faixaEtaria;
+    private int edicao;
+    public void setEdicao(int edicao) {
+		this.edicao = edicao;
+	}
+
+	private FaixaEtaria faixaEtaria;
     private HashSet<Exemplar> exemplares = new HashSet<>();
 
     public Exemplar getExemplar(Integer codigo) {

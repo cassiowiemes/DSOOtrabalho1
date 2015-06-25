@@ -43,7 +43,7 @@ public class CtrlPrincipal {
 		return ctrlUsuario.getUsuario(codigo);
 	}
 
-	public IExemplar getExemplar(int codigo) {
+	public IExemplar getExemplar(int codigo) throws ChaveInvalidaException {
 		return ctrlItem.getExemplar(codigo);
 	}
 }
