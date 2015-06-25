@@ -7,7 +7,7 @@ import utils.EmprestimoWrapper;
 import ctrl.CtrlEmprestimo;
 
 public class TelaEmprestimo extends JFrame {
-	
+	private static final long serialVersionUID = 1L;
 	CtrlEmprestimo ctrl;
 	
 	public TelaEmprestimo(CtrlEmprestimo ctrl){
