@@ -57,7 +57,7 @@ public class CtrlEmprestimo {
 	    		tela.sucessoCriar(emprestimo.getId());
 	    	}
     	}catch(NullPointerException e){
-    		tela.campoInvalido(); // TODO separar exceções de exemplar e usuário inválidos
+    		tela.campoInvalido();
     	}
     }
     

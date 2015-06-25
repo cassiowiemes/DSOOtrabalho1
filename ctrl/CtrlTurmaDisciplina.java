@@ -20,6 +20,9 @@ public class CtrlTurmaDisciplina {
 		Turma turma = mapeadorTurma.get(codigoTurma);
 		if(turma == null){
 			turma = new Turma();
+			mapeadorTurma.incrementId();
+			turma.setId(mapeadorTurma.getId());
+			mapeadorTurma.put(turma.getId(), turma);
 		}
 		turma.setProfessor(professor);
 	}
@@ -27,6 +30,9 @@ public class CtrlTurmaDisciplina {
 		Turma turma = mapeadorTurma.get(codigoTurma);
 		if(turma == null){
 			turma = new Turma();
+			mapeadorTurma.incrementId();
+			turma.setId(mapeadorTurma.getId());
+			mapeadorTurma.put(turma.getId(), turma);
 		}
 		turma.addAluno(aluno);
 	}
@@ -34,6 +40,9 @@ public class CtrlTurmaDisciplina {
 		Disciplina disciplina = mapeadorDisciplina.get(codigoDisciplina);
 		if(disciplina == null){
 			disciplina = new Disciplina();
+			mapeadorDisciplina.incrementId();
+			disciplina.setId(mapeadorTurma.getId());
+			mapeadorDisciplina.put(disciplina.getId(), disciplina);
 		}
 		disciplina.addProfessor(professor);
 	}
