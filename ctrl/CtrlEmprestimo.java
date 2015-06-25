@@ -5,6 +5,7 @@ import java.util.Collection;
 import utils.ChaveInvalidaException;
 import utils.EmprestimoWrapper;
 import utils.Mapeador;
+import utils.TabelaAtrasos;
 import model.Emprestimo;
 import view.TelaEmprestimo;
 
@@ -84,6 +85,8 @@ public class CtrlEmprestimo {
 		case "Gerar Relatorio":
 			// TODO implementar gerar relatorio
 			// implementar table model para popular tabela
+			TabelaAtrasos tabela = new TabelaAtrasos(emprestimosAtrasados());
+			tela.jTable1.setModel(tabela);
 			break;
 		}
 	}

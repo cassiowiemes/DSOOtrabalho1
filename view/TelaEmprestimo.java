@@ -28,7 +28,7 @@ public class TelaEmprestimo extends JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
+    public javax.swing.JTable jTable1;
     private javax.swing.JTextField tfCodigoExemplarEmp;
     private javax.swing.JTextField tfCodigoEmprestimo;
     private javax.swing.JTextField tfCodigoUsuarioEmp;
