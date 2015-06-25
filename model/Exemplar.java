@@ -10,7 +10,7 @@ public class Exemplar implements IExemplar, Serializable {
     private String titulo;
 
     public Exemplar(int codigoExemplar, String titulo, boolean disponivel) {
-        super(); // TODO porque chamar super?
+        super();
         this.codigoExemplar = codigoExemplar;
         this.titulo = titulo;
         this.disponivel = disponivel;
