@@ -50,8 +50,9 @@ public class CtrlEmprestimo {
     			ctrl.getExemplar(codigoExemplar));
     	try{
 	    	if(emprestimo.isUsuarioDisponivel() && emprestimo.isExemplarDisponivel()){
+	    		emprestimo.setId(mapeador.getId());
 	    		emprestimo.efetuaEmprestimo(dataEmprestimo);
-	    		mapeador.put(emprestimo);
+	    		mapeador.put(emprestimo.getId(), emprestimo);
 	    	}
     	}catch(NullPointerException e){
     		tela.campoInvalido(); // TODO separar exceções de exemplar e usuário inválidos
@@ -83,8 +84,6 @@ public class CtrlEmprestimo {
 	    	ctrl.iniciar();
 			break;
 		case "Gerar Relatorio":
-			// TODO implementar gerar relatorio
-			// implementar table model para popular tabela
 			TabelaAtrasos tabela = new TabelaAtrasos(emprestimosAtrasados());
 			tela.jTable1.setModel(tabela);
 			break;

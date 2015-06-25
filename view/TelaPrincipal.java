@@ -5,19 +5,31 @@ import ctrl.CtrlPrincipal;
 public class TelaPrincipal extends JFrame{
 	
 	CtrlPrincipal ctrl;
-	// Variables declaration - do not modify                     
-    private javax.swing.JButton btGerenciarEmprestimos;
-    private javax.swing.JButton btGerenciarItens;
-    private javax.swing.JButton btGerenciarUsuarios;
-    private javax.swing.JLabel jLabel1;
-    // End of variables declaration
 	
 	public TelaPrincipal(CtrlPrincipal ctrl){
 		initComponents();
 		this.ctrl = ctrl;
 		setLocationRelativeTo(null);
 	}
-	
+
+    private void btGerenciarEmprestimosActionPerformed(java.awt.event.ActionEvent evt) {
+        ctrl.realizaAcao(1);
+    }                                                      
+
+    private void btGerenciarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {   
+        ctrl.realizaAcao(2);
+    }                                                   
+
+    private void btGerenciarItensActionPerformed(java.awt.event.ActionEvent evt) {   
+        ctrl.realizaAcao(3);
+    }
+    
+    // Variables declaration - do not modify                     
+    private javax.swing.JButton btGerenciarEmprestimos;
+    private javax.swing.JButton btGerenciarItens;
+    private javax.swing.JButton btGerenciarUsuarios;
+    private javax.swing.JLabel jLabel1;
+    // End of variables declaration
 	private void initComponents() {
 
         btGerenciarEmprestimos = new javax.swing.JButton();
@@ -82,17 +94,5 @@ public class TelaPrincipal extends JFrame{
         );
 
         pack();
-    }// </editor-fold>                        
-
-    private void btGerenciarEmprestimosActionPerformed(java.awt.event.ActionEvent evt) {
-        ctrl.realizaAcao(1);
-    }                                                      
-
-    private void btGerenciarUsuariosActionPerformed(java.awt.event.ActionEvent evt) {   
-        ctrl.realizaAcao(2);
-    }                                                   
-
-    private void btGerenciarItensActionPerformed(java.awt.event.ActionEvent evt) {   
-        ctrl.realizaAcao(3);
-    }
+    }// </editor-fold>
 }

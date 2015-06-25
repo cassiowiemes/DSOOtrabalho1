@@ -46,7 +46,7 @@ public class CtrlUsuario {
 		ctrlTurmaDisciplina.addProfessor(professor, user.disciplina);
 		ctrlTurmaDisciplina.setProfessor(professor, user.turma);
 		professor.setId(mapeadorProfessor.getId());
-		mapeadorProfessor.put(professor);
+		mapeadorProfessor.put(professor.getId(), professor);
 		tela.sucessoCriar(professor.getId());
 	}
 	
@@ -54,7 +54,7 @@ public class CtrlUsuario {
 		Aluno aluno = new Aluno(user.nome, user.idade, user.endereco, user.pai, user.mae);
 		ctrlTurmaDisciplina.addAluno(aluno, user.turma);
 		aluno.setId(mapeadorAluno.getId());
-		mapeadorAluno.put(aluno);
+		mapeadorAluno.put(aluno.getId(), aluno);
 		tela.sucessoCriar(aluno.getId());
 	}
     

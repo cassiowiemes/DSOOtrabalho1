@@ -9,32 +9,6 @@ import ctrl.CtrlEmprestimo;
 public class TelaEmprestimo extends JFrame {
 	
 	CtrlEmprestimo ctrl;
-	// Variables declaration - do not modify                     
-    private javax.swing.JButton btGerarRelatorio;
-    private javax.swing.JButton btLimparDevolucao;
-    private javax.swing.JButton btLimparEmprestimo;
-    private javax.swing.JButton btSalvarDevolucao;
-    private javax.swing.JButton btSalvarEmprestimo;
-    private javax.swing.JButton btVoltarDevolucao;
-    private javax.swing.JButton btVoltarEmprestimo;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    public javax.swing.JTable jTable1;
-    private javax.swing.JTextField tfCodigoExemplarEmp;
-    private javax.swing.JTextField tfCodigoEmprestimo;
-    private javax.swing.JTextField tfCodigoUsuarioEmp;
-    private javax.swing.JTextField tfDataDevolucao;
-    private javax.swing.JTextField tfDataEmprestimo;
-    // End of variables declaration
 	
 	public TelaEmprestimo(CtrlEmprestimo ctrl){
 		this.ctrl = ctrl;
@@ -78,6 +52,86 @@ public class TelaEmprestimo extends JFrame {
 		return emprestimo;
 	}
 
+	                        
+
+	
+	private void btSalvarEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {   
+    	try {
+			ctrl.realizaAcao("Salvar Emprestimo");
+		} catch (ChaveInvalidaException e) {
+			campoInvalido();
+		}
+    }  
+    
+    private void btLimparEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {   
+    	tfCodigoExemplarEmp.setText(null);
+    	tfCodigoUsuarioEmp.setText(null);
+    	tfDataEmprestimo.setText(null);
+    }
+    
+    private void btVoltarEmprestimoActionPerformed(java.awt.event.ActionEvent evt) { 
+    	try {
+			ctrl.realizaAcao("Voltar");
+		} catch (ChaveInvalidaException e) {
+			e.printStackTrace();			
+		}
+    }
+	
+    private void btSalvarDevolucaoActionPerformed(java.awt.event.ActionEvent evt) { 
+		try {
+			ctrl.realizaAcao("Salvar Devolucao");
+		} catch (ChaveInvalidaException e) {
+			campoInvalido();
+		}
+    } 
+    
+    private void btLimparDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {
+    	tfCodigoEmprestimo.setText(null);
+    	tfDataDevolucao.setText(null);
+    }  
+    
+    private void btVoltarDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {
+    	try {
+			ctrl.realizaAcao("Voltar");
+		} catch (ChaveInvalidaException e) {
+			e.printStackTrace();			
+		}
+    }                                                 
+
+    private void btGerarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {
+    	try {
+			ctrl.realizaAcao("Gerar Relatorio");
+		} catch (ChaveInvalidaException e) {
+			e.printStackTrace();			
+		}
+    }
+    
+ // Variables declaration - do not modify                     
+    private javax.swing.JButton btGerarRelatorio;
+    private javax.swing.JButton btLimparDevolucao;
+    private javax.swing.JButton btLimparEmprestimo;
+    private javax.swing.JButton btSalvarDevolucao;
+    private javax.swing.JButton btSalvarEmprestimo;
+    private javax.swing.JButton btVoltarDevolucao;
+    private javax.swing.JButton btVoltarEmprestimo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    public javax.swing.JTable jTable1;
+    private javax.swing.JTextField tfCodigoExemplarEmp;
+    private javax.swing.JTextField tfCodigoEmprestimo;
+    private javax.swing.JTextField tfCodigoUsuarioEmp;
+    private javax.swing.JTextField tfDataDevolucao;
+    private javax.swing.JTextField tfDataEmprestimo;
+    // End of variables declaration
 	private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
@@ -343,57 +397,5 @@ public class TelaEmprestimo extends JFrame {
         );
 
         pack();
-    }// </editor-fold>                        
-
-	
-	private void btSalvarEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {   
-    	try {
-			ctrl.realizaAcao("Salvar Emprestimo");
-		} catch (ChaveInvalidaException e) {
-			campoInvalido();
-		}
-    }  
-    
-    private void btLimparEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {   
-    	tfCodigoExemplarEmp.setText(null);
-    	tfCodigoUsuarioEmp.setText(null);
-    	tfDataEmprestimo.setText(null);
-    }
-    
-    private void btVoltarEmprestimoActionPerformed(java.awt.event.ActionEvent evt) { 
-    	try {
-			ctrl.realizaAcao("Voltar");
-		} catch (ChaveInvalidaException e) {
-			e.printStackTrace();			
-		}
-    }
-	
-    private void btSalvarDevolucaoActionPerformed(java.awt.event.ActionEvent evt) { 
-		try {
-			ctrl.realizaAcao("Salvar Devolucao");
-		} catch (ChaveInvalidaException e) {
-			campoInvalido();
-		}
-    } 
-    
-    private void btLimparDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {
-    	tfCodigoEmprestimo.setText(null);
-    	tfDataDevolucao.setText(null);
-    }  
-    
-    private void btVoltarDevolucaoActionPerformed(java.awt.event.ActionEvent evt) {
-    	try {
-			ctrl.realizaAcao("Voltar");
-		} catch (ChaveInvalidaException e) {
-			e.printStackTrace();			
-		}
-    }                                                 
-
-    private void btGerarRelatorioActionPerformed(java.awt.event.ActionEvent evt) {
-    	try {
-			ctrl.realizaAcao("Gerar Relatorio");
-		} catch (ChaveInvalidaException e) {
-			e.printStackTrace();			
-		}
-    }      
+    }// </editor-fold>
 }

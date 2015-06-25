@@ -22,9 +22,8 @@ public class Mapeador<T>{
 		return cache.get(id);
 	}
 	
-	public void put(T thing){
-		ultimaId++;
-		cache.put(ultimaId, thing);
+	public void put(Integer chave, T thing){
+		cache.put(chave, thing);
 		persist();
 	}
 	

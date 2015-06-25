@@ -18,6 +18,77 @@ import ctrl.CtrlUsuario;
 public class TelaItem extends JFrame {
 
 	CtrlItem ctrl;
+	
+	public TelaItem(CtrlItem ctrl)
+	{
+		this.ctrl = ctrl;
+		initComponents();
+		setLocationRelativeTo(null);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+	}
+
+	                        
+    
+    public ItemWrapper getDadosLivro(){
+    	ItemWrapper item = new ItemWrapper();
+    	try{
+    		item.titulo = tfTituloLivro.getText();
+    		item.editora = tfEditoraLivro.getText();
+    		item.ano = Integer.parseInt(tfAnoLivro.getText());
+    		item.faixaEtaria = faixaLivro.getSelectedItem().toString();
+    		item.genero = generoLivro.getSelectedItem().toString();
+    	} catch (Exception e){
+    		
+    	}    	
+    	return item;
+    }
+    
+    public ItemWrapper getDadosRevista(){
+		ItemWrapper item = new ItemWrapper();
+    	try{
+	    	item.titulo = tfTituloRevista.getText();
+	    	item.editora = tfEditoraRevista.getText();
+	    	item.ano = Integer.parseInt(tfAnoRevista.getText());
+	    	item.faixaEtaria = faixaRevista.getSelectedItem().toString();
+	    	item.periodicidade = periodRevista.getSelectedItem().toString();
+    	} catch (Exception e){
+    		
+    	}
+    	return item;
+    }
+
+	private void btSalvarLivroActionPerformed(java.awt.event.ActionEvent evt) { 
+		ctrl.realizaAcao("Salvar livro");
+	}                                             
+
+    private void btLimparLivroActionPerformed(java.awt.event.ActionEvent evt) { 
+    	tfTituloLivro.setText(null);
+    	tfEditoraLivro.setText(null);
+    	tfAnoLivro.setText(null);
+    }
+    
+	private void btVoltarLivroActionPerformed(java.awt.event.ActionEvent evt) {
+		ctrl.realizaAcao("Voltar");
+	}
+	
+    private void btSalvarRevistaActionPerformed(java.awt.event.ActionEvent evt) { 
+    	ctrl.realizaAcao("Salvar Revista");
+    }                                               
+
+    private void btLimparRevistaActionPerformed(java.awt.event.ActionEvent evt) { 
+    	tfTituloRevista.setText(null);
+    	tfEditoraRevista.setText(null);
+    	tfAnoRevista.setText(null);
+    }                                               
+
+    private void btVoltarRevistaActionPerformed(java.awt.event.ActionEvent evt) { 
+    	ctrl.realizaAcao("Voltar");
+    }
+
+	public void sucesso(Integer id) {
+		JOptionPane.showMessageDialog(null, "Registro bem sucedido, código: " + id, "Criar usuário", 1);
+	}
+	
 	// Variables declaration - do not modify                     
     private javax.swing.JButton btLimparLivro;
     private javax.swing.JButton btLimparRevista;
@@ -51,15 +122,6 @@ public class TelaItem extends JFrame {
     private javax.swing.JTextField tfEditoraRevista;
     private javax.swing.JTextField tfAnoRevista;
     // End of variables declaration
-	
-	public TelaItem(CtrlItem ctrl)
-	{
-		this.ctrl = ctrl;
-		initComponents();
-		setLocationRelativeTo(null);
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
-	}
-	
 	private void initComponents() {
 
         jLabel4 = new javax.swing.JLabel();
@@ -328,65 +390,5 @@ public class TelaItem extends JFrame {
         );
 
         pack();
-    }// </editor-fold>                        
-    
-    public ItemWrapper getDadosLivro(){
-    	ItemWrapper item = new ItemWrapper();
-    	try{
-    		item.titulo = tfTituloLivro.getText();
-    		item.editora = tfEditoraLivro.getText();
-    		item.ano = Integer.parseInt(tfAnoLivro.getText());
-    		item.faixaEtaria = faixaLivro.getSelectedItem().toString();
-    		item.genero = generoLivro.getSelectedItem().toString();
-    	} catch (Exception e){
-    		
-    	}    	
-    	return item;
-    }
-    
-    public ItemWrapper getDadosRevista(){
-		ItemWrapper item = new ItemWrapper();
-    	try{
-	    	item.titulo = tfTituloRevista.getText();
-	    	item.editora = tfEditoraRevista.getText();
-	    	item.ano = Integer.parseInt(tfAnoRevista.getText());
-	    	item.faixaEtaria = faixaRevista.getSelectedItem().toString();
-	    	item.periodicidade = periodRevista.getSelectedItem().toString();
-    	} catch (Exception e){
-    		
-    	}
-    	return item;
-    }
-
-	private void btSalvarLivroActionPerformed(java.awt.event.ActionEvent evt) { 
-		ctrl.realizaAcao("Salvar livro");
-	}                                             
-
-    private void btLimparLivroActionPerformed(java.awt.event.ActionEvent evt) { 
-    	tfTituloLivro.setText(null);
-    	tfEditoraLivro.setText(null);
-    	tfAnoLivro.setText(null);
-    }
-    
-	private void btVoltarLivroActionPerformed(java.awt.event.ActionEvent evt) {
-		ctrl.realizaAcao("Voltar");
-	}
-	
-    private void btSalvarRevistaActionPerformed(java.awt.event.ActionEvent evt) { 
-    	ctrl.realizaAcao("Salvar Revista");
-    }                                               
-
-    private void btLimparRevistaActionPerformed(java.awt.event.ActionEvent evt) { 
-    	tfTituloRevista.setText(null);
-    	tfEditoraRevista.setText(null);
-    	tfAnoRevista.setText(null);
-    }                                               
-
-    private void btVoltarRevistaActionPerformed(java.awt.event.ActionEvent evt) { 
-    	ctrl.realizaAcao("Voltar");
-    }
-
-	public void sucesso(Integer id) {
-		JOptionPane.showMessageDialog(null, "Registro bem sucedido, código: " + id, "Criar usuário", 1);
-	}
+    }// </editor-fold>
 }

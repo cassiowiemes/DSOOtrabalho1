@@ -6,44 +6,7 @@ import javax.swing.*;
 
 public class TelaUsuario extends JFrame {
 
-    CtrlUsuario ctrl;
- // Variables declaration - do not modify                     
-    private javax.swing.JButton btLimparAluno;
-    private javax.swing.JButton btLimparProfessor;
-    private javax.swing.JButton btSalvarAluno;
-    private javax.swing.JButton btSalvarProfessor;
-    private javax.swing.JButton btVoltarAluno;
-    private javax.swing.JButton btVoltarProfessor;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField tfDisciplinaProfessor;
-    private javax.swing.JTextField tfEnderecoAluno;
-    private javax.swing.JTextField tfEnderecoProfessor;
-    private javax.swing.JTextField tfIdadeAluno;
-    private javax.swing.JTextField tfIdadeProfessor;
-    private javax.swing.JTextField tfMaeAluno;
-    private javax.swing.JTextField tfMaeProfessor;
-    private javax.swing.JTextField tfNomeAluno;
-    private javax.swing.JTextField tfNomeProfessor;
-    private javax.swing.JTextField tfPaiAluno;
-    private javax.swing.JTextField tfPaiProfessor;
-    private javax.swing.JTextField tfTurmaAluno;
-    private javax.swing.JTextField tfTurmaProfessor;
-    // End of variables declaration 
+    CtrlUsuario ctrl; 
 
     public TelaUsuario(CtrlUsuario ctrl) {
         //sc = new Scanner(System.in);
@@ -126,7 +89,44 @@ public class TelaUsuario extends JFrame {
     private void btVoltarAlunoActionPerformed(java.awt.event.ActionEvent evt) {
     	ctrl.realizaAcao("Voltar");
     }
-	
+
+    // Variables declaration - do not modify                     
+    private javax.swing.JButton btLimparAluno;
+    private javax.swing.JButton btLimparProfessor;
+    private javax.swing.JButton btSalvarAluno;
+    private javax.swing.JButton btSalvarProfessor;
+    private javax.swing.JButton btVoltarAluno;
+    private javax.swing.JButton btVoltarProfessor;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField tfDisciplinaProfessor;
+    private javax.swing.JTextField tfEnderecoAluno;
+    private javax.swing.JTextField tfEnderecoProfessor;
+    private javax.swing.JTextField tfIdadeAluno;
+    private javax.swing.JTextField tfIdadeProfessor;
+    private javax.swing.JTextField tfMaeAluno;
+    private javax.swing.JTextField tfMaeProfessor;
+    private javax.swing.JTextField tfNomeAluno;
+    private javax.swing.JTextField tfNomeProfessor;
+    private javax.swing.JTextField tfPaiAluno;
+    private javax.swing.JTextField tfPaiProfessor;
+    private javax.swing.JTextField tfTurmaAluno;
+    private javax.swing.JTextField tfTurmaProfessor;
+    // End of variables declaration
 	private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
@@ -417,6 +417,5 @@ public class TelaUsuario extends JFrame {
         );
 
         pack();
-    }// </editor-fold>                        
-
+    }// </editor-fold>
 }
