@@ -35,25 +35,31 @@ public class TelaEmprestimo extends JFrame {
 			emprestimo.codigoExemplar = Integer.parseInt(tfCodigoExemplarEmp.getText());
 			emprestimo.codigoUsuario = Integer.parseInt(tfCodigoUsuarioEmp.getText());
 			emprestimo.dataEmprestimo = Integer.parseInt(tfDataEmprestimo.getText());
+			return emprestimo;
 		}catch(NumberFormatException e){
 			JOptionPane.showMessageDialog(null, "Valor inválido, favor conferir...");
 		}catch(Exception e){
 			JOptionPane.showMessageDialog(null, e);
 		}
-		return emprestimo;
+		return null;
 	}
 	
 	public EmprestimoWrapper getDadosDevolucao(){
 		EmprestimoWrapper emprestimo = new EmprestimoWrapper();
 		try{
 			emprestimo.id = Integer.parseInt(tfCodigoEmprestimo.getText());
-			emprestimo.dataDevolucao = Integer.parseInt(tfDataEmprestimo.getText());
+			emprestimo.dataDevolucao = Integer.parseInt(tfDataDevolucao.getText());
+			return emprestimo;
 		}catch(NumberFormatException e){
 			JOptionPane.showMessageDialog(null, "Valor inválido, favor conferir...");
 		}catch(Exception e){
 			JOptionPane.showMessageDialog(null, e);
 		}
-		return emprestimo;
+		return null;
+	}
+
+	public void sucesso() {
+		JOptionPane.showMessageDialog(null, "Operação realizada com sucesso!");
 	}
 
 	                        

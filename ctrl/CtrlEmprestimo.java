@@ -69,18 +69,21 @@ public class CtrlEmprestimo {
 			tela.mostraMulta(emprestimo.getMulta(dataDevolucao));
 		}
 		emprestimo.efetuaDevolucao(dataDevolucao);
+		tela.sucesso();
     }
-   
+
 	public void realizaAcao(String command) throws ChaveInvalidaException {
 		EmprestimoWrapper emprestimo;
 		switch(command){
 		case "Salvar Emprestimo":
 			emprestimo = tela.getDadosEmprestimo();
+			if(emprestimo == null) break;
 			efetuaEmprestimo(emprestimo.codigoUsuario, emprestimo.codigoExemplar,
 					emprestimo.dataEmprestimo);
 			break;
 		case "Salvar Devolucao":
-			emprestimo = tela.getDadosEmprestimo();
+			emprestimo = tela.getDadosDevolucao();
+			if(emprestimo == null) break;
 			efetuaDevolucao(emprestimo.id, emprestimo.dataDevolucao);
 			break;
 		case "Voltar":

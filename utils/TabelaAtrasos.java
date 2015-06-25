@@ -8,19 +8,19 @@ import javax.swing.table.TableModel;
 public class TabelaAtrasos implements TableModel {
 	
 	private ArrayList<EmprestimoWrapper> atrasos;
-	private int[][] tabelados;
+	private String[][] tabelados;
 	private String[] cabecalho = {"Código do usuário", "Código do exemplar"};
 
 	public TabelaAtrasos(ArrayList<EmprestimoWrapper> atrasos){
 		this.atrasos = atrasos;
-		tabelados = new int[atrasos.size()][2];
+		tabelados = new String[atrasos.size()][2];
 		preparaTabela();
 	}
 	
 	private void preparaTabela(){
 		for(int i = 0; i < atrasos.size(); i++){
-			tabelados[i][0] = atrasos.get(i).codigoUsuario;
-			tabelados[i][1] = atrasos.get(i).codigoExemplar;
+			tabelados[i][0] = atrasos.get(i).usuario;
+			tabelados[i][1] = Integer.toString(atrasos.get(i).exemplar);
 		}
 	}
 	
@@ -30,12 +30,12 @@ public class TabelaAtrasos implements TableModel {
 
 	@Override
 	public Class<?> getColumnClass(int arg0) {
-		return null;
+		return String.class;
 	}
 
 	@Override
 	public int getColumnCount() {
-		return 2;
+		return tabelados[0].length;
 	}
 
 	@Override
@@ -45,7 +45,7 @@ public class TabelaAtrasos implements TableModel {
 
 	@Override
 	public int getRowCount() {
-		return atrasos.size();
+		return tabelados.length;
 	}
 
 	@Override

@@ -23,8 +23,8 @@ public class Mapeador<T>{
 		return cache.get(id);
 	}
 	
-	public void put(Integer chave, T thing){
-		cache.put(chave, thing);
+	public void put(Integer chave, T objeto){
+		cache.put(chave, objeto);
 		persist();
 	}
 	
