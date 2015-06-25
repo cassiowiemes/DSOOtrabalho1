@@ -1,7 +1,8 @@
 package utils;
 
 public class ChaveInvalidaException extends Exception{
-	// TODO conferir validade dessa classe
+	private static final long serialVersionUID = 1L;
+
 	public ChaveInvalidaException(){
 		super();
 	}
