@@ -35,13 +35,13 @@ public class Livro extends Item  implements Serializable {
         this.genero = genero;
     }
 	
-	public enum Genero {
-	    COMEDIA,
-	    DRAMA,
-	    POLICIAL,
-	    FANTASIA,
-	    HISTORIA,
-	    DOCUMENTARIO;
-	}
+    public enum Genero {
+    	COMEDIA,
+    	DRAMA,
+    	POLICIAL,
+    	FANTASIA,
+    	HISTORIA,
+    	DOCUMENTARIO;
+    }
 
 }
