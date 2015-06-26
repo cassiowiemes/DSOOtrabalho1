@@ -103,7 +103,7 @@ public class TelaItem extends JFrame {
     	try {
 			ctrl.realizaAcao("Buscar Item");
 		} catch (ChaveInvalidaException e) {
-			e.printStackTrace();
+			falha("Código inválido, favor verificar...");
 		}
     }                                            
 
